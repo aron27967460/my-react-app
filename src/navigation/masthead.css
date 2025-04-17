@@ -1,0 +1,33 @@
+@import url('../styles/typography.css');
+@import url('../styles/tokens.css');
+
+.masthead-wrapper{
+  top:0;
+  position:fixed;
+  width:100vw;
+  z-index: 999;
+}
+
+.masthead{
+  display: flex;
+  height:5rem;
+  max-width: 100vw;
+  padding: var(--spacing-0x) var(--spacing-3x);
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  /* background:var(--overlay-color); */
+  background:var(--background-primary-color);
+  /* backdrop-filter: blur(5px); */
+  border-bottom: 1px solid var(--border-tertiary-color);
+}
+
+.logo-img{
+  height:1.6875rem;
+}
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap:3rem;
+}

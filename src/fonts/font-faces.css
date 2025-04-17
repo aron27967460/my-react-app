@@ -1,0 +1,63 @@
+@font-face{
+	font-family: 'Stanley';
+	font-weight: 400;
+	font-style: normal;
+	src: url('./Stanley-Regular.otf');
+	src: url('./Stanley-Regular.otf')format('opentype')
+}
+
+@font-face{
+	font-family: 'Stanley';
+	font-weight: 400;
+	font-style: italic;
+	src: url('./Stanley-RegularIta.otf');
+	src: url('./Stanley-RegularIta.otf')format('opentype')
+}
+
+@font-face{
+	font-family: 'Stanley';
+	font-weight: 700;
+	font-style: normal;
+	src: url('./Stanley-Bold.otf');
+	src: url('./Stanley-Bold.otf')format('opentype')
+}
+
+@font-face{
+	font-family: 'Stanley';
+	font-weight: 700;
+	font-style: italic;
+	src: url('./Stanley-BoldIta.otf');
+	src: url('./Stanley-BoldIta.otf')format('opentype')
+}
+
+@font-face {
+	font-family: 'GT-America';
+	font-weight: 400;
+	font-style: normal;
+	src: url('./GT-America-Regular.otf');
+	src: url('./GT-America-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'GT-America';
+	font-weight: 300;
+	font-style: normal;
+	src: url('./GT-America-Light.otf');
+	src: url('./GT-America-Light.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'GT-America';
+	font-weight: 500;
+	font-style: normal;
+	src: url('./GT-America-Medium.otf');
+	src: url('./GT-America-Medium.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'GT-America';
+	font-weight: 700;
+	font-style: normal;
+	src: url('./GT-America-Bold.otf');
+	src: url('./GT-America-Bold.otf') format('opentype');
+}

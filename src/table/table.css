@@ -1,0 +1,33 @@
+@import url('../styles/tokens.css');
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Optional for responsiveness */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto; /* This is key! */
+}
+
+th, td {
+  padding: var(--spacing-2x);
+  /* border: 1px solid var(--border-tertiary-color); */
+  text-align: left;
+  vertical-align: top;
+  white-space: normal;
+  word-break: break-word;
+}
+
+th{
+  border-bottom: 1px solid var(--border-tertiary-color);
+}
+
+td{
+  border-bottom: 1px solid var(--border-tertiary-color);
+}
+
+thead {
+  background: var(--background-secondary-color);
+}

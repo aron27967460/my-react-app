@@ -1,0 +1,61 @@
+@import url('../styles/typography.css');
+@import url('../styles/tokens.css');
+
+/* Style set up for hero module*/
+.main-content-body{
+  margin: 5rem 0 0 12.5rem;
+
+
+  h1, h2, h3, h4, h5, h6{
+    margin-top:var(--spacing-9x);
+  }
+
+  .padding-in-columns{
+    padding: 0;
+    width:auto;
+  }
+
+  .padding-for-content{
+    padding: 0 8%;
+    width:75%;
+  }
+
+  .textBlock{
+    margin-top: var(--spacing-2x);
+  }
+
+  .imgBlock-fullspan{
+    width:100%;
+  }
+
+  .imgBlock-inline{
+    padding: 0 0;
+  }
+
+  .margin-false{
+    margin-top: var(--spacing-0x);
+  }
+
+  .margin-true{
+    margin-top: var(--spacing-3x);
+  }
+
+  .img{
+    width:100%;
+    height:auto;
+  }
+
+  .color-default{
+    color:var(--on-surface);
+  }
+
+  .color-inverse{
+    color:var(--inverse-text-color);
+  }
+
+  @media (min-width: 768px) {
+    .imgBlock-inline{
+      padding: 0 8%;
+    }
+  }
+}

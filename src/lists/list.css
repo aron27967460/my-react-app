@@ -1,0 +1,15 @@
+@import url('../styles/typography.css');
+@import url('../styles/tokens.css');
+
+ul{
+  padding: var(--spacing-2x) 0;
+  list-style: none;
+}
+
+.spacing-condensed{
+  padding: var(--spacing-0x) var(--spacing-0x);
+}
+
+.spacing-spatial{
+  padding: var(--spacing-2x) var(--spacing-1p5x);
+}

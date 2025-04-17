@@ -1,0 +1,108 @@
+@import url('../styles/typography.css');
+@import url('../styles/tokens.css');
+
+/* smart image */
+.image-wrapper{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width:100%;
+}
+
+.smart-image {
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.smart-image-bg {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.smart-image {
+    width: 100%;
+    height: 270px;
+    transition: all .3s ease;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.label-wrapper{
+   display: flex;
+   width:100%;
+}
+
+.label{
+    width:100%;
+    background-position: 0em 0em;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    transition-timing-function: ease-in-out;
+    background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
+    color:var(--on-surface);
+    text-align:left;
+    padding: var(--spacing-2x) var(--spacing-0x);
+    font-family:var(--body-large-family);
+    font-size:var(--body-large-size);
+    font-weight:var(--font-weight-regular);
+    line-height:var(--body-large-height);
+    letter-spacing:var(--body-large-tracking);
+    transition: padding 0.3s;
+}
+
+.card{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color:transparent;
+    width:100%;
+    border:transparent;
+    border-bottom: 3px solid var(--border-primary-color);
+    margin-top: var(--spacing-2x);
+    background-position: 0em 0em;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    transition-timing-function: ease-in-out;
+    background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
+    transition: background-size 0.3s;
+}
+
+.card:hover .image-wrapper .smart-image{
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+.card:hover{
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.card:hover .label-wrapper .label{
+    padding: var(--spacing-2x) var(--spacing-2x);
+    color:var(--on-surface-active);
+}
+
+.card.disabled{
+    border-bottom: 3px solid var(--on-surface-disabled);
+}
+
+.card.disabled:hover{
+    background-size: 0% 100%;
+    cursor: not-allowed;
+}
+
+.card.disabled .image-wrapper .smart-image{
+    opacity:0.3;
+    transform: scale(1);
+    cursor: not-allowed;
+}
+
+.card.disabled .label-wrapper .label{
+    padding: var(--spacing-2x) var(--spacing-0x);
+    color:var(--on-surface-disabled);
+}

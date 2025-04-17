@@ -21,3 +21,15 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.DS_Store
+*.gif
+*.png
+*.jpg
+*.jpeg
+*.avif
+*.pdf
+*.mov
+*.mp4
+*.otf
+*.ttf

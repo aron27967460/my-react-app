@@ -1,0 +1,206 @@
+@import '../fonts/font-faces.css';
+
+:root {
+  /*Global font weight setup*/
+  --font-weight-regular:normal;
+  --font-weight-medium:500;
+  --font-weight-bold:700;
+
+  /*Display font setup*/
+  --display-large-family:'Stanley', serif;
+  --display-med-family:'Stanley', serif;
+  --display-small-family:'Stanley', serif;
+  --display-large-size:6rem;
+  --display-med-size:4rem;
+  --display-small-size:3rem;
+  --display-large-height:6rem;
+  --display-med-height:6.75rem;
+  --display-small-height:3.5rem;
+  --display-large-tracking:-0.03125rem;
+  --display-med-tracking:0rem;
+  --display-small-tracking:0rem;
+
+  /*Headline font setup*/
+  --headline-large-family:'Stanley', serif;
+  --headline-med-family:'Stanley', serif;
+  --headline-small-family:'Stanley', serif;
+  --headline-large-size:2rem;
+  --headline-med-size:1.75rem;
+  --headline-small-size:1.5rem;
+  --headline-large-height:2.5rem;
+  --headline-med-height:2.25rem;
+  --headline-small-height:2rem;
+  --headline-large-tracking:0rem;
+  --headline-med-tracking:0rem;
+  --headline-small-tracking:0rem;
+
+  /*Title font setup*/
+  --title-large-family:'Stanley', serif;
+  --title-med-family:'Stanley', serif;
+  --title-small-family:'Stanley', serif;
+  --title-large-size:1.5rem;
+  --title-med-size:1rem;
+  --title-small-size:0.875rem;
+  --title-large-height:2rem;
+  --title-med-height:1.5rem;
+  --title-small-height:1.25rem;
+  --title-large-tracking:0rem;
+  --title-med-tracking:0rem;
+  --title-small-tracking:0rem;
+
+  /*Label font setup*/
+  --label-large-family:'GT-America', sans-serif;
+  --label-med-family:'GT-America', sans-serif;
+  --label-small-family:'GT-America', sans-serif;
+  --label-large-size:0.875rem;
+  --label-med-size:0.75rem;
+  --label-small-size:0.6875rem;
+  --label-large-height:1.25rem;
+  --label-med-height:1rem;
+  --label-small-height:1rem;
+  --label-large-tracking:0.03125rem;
+  --label-med-tracking:0.03125rem;
+  --label-small-tracking:0rem;
+
+  /*Body font setup*/
+  --body-large-family:'GT-America', sans-serif;
+  --body-med-family:'GT-America', sans-serif;
+  --body-small-family:'GT-America', sans-serif;
+  --body-large-size:1rem;
+  --body-med-size:0.875rem;
+  --body-small-size:0.75rem;
+  --body-large-height:1.5rem;
+  --body-med-height:1.25rem;
+  --body-small-height:1rem;
+  --body-large-tracking:0rem;
+  --body-med-tracking:0rem;
+  --body-small-tracking:0rem;
+}
+
+.text-display-large{
+  font-family:var(--display-large-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--display-large-size);
+  line-height:var(--display-large-height);
+  letter-spacing:var(--display-large-tracking);
+}
+
+.text-display-med{
+  font-family:var(--display-med-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--display-med-size);
+  line-height:var(--display-med-height);
+  letter-spacing:var(--display-med-tracking);
+}
+
+.text-display-small{
+  font-family:var(--display-small-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--display-small-size);
+  line-height:var(--display-small-height);
+  letter-spacing:var(--display-small-tracking);
+}
+
+.text-headline-large{
+  font-family:var(--headline-large-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--headline-large-size);
+  line-height:var(--headline-large-height);
+  letter-spacing:var(--headline-large-tracking);
+}
+
+.text-headline-med{
+  font-family:var(--headline-med-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--headline-med-size);
+  line-height:var(--headline-med-height);
+  letter-spacing:var(--headline-med-tracking);
+}
+
+.text-headline-small{
+  font-family:var(--headline-small-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--headline-small-size);
+  line-height:var(--headline-small-height);
+  letter-spacing:var(--headline-small-tracking);
+}
+
+.text-title-large{
+  font-family:var(--title-large-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--title-large-size);
+  line-height:var(--title-large-height);
+  letter-spacing:var(--title-large-tracking);
+}
+
+.text-title-med{
+  font-family:var(--title-med-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--title-med-size);
+  line-height:var(--title-med-height);
+  letter-spacing:var(--title-med-tracking);
+}
+
+.text-title-small{
+  font-family:var(--title-small-family);
+  font-weight:var(--font-weight-bold);
+  font-size:var(--title-small-size);
+  line-height:var(--title-small-height);
+  letter-spacing:var(--title-small-tracking);
+}
+
+.text-label-large{
+  font-family:var(--label-large-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--label-large-size);
+  line-height:var(--label-large-height);
+  letter-spacing:var(--label-large-tracking);
+}
+
+.text-label-med{
+  font-family:var(--label-med-family);
+  font-weight:var(--font-weight-medium);
+  font-size:var(--label-med-size);
+  line-height:var(--label-med-height);
+  letter-spacing:var(--label-med-tracking);
+}
+
+.text-label-small{
+  font-family:var(--label-small-family);
+  font-weight:var(--font-weight-medium);
+  font-size:var(--label-small-size);
+  line-height:var(--label-small-height);
+  letter-spacing:var(--label-small-tracking);
+}
+
+.text-body-large{
+  font-family:var(--body-large-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--body-large-size);
+  line-height:var(--body-large-height);
+  letter-spacing:var(--body-large-tracking);
+}
+
+.text-body-large-emphasized{
+  font-family:var(--body-large-family);
+  font-weight:var(--font-weight-medium);
+  font-size:var(--body-large-size);
+  line-height:var(--body-large-height);
+  letter-spacing:var(--body-large-tracking);
+}
+
+.text-body-med{
+  font-family:var(--body-med-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--body-med-size);
+  line-height:var(--body-med-height);
+  letter-spacing:var(--body-med-tracking);
+}
+
+.text-body-small{
+  font-family:var(--body-small-family);
+  font-weight:var(--font-weight-regular);
+  font-size:var(--body-small-size);
+  line-height:var(--body-small-height);
+  letter-spacing:var(--body-small-tracking);
+}

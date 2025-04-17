@@ -1,23 +1,200 @@
-import logo from './logo.svg';
+
+import React, { useState } from 'react';
 import './App.css';
 
+/* Loading different components */
+import Masthead from './navigation/masthead';
+import Footer from './navigation/footer';
+import VerticalNav from './navigation/ver-nav';
+import Header from './main/header';
+import MainContentModule from './main/main-content-module';
+import Row from './columns/row';
+import TextRow from './main/text-block';
+
+/* Different content page */
+/* General Section */
+import ContentIntroduction from './content/general/introduction';
+import ContentWhoUsesAnchor from './content/general/who-uses-anchor';
+import ContentTokens from './content/general/tokens';
+
+/* Component Section */
+import ContentComponent from './content/components/overview';
+import ContentButtons from './content/components/buttons';
+//As more content being writtern, more pages will be imported to keep App.js clean
+
 function App() {
+  const [activeSection, setActiveSection] = useState('introduction');
+  const renderContent = () => {
+    switch (activeSection) {
+      case 'introduction':
+        return <ContentIntroduction />;
+
+      /* Anchor for Who section */
+      case 'whose-anchor-for':
+        return <ContentWhoUsesAnchor />;
+
+      /* Token section */
+      case 'tokens':
+        return <ContentTokens />;
+
+      /* Component Overview */
+      case 'overview':
+        return <ContentComponent setActiveSection={setActiveSection} />;
+
+      /* Buttons section */
+      case 'buttons':
+        return <ContentButtons />;
+
+      /* Card section */
+      case 'cards':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Cards</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Checkbox section */
+      case 'checkboxes':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Checkboxes</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Chip section */
+      case 'chips':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Chips</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Content Pairing section */
+      case 'content-pairing':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Content Pairing</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Dialog section */
+      case 'dialogs':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Dialogs</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Directories section */
+      case 'directories':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Directories</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* List section */
+      case 'lists':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Lists</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Menu section */
+      case 'menu':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Menu</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Navigation section */
+      case 'navigation':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Navigation</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Radio Button section */
+      case 'radio-buttons':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Radio Buttons</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Sheet section */
+      case 'sheets':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Sheets</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Switch section */
+      case 'switches':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Switches</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Tab section */
+      case 'tabs':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Tabs</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Tables section */
+      case 'tables':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Tables</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      /* Text Field section */
+      case 'text-fields':
+        return (
+          <>
+            <Header tag="h1" textStyle="display-med">Text Fields</Header>
+            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+          </>
+        );
+
+      default:
+        return (
+          <Header tag="h1" textStyle="display-med">Coming soon...</Header>
+        );
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Masthead />
+      <VerticalNav activeSection={activeSection} onNavigate={setActiveSection} />
+        <MainContentModule>
+          {renderContent()}
+          <Footer />
+        </MainContentModule>
     </div>
   );
 }

@@ -1,0 +1,58 @@
+@import url('../styles/primitives.css');
+
+:root{
+    /*spacing*/
+    --spacing-0x:0px;
+    --spacing-0p5x:4px;
+    --spacing-1x:8px;
+    --spacing-1p5x:12px;
+    --spacing-2x:16px;
+    --spacing-3x:24px;
+    --spacing-4x:32px;
+    --spacing-5x:40px;
+    --spacing-6x:48px;
+    --spacing-7x:56px;
+    --spacing-8x:64px;
+    --spacing-9x:72px;
+    --spacing-10x:80px;
+    --spacing-12x:96px;
+    --spacing-16x:128px;
+    --pacing-20x:160px;
+    --spacing-30x:240px;
+    --spacing-40x:320px;
+
+  /*text element colors*/
+    --title-text-color:var(--black-900);
+    --body-text-color:var(--black-900);
+    --secondary-text-color:var(--black-400);
+    --inverse-text-color:var(--black-0);
+
+  /*background color*/
+    --background-primary-color:var(--white-900);
+    --background-secondary-color:var(--black-100);
+    --background-inverse-color:var(--black-900);
+    --overlay-color:var(--white-500);
+    --scrim-color:rgba(0,0,0,0.8);
+
+  /*border color*/
+    --border-primary-color:var(--black-900);
+    --border-secondary-color:var(--black-400);
+    --border-tertiary-color:var(--black-200);
+
+  /*default interactive component colors*/
+    --surface:var(--black-op-0);
+    --surface-secondary:var(--black-100);
+    --surface-active:var(--black-900);
+    --surface-border:var(--black-900);
+    --surface-disabled:var(--black-100);
+    --on-surface:var(--black-900);
+    --on-surface-active:var(--white-900);
+    --on-surface-disabled:var(--black-200);
+    --textfade:var(--black-400);
+    --textfade-variant:var(--black-400);
+
+  /*default effect setup*/
+    --elevated-drop-shadow:rgba(0,0,0,.32);
+    --pressed-inner-shadow:rgba(255,255,255,.56);
+    --hover-drop-shadow:rgba(0,0,0,.16);
+}

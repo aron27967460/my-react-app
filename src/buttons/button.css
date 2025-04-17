@@ -1,0 +1,144 @@
+/*style for button*/
+@import url('../styles/typography.css');
+@import url('../styles/tokens.css');
+
+.btn{
+  cursor: pointer;
+  text-decoration:none;
+  padding: var(--spacing-0x) var(--spacing-2x);
+  height: 40px;
+  font-family:var(--label-large-family);
+  font-size:var(--label-large-size);
+  line-height:var(--label-large-height);
+  letter-spacing:var(--label-large-tracking);
+  border: 0px;
+  gap: 0.375rem;
+  background-color: transparent;
+  vertical-align:middle;
+  white-space:nowrap;
+  text-align:center;
+  justify-content: center;
+  align-items: center;
+  transition-timing-function: ease-in-out;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-icon.left {
+  margin-right: 6px;
+}
+
+.btn-icon.right {
+  margin-left: 6px;
+}
+
+/* Outline button style, used as primary button style*/
+
+.btn-outline{
+  border: 1px solid var(--surface-border);
+  background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
+  color:var(--on-surface);
+  background-position: 0rem 0rem;
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s;
+}
+
+.btn-outline:hover{
+  color:var(--on-surface-active);
+  background-size:100% 100%;
+}
+
+.btn-outline:active{
+  color:var(--on-surface-active);
+  background-size:100% 100%;
+  border: 1px solid transparent;
+  box-shadow: 0px 1px 24px 0px var(--pressed-inner-shadow) inset;
+}
+
+.btn-outline:disabled{
+  color:var(--on-surface-disabled);
+  border: 1px solid var(--on-surface-disabled);
+}
+
+/* Text button style, used as secondary button style*/
+
+.btn-text{
+  color:var(--on-surface);
+  transition: color 0.5s ;
+}
+
+.btn-text:hover{
+  color:var(--textfade);
+  text-shadow: 0px 2px 12px var(--hover-drop-shadow);
+}
+
+.btn-text:active{
+  color:var(--textfade);
+  text-shadow: 0px 2px 12px rgba(0,0,0,0);
+}
+
+.btn-text:disabled{
+  color:var(--on-surface-disabled);
+}
+
+/* Underline button style, used as alternative secondary button style*/
+
+.btn-underline{
+  padding: 0px 0px;
+  border-bottom: 1px solid var(--surface-border);
+  color:var(--on-surface);
+  transition: color 0.5s;
+  transition: border 0.5s;
+}
+
+.btn-underline:hover{
+  color:var(--textfade);
+  border-bottom: 1px solid var(--textfade);
+  text-shadow: 0px 2px 12px var(--hover-drop-shadow);
+}
+
+.btn-underline:active{
+  color:var(--textfade);
+  border-bottom: 1px solid var(--textfade);
+  text-shadow: 0px 2px 12px rgba(0,0,0,0);
+}
+
+.btn-underline:disabled{
+  color:var(--on-surface-disabled);
+  border-bottom: 1px solid var(--on-surface-disabled);
+}
+
+/* Elevated button style, used as alternative primary button style */
+
+.btn-elevated{
+  background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
+  color:var(--on-surface);
+  border-radius: 2rem;
+  box-shadow: 0px 4px 12px 0px var(--elevated-drop-shadow);
+  background-color:transparent;
+  background-position: 0rem 0rem;
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s;
+}
+
+.btn-elevated:hover{
+  color:var(--on-surface-active);
+  background-size:100% 100%;
+}
+
+.btn-elevated:active{
+  color:var(--on-surface-active);
+  background-size:100% 100%;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0);
+}
+
+.btn-elevated:disabled{
+  color:var(--on-surface-disabled);
+  background-color:var(--surface-disabled);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0);
+}
