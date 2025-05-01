@@ -8,8 +8,9 @@ import Footer from './navigation/footer';
 import VerticalNav from './navigation/ver-nav';
 import Header from './main/header';
 import MainContentModule from './main/main-content-module';
-import Row from './columns/row';
+// import Row from './columns/row';
 import TextRow from './main/text-block';
+import Scrim from './main/scrim';
 
 /* Different content page */
 /* General Section */
@@ -20,6 +21,10 @@ import ContentTokens from './content/general/tokens';
 /* Component Section */
 import ContentComponent from './content/components/overview';
 import ContentButtons from './content/components/buttons';
+import ContentCards from './content/components/cards';
+import ContentCheckboxes from './content/components/checkboxes';
+import ContentChips from './content/components/chips';
+import ContentTabs from './content/components/tabs';
 //As more content being writtern, more pages will be imported to keep App.js clean
 
 function App() {
@@ -47,30 +52,15 @@ function App() {
 
       /* Card section */
       case 'cards':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Cards</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+        return <ContentCards />;
 
       /* Checkbox section */
       case 'checkboxes':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Checkboxes</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+        return <ContentCheckboxes />;
 
       /* Chip section */
       case 'chips':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Chips</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+        return <ContentChips  />;
 
       /* Content Pairing section */
       case 'content-pairing':
@@ -155,12 +145,7 @@ function App() {
 
       /* Tab section */
       case 'tabs':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Tabs</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+        return <ContentTabs />;
 
       /* Tables section */
       case 'tables':
@@ -187,10 +172,21 @@ function App() {
     }
   };
 
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsNavOpen(prev => !prev);
+  };
+
+  const closeNav = () => {
+  setIsNavOpen(false);
+  };
+
   return (
     <div className="App">
-      <Masthead />
-      <VerticalNav activeSection={activeSection} onNavigate={setActiveSection} />
+      <Masthead onToggleMenu={toggleNav} />
+      <VerticalNav activeSection={activeSection} onNavigate={setActiveSection} isOpen={isNavOpen} closeNav={closeNav}/>
+      <Scrim isVisible={isNavOpen} onClick={toggleNav}/ >
         <MainContentModule>
           {renderContent()}
           <Footer />

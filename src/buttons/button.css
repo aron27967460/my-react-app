@@ -3,6 +3,7 @@
 @import url('../styles/tokens.css');
 
 .btn{
+  display: inline-flex;
   cursor: pointer;
   text-decoration:none;
   padding: var(--spacing-0x) var(--spacing-2x);
@@ -20,6 +21,20 @@
   justify-content: center;
   align-items: center;
   transition-timing-function: ease-in-out;
+  z-index: 9999 !important;
+}
+
+.compoundLabel{
+  font-family:var(--label-large-family);
+  font-size:var(--label-large-size);
+  line-height:var(--label-large-height);
+  letter-spacing:var(--label-large-tracking);
+  font-weight:var(--font-weight-medium);
+}
+
+.btn-label{
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .btn-icon {
@@ -27,12 +42,16 @@
   align-items: center;
 }
 
-.btn-icon.left {
-  margin-right: 6px;
+.btn-icon svg{
+  fill: var(--on-surface);
 }
 
-.btn-icon.right {
-  margin-left: 6px;
+.icon-left {
+  margin-left: -6px;
+}
+
+.icon-right {
+  margin-right: -6px;
 }
 
 /* Outline button style, used as primary button style*/
@@ -59,9 +78,22 @@
   box-shadow: 0px 1px 24px 0px var(--pressed-inner-shadow) inset;
 }
 
+.btn-outline:focus{
+  color:var(--on-surface-active);
+  background-size:100% 100%;
+}
+
 .btn-outline:disabled{
   color:var(--on-surface-disabled);
   border: 1px solid var(--on-surface-disabled);
+}
+
+.btn-outline:hover .btn-icon svg{
+  fill: var(--on-surface-active);
+}
+
+.btn-outline:FOCUS .btn-icon svg{
+  fill: var(--on-surface-active);
 }
 
 /* Text button style, used as secondary button style*/
@@ -83,6 +115,10 @@
 
 .btn-text:disabled{
   color:var(--on-surface-disabled);
+}
+
+.btn-text:hover .btn-icon svg{
+  fill:var(--textfade);
 }
 
 /* Underline button style, used as alternative secondary button style*/
@@ -110,6 +146,10 @@
 .btn-underline:disabled{
   color:var(--on-surface-disabled);
   border-bottom: 1px solid var(--on-surface-disabled);
+}
+
+.btn-underline:hover .btn-icon svg{
+  fill:var(--textfade);
 }
 
 /* Elevated button style, used as alternative primary button style */
@@ -141,4 +181,8 @@
   color:var(--on-surface-disabled);
   background-color:var(--surface-disabled);
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0);
+}
+
+.btn-elevated:hover .btn-icon svg{
+  fill: var(--on-surface-active);
 }

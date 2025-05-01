@@ -3,11 +3,15 @@
 
 /* Style set up for hero module*/
 .main-content-body{
-  margin: 5rem 0 0 12.5rem;
+  margin: 5rem 0 0 0;
 
 
-  h1, h2, h3, h4, h5, h6{
+  h1, h2{
     margin-top:var(--spacing-9x);
+  }
+
+  h3, h4, h5, h6{
+    margin-top:var(--spacing-3x);
   }
 
   .padding-in-columns{
@@ -16,8 +20,8 @@
   }
 
   .padding-for-content{
-    padding: 0 8%;
-    width:75%;
+    padding: 0 6%;
+    width:88%;
   }
 
   .textBlock{
@@ -45,17 +49,53 @@
     height:auto;
   }
 
+  .scrim {
+    position: fixed;
+    inset: 0;
+    background: var(--scrim-color);
+    z-index: 997;
+    backdrop-filter: blur(5px); /* Optional blur */
+  }
+
   .color-default{
     color:var(--on-surface);
+  }
+
+  .color-caption{
+    color:var(--secondary-text-color);
   }
 
   .color-inverse{
     color:var(--inverse-text-color);
   }
 
+
+  /* Tablet (≥ 768px) */
   @media (min-width: 768px) {
+    margin: 5rem 0 0 12.5rem;
+
     .imgBlock-inline{
       padding: 0 8%;
     }
+
+    .img{
+      width:100%;
+      height:auto;
+    }
+
+    .padding-for-content{
+      padding: 0 8%;
+      width:75%;
+    }
+  }
+
+  /* Desktop (≥ 1024px) */
+  @media (min-width: 1024px) {
+
+  }
+
+  /* Ultra-wide (≥ 1600px) */
+  @media (min-width: 1600px) {
+
   }
 }

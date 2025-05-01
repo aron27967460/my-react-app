@@ -3,12 +3,15 @@ import './card.css';
 
 export const Card = ({
   label,
+  tag,
   imgPreview = '',
+  cardStyle = 'default',
   navKey,
   onNavigate,
   href = '',
   target = '_blank',
   rel = 'noopener noreferrer',
+  cardWidth = '',
   disabled = false
 }) => {
   const isExternal = !!href;
@@ -16,6 +19,7 @@ export const Card = ({
   const handleClick = () => {
     if (!disabled && onNavigate && navKey) {
       onNavigate(navKey);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   };
 
@@ -27,20 +31,25 @@ export const Card = ({
           style={{ backgroundImage: `url(${imgPreview})` }}
         />
       </div>
-      <div className="label-wrapper">
-        <span className="label">{label}</span>
-      </div>
+
+      {(tag || label) && (
+        <div className="label-wrapper">
+          {tag && <span className="tag">{tag}</span>}
+          {label && <span className="label">{label}</span>}
+        </div>
+      )}
     </>
   );
 
   if (isExternal) {
     return (
       <a
-        className={`card ${disabled ? 'disabled' : ''}`}
+        className={`card card-style-${cardStyle} ${disabled ? 'disabled' : ''}`}
         href={disabled ? undefined : href}
         target={target}
         rel={rel}
         onClick={e => disabled && e.preventDefault()}
+        style={cardWidth ? { width: cardWidth } : undefined}
         aria-disabled={disabled}
       >
         {cardContent}
@@ -50,8 +59,9 @@ export const Card = ({
 
   return (
     <button
-      className={`card ${disabled ? 'disabled' : ''}`}
+      className={`card card-style-${cardStyle} ${disabled ? 'disabled' : ''}`}
       onClick={handleClick}
+      style={cardWidth ? { width: cardWidth } : undefined}
       disabled={disabled}
     >
       {cardContent}

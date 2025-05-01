@@ -4,7 +4,7 @@ import './columns.css';
 export const Row = ({
   children,
   itemsPerRow = 1, // specify how many items per row on desktop
-  rowWidth = 'full'
+  rowWidth = 'full',
 }) => {
   const className = `row row-width-${rowWidth} items-per-row-${itemsPerRow}`;
 

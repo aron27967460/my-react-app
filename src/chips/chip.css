@@ -1,0 +1,121 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--spacing-2x);
+  gap: var(--spacing-0p5x);
+  border-radius: 0.25rem;
+  background-clip: padding-box;
+  cursor: default;
+  user-select: none;
+  line-height: 1;
+  height: 32px;
+  font-family: var(--label-large-family);
+  font-size: var(--label-large-size);
+  font-style: normal;
+  font-weight: var(--font-weight-normal);
+  line-height: var(--label-large-height);
+  letter-spacing: var(--label-large-tracking);
+  border: 1px solid var(--surface-border);
+  background-color: var(--background-primary-color);
+  background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
+  color:var(--on-surface);
+  background-position: 0rem 0rem;
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s;
+}
+
+
+.chip:hover{
+  background-size: 100% 100%;
+  color:var(--on-surface-active);
+  cursor:pointer;
+}
+
+.chip:active{
+  border: 1px solid transparent;
+  box-shadow: 0px 1px 24px 0px var(--pressed-inner-shadow) inset;
+}
+
+.chip.selected:hover{
+  box-shadow: 0px 4px 12px 0px var(--elevated-drop-shadow);
+}
+
+.chip.selected:active{
+  box-shadow: 0px 4px 12px 0px transparent;
+}
+
+.chip-icon {
+  margin-left: -8px;
+  line-height: 0.5;
+}
+
+.chip .chip-icon svg path{
+  fill:var(--on-surface);
+}
+
+.chip:hover .chip-icon svg path, .chip:active svg path{
+  fill:var(--on-surface-active);
+}
+
+.chip.selected .chip-icon svg path{
+  fill:var(--on-surface-active);
+}
+
+.chip.disabled .chip-icon svg path{
+  fill:var(--on-surface-disabled);
+}
+
+.chip-label {
+  display: inline-block;
+}
+
+.chip-delete-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 0.5;
+  margin-right: -8px;
+}
+
+.chip-delete-icon svg path{
+  fill:var(--on-surface-active);
+}
+
+.chip.disabled .chip-delete-icon svg path{
+  fill:var(--on-surface-disabled);
+}
+
+.check-icon{
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 0.5;
+  margin-left: -8px;
+}
+
+.check-icon svg path{
+  fill:var(--on-surface-active);
+}
+
+.chip.disabled .check-icon svg path{
+  fill:var(--on-surface-disabled);
+}
+
+.chip.selected {
+  background-size: 100% 100%;
+  color:var(--on-surface-active);
+}
+
+.chip.disabled {
+  color:var(--on-surface-disabled);
+  pointer-events: none;
+  border: 1px solid var(--on-surface-disabled);
+}
+
+.chip.disabled.selected {
+  color:var(--on-surface-disabled);
+  background-color:var(--surface-disabled);
+  background-size: 0% 100%;
+  pointer-events: none;
+}

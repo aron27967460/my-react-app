@@ -2,13 +2,14 @@
 
 .table-wrapper {
   width: 100%;
+  margin: var(--spacing-2x) 0;
   overflow-x: auto; /* Optional for responsiveness */
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: auto; /* This is key! */
+  table-layout: fixed; /* This is key! */
 }
 
 th, td {
@@ -18,6 +19,7 @@ th, td {
   vertical-align: top;
   white-space: normal;
   word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 th{

@@ -17,7 +17,7 @@ export default function ContentWhoUsesAnchor() {
     <Header tag="h2" textStyle="headline-med">Developing with Anchor</Header>
     <TextRow textStyle="body-large" colorStyle="default">For people who look to use Anchor in development, you can access my github to utilize the source code. You can also use Dev mode on Figma to view the spec of the components, but please be aware that some components are designed in ways to accommodate the technical limitation of Figma.</TextRow>
     <Row itemsPerRow={4}>
-      <Card label="Github →" imgPreview="/assets/github-icon.png" href="/" disabled="true"/>
+      <Card label="Github →" imgPreview="/assets/github-icon.png" href="https://github.com/aron27967460/my-react-app.git"/>
     </Row>
     </>
   );
