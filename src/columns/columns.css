@@ -13,6 +13,7 @@
   flex-grow: 0;
   flex-shrink: 0;
   box-sizing: border-box;
+  margin-top: var(--spacing-1x);
 }
 
 
@@ -57,7 +58,7 @@
 /* Tablet (≥ 768px) */
 @media (min-width: 768px) {
   .row{
-    margin-top: var(--spacing-4x);
+    margin-top: var(--spacing-3x);
     gap: var(--spacing-4x);
     padding: 0 8%;
   }

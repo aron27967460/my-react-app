@@ -7,18 +7,19 @@ import { ReactComponent as AddIcon } from '../assets/icons/add.svg';
 
 export const Button = ({
   children,
-  variant= 'outline',
-  compoundLabel= '',
-  icon = null, // Define const when use
+  variant = 'outline',
+  compoundLabel = '',
+  icon = null,
   iconName,
   iconPosition = 'left', // 'left' | 'right'
-  className ='',
+  className = '',
   onClick,
+  disabled = false,
   ...rest
 }) => {
-  const variantClass ={
+  const variantClass = {
     outline: 'btn-outline',
-    text:'btn-text',
+    text: 'btn-text',
     underline: 'btn-underline',
     elevated: 'btn-elevated'
   }[variant];
@@ -32,17 +33,28 @@ export const Button = ({
 
   const resolvedIcon = icon || (iconName && presetIcons[iconName]);
 
+  const isIconOnly = resolvedIcon && !children && !compoundLabel;
+
   return (
-    <button className={`btn ${variantClass}`} onClick={onClick} {...rest}>
+    <button
+      className={`btn ${variantClass} ${className}`}
+      onClick={onClick}
+      disabled={disabled}
+      {...rest}
+    >
       {resolvedIcon && iconPosition === 'left' && (
-        <span className="btn-icon icon-left">{resolvedIcon}</span>
+        <span className="btn-icon icon-left">
+          {resolvedIcon}
+        </span>
       )}
-      {compoundLabel != '' && (
+      {compoundLabel && (
         <span className="compoundLabel">{compoundLabel} |</span>
       )}
       <span className="btn-label">{children}</span>
       {resolvedIcon && iconPosition === 'right' && (
-        <span className="btn-icon icon-right">{resolvedIcon}</span>
+        <span className="btn-icon icon-right">
+          {resolvedIcon}
+        </span>
       )}
     </button>
   );

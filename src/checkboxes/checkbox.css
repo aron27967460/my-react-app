@@ -38,12 +38,12 @@
 
 }
 
-.wrapper-style-border.disabled, .wrapper-style-border.disabled:hover{
+.wrapper-style-contained.disabled, .wrapper-style-contained.disabled:hover{
   background-size: 0% 100%;
   border: 1px solid var(--on-surface-disabled);
 }
 
-.wrapper-style-border{
+.wrapper-style-contained{
   border: 1px solid var(--surface-border);
   background-color:var(--background-primary-surface);
   background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
@@ -119,32 +119,32 @@ input[type="checkbox"]:checked + .checkmark::after {
   border-width: 0 2px 2px 0;
 }
 
-.wrapper-style-border:hover .label-text{
+.wrapper-style-contained:hover .label-text{
   color:var(--on-surface-active);
 }
 
-.wrapper-style-border input[type="checkbox"]:checked + .checkmark{
+.wrapper-style-contained input[type="checkbox"]:checked + .checkmark{
   background-color: var(--background-primary-color);
 }
 
-.wrapper-style-border:hover{
+.wrapper-style-contained:hover{
   background-size: 100% 100%;
   color: var(--on-surface-active);
 }
 
-.wrapper-style-border .checkmark{
+.wrapper-style-contained .checkmark{
   background-color:transparent;
 }
 
-.wrapper-style-border:hover .checkmark{
+.wrapper-style-contained:hover .checkmark{
   background-size: 0% 100%;
   border: 1px solid var(--inverse-surface-border);
 }
 
-.wrapper-style-border:active{
+.wrapper-style-contained:active{
   box-shadow: 0px 1px 24px 0px var(--pressed-inner-shadow) inset;
 }
 
-.wrapper-style-border.disabled:hover .checkmark{
+.wrapper-style-contained.disabled:hover .checkmark{
   border: 1px solid var(--on-surface-disabled);
 }

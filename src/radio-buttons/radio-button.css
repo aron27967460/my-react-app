@@ -1,0 +1,92 @@
+@import url('../styles/typography.css');
+@import url('../styles/tokens.css');
+
+.radio-group {
+  display: flex;
+  gap: var(--spacing-2x);
+  flex-wrap: wrap;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.radio-wrapper {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2x);
+  padding: 0 var(--spacing-2x);
+  height: 40px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.radio-wrapper.disabled {
+  cursor: default;
+}
+
+.wrapper-style-border {
+  border: 1px solid var(--surface-border);
+  background-color: var(--background-primary-surface);
+  background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
+  background-position: 0rem 0rem;
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+}
+
+.wrapper-style-border:hover {
+  background-size: 100% 100%;
+}
+
+.wrapper-style-border.disabled {
+  border: 1px solid var(--on-surface-disabled);
+}
+
+.label-text {
+  font-family: var(--label-large-family);
+  font-size: var(--label-large-size);
+  line-height: var(--label-large-height);
+  letter-spacing: var(--label-large-tracking);
+  font-weight: var(--font-weight-regular);
+  transition: all 0.3s ease;
+}
+
+.radiomark {
+  height: 16px;
+  width: 16px;
+  border: 1px solid var(--surface-border);
+  border-radius: 50%;
+  position: relative;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[type="radio"]:checked + .radiomark::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--on-surface);
+  border-radius: 50%;
+}
+
+.radio-wrapper.disabled .radiomark {
+  border: 1px solid var(--on-surface-disabled);
+  background-color: var(--surface-disabled);
+}
+
+.radio-wrapper.disabled .label-text {
+  color: var(--on-surface-disabled);
+}
+
+input[type="radio"]:checked:disabled + .radiomark::after {
+  background-color: var(--on-surface-disabled);
+}

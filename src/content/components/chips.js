@@ -35,35 +35,41 @@ const dataVariant = [
   }
 ];
 
-const columnsTabElement = [
+const columnsElement = [
   { header: 'Element', accessor: 'element'},
   { header: 'Relevant Class', accessor: 'class'},
   { header: 'Property', accessor: 'property'},
   { header: 'Token', accessor: 'token'}
 ];
 
-const dataTabElement = [
+const dataElement = [
   {
-    element: 'tabs container',
-    class: 'tabs-container',
-    property: 'border, box-shadow',
-    token: 'interactive/border-tertiary-color'
+    element: 'container',
+    class: 'chip',
+    property: 'backgorund-size',
+    token: ''
   },
   {
-    element: 'tab',
-    class: 'tab',
-    property: 'backgorund-size',
+    element: 'container',
+    class: 'chip',
+    property: 'border-color',
+    token: 'interactive/surface-border'
+  },
+  {
+    element: 'icon',
+    class: 'chip-icon',
+    property: 'color',
     token: 'interactive/on-surface'
   },
   {
-    element: 'tab label',
-    class: 'tab, tab-style-*',
-    property: 'color, font-size',
+    element: 'label',
+    class: 'chip-label',
+    property: 'color',
     token: 'interactive/on-surface'
   },
 ];
 
-const columnsTabState = [
+const columnsState = [
   { header: 'State', accessor: 'state' },
   { header: 'Element', accessor: 'element'},
   { header: 'Property', accessor: 'property'},
@@ -71,61 +77,96 @@ const columnsTabState = [
   { header: 'Effect Token', accessor: 'effect' }
 ];
 
-const dataTabState = [
+const dataState = [
   {
     state: 'Hover',
-    element: 'tab',
+    element: 'chip',
     property: 'background-size',
     token: 'interactive/surface-active',
     effect: ''
   },
   {
     state: '',
-    element: 'tab',
+    element: 'chip label',
     property: 'color',
     token: 'interactive/on-surface-active',
     effect: ''
   },
   {
     state: 'Pressed',
-    element: 'tab',
+    element: 'chip',
     property: 'background-size',
     token: 'interactive/surface-active',
     effect: 'pressed-inner-shadow'
   },
   {
     state: '',
-    element: 'tab',
+    element: 'label',
     property: 'color',
     token: 'interactive/on-surface-active',
     effect: ''
   },
   {
     state: 'Selected',
-    element: 'tab',
-    property: 'border-bottom',
-    token: 'interactive/surface-border',
+    element: 'chip',
+    property: 'background-size',
+    token: 'interactive/surface-active',
     effect: ''
   },
   {
+    state: '',
+    element: 'label',
+    property: 'color',
+    token: 'interactive/on-surface-active',
+    effect: ''
+  },
+  {
+    state: 'Selected:Hover',
+    element: 'chip',
+    property: 'background-size',
+    token: 'interactive/surface-active',
+    effect: 'hover-drop-shadow'
+  },
+  {
+    state: 'Selected:Pressed',
+    element: 'chip',
+    property: 'background-size',
+    token: 'interactive/surface-active',
+    effect: 'pressed-inner-shadow'
+  },
+  {
     state: 'Disabled',
-    element: 'tab',
+    element: 'chip',
+    property: 'border-color',
+    token: 'interactive/on-surface-disabled',
+    effect: ''
+  },
+  {
+    state: '',
+    element: 'chip',
+    property: 'background-color',
+    token: 'interactive/surface-disabled',
+    effect: ''
+  },
+  {
+    state: '',
+    element: 'label',
     property: 'color',
     token: 'interactive/on-surface-disabled',
     effect: ''
   },
   {
     state: 'Selected.Disabled',
-    element: 'tab',
-    property: 'color',
+    element: 'chip',
+    property: 'border-color',
     token: 'interactive/on-surface-disabled',
     effect: ''
   },
   {
     state: '',
-    element: 'tab',
-    property: 'border-bottom',
-    token: 'interactive/surface-border-disabled',
+    element: 'label',
+    property: 'color',
+    token: 'interactive/on-surface-disabled',
     effect: ''
   },
 ];
@@ -157,15 +198,18 @@ export default function ContentChips() {
       <Header tag="h2" textStyle="headline-med">Varients</Header>
       <Row><Table columns={columnsVariant} data={dataVariant} /></Row>
       <Header tag="h3"  textStyle="title-med">Examples</Header>
-      <Row itemsPerRow={3} rowWidth="full">
-        <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-1x) 0', textAlign: 'center'}}>
-          <Image variant="fullwidth" src="/assets/content-chips/context.png" alt="chip - toggle variant" />
+      <Row itemsPerRow={4} rowWidth="full">
+        <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-1x) var(--spacing-1x)'}}>
+          <Image variant="fullwidth" src="/assets/content-chips/context.png" alt="chip - contextual variant" />
+          <TextRow textStyle="body-small" textColor="caption" spacing="in-columns">Contextual Variant</TextRow>
         </div>
-        <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-1x) 0', textAlign: 'center'}}>
-          <Image variant="fullwidth" src="/assets/content-chips/selectable.png" alt="chip - checkable variant" />
+        <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-1x) var(--spacing-1x)'}}>
+          <Image variant="fullwidth" src="/assets/content-chips/selectable.png" alt="chip - selectable variant" />
+          <TextRow textStyle="body-small" textColor="caption" spacing="in-columns">Selectable Variant</TextRow>
         </div>
-        <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-1x) 0', textAlign: 'center'}}>
-          <Image variant="fullwidth" src="/assets/content-chips/removable.png" alt="chip - deletable variant" />
+        <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-1x) var(--spacing-1x)'}}>
+          <Image variant="fullwidth" src="/assets/content-chips/removable.png" alt="chip - removable variant" />
+          <TextRow textStyle="body-small" textColor="caption" spacing="in-columns">Removable Variant</TextRow>
         </div>
       </Row>
 
@@ -175,9 +219,9 @@ export default function ContentChips() {
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-chips/chips-anatomy.png" alt="chip anatomy example" /></div>
         <List>
           <ListItem>A. Chip container</ListItem>
-          <ListItem>B. Leading icon (variant dependant, optional)</ListItem>
+          <ListItem>B. Leading icon (Variant dependant, optional)</ListItem>
           <ListItem>C. Label</ListItem>
-          <ListItem>D. Trailing icon (removable variant)</ListItem>
+          <ListItem>D. Trailing icon (Removable variant)</ListItem>
         </List>
       </Row>
       <Header tag="h2" textStyle="headline-med">Applications</Header>
@@ -210,9 +254,9 @@ export default function ContentChips() {
     {selectedTab === 1 && (
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
-        <TextRow textStyle="body-large">To be continued...</TextRow>
+        <Row><Table columns={columnsElement} data={dataElement} /></Row>
         <Header tag="h2" textStyle="headline-med">States</Header>
-        <TextRow textStyle="body-large">To be continued...</TextRow>
+        <Row><Table columns={columnsState} data={dataState} /></Row>
       </>
     )}
 
@@ -231,7 +275,7 @@ export default function ContentChips() {
               iconName: {
                 label:'Icon Name',
                 type: 'enum',
-                options: ['none','star', 'add', 'checkCircle'],
+                options: ['none','star', 'add', 'check'],
                 default: 'none',
               },
               disabled: {
@@ -239,7 +283,7 @@ export default function ContentChips() {
                 type: 'boolean',
               },
               interactionVariant: {
-                label:'variant',
+                label:'Variant',
                 type: 'enum',
                 options: ['contextual', 'removable', 'selectable'],
                 default: 'contextual'

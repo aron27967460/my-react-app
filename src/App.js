@@ -24,6 +24,7 @@ import ContentButtons from './content/components/buttons';
 import ContentCards from './content/components/cards';
 import ContentCheckboxes from './content/components/checkboxes';
 import ContentChips from './content/components/chips';
+import ContentRadioButtons from './content/components/radio-buttons';
 import ContentTabs from './content/components/tabs';
 //As more content being writtern, more pages will be imported to keep App.js clean
 
@@ -118,12 +119,7 @@ function App() {
 
       /* Radio Button section */
       case 'radio-buttons':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Radio Buttons</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+        return <ContentRadioButtons />;
 
       /* Sheet section */
       case 'sheets':

@@ -113,6 +113,10 @@
   text-shadow: 0px 2px 12px rgba(0,0,0,0);
 }
 
+.btn-text:focus{
+  color:var(--textfade);
+}
+
 .btn-text:disabled{
   color:var(--on-surface-disabled);
 }
@@ -141,6 +145,11 @@
   color:var(--textfade);
   border-bottom: 1px solid var(--textfade);
   text-shadow: 0px 2px 12px rgba(0,0,0,0);
+}
+
+.btn-underline:focus{
+  color:var(--textfade);
+  border-bottom: 1px solid var(--textfade);
 }
 
 .btn-underline:disabled{
@@ -175,6 +184,11 @@
   color:var(--on-surface-active);
   background-size:100% 100%;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0);
+}
+
+.btn-elevated:focus{
+  color:var(--on-surface-active);
+  background-size:100% 100%;
 }
 
 .btn-elevated:disabled{
