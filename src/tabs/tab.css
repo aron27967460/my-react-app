@@ -1,3 +1,6 @@
+@import url('../styles/typography.css');
+@import url('../styles/tokens.css');
+
 .tabs-container {
   display: flex;
   padding: 0 6%;
@@ -39,6 +42,7 @@
   border: none;
   cursor: pointer;
   justify-content: center;
+  text-decoration:none;
   background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
   background-position: 0rem 0rem;
   background-size: 0% 100%;
@@ -52,6 +56,7 @@
   line-height:var(--label-large-height);
   letter-spacing:var(--label-large-tracking);
   font-weight:var(--font-weight-regular);
+  text-decoration:none;
 }
 
 .tab-style-small{
@@ -60,6 +65,7 @@
   line-height:var(--body-small-height);
   letter-spacing:var(--body-small-tracking);
   font-weight:var(--font-weight-regular);
+  text-decoration:none;
 }
 
 .tabs-style-elevated{
@@ -71,15 +77,18 @@
 }
 
 .tab:hover {
+  text-decoration:none;
   background-size: 100% 100%;
   color: var(--on-surface-active);
 }
 
 .tab:active {
+  text-decoration:none;
   box-shadow: 0px 1px 24px 0px var(--pressed-inner-shadow) inset;
 }
 
 .tab.selected {
+  text-decoration:none;
   border-bottom: 2px solid var(--surface-border);
 }
 
@@ -90,6 +99,7 @@
 }
 
 .tab.selected.disabled {
+  text-decoration:none;
   border-bottom: 2px solid var(--surface-border-disabled);
   color:var(--on-surface-disabled);
   pointer-events: none;

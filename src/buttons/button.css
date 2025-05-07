@@ -183,7 +183,7 @@
 .btn-elevated:active{
   color:var(--on-surface-active);
   background-size:100% 100%;
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0);
+  box-shadow: 0px 0px 0px 0px var(--elevated-drop-shadow));
 }
 
 .btn-elevated:focus{
@@ -194,7 +194,7 @@
 .btn-elevated:disabled{
   color:var(--on-surface-disabled);
   background-color:var(--surface-disabled);
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0);
+  box-shadow: 0px 0px 0px 0px var(--elevated-drop-shadow));
 }
 
 .btn-elevated:hover .btn-icon svg{

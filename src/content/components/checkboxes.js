@@ -46,7 +46,7 @@ const dataElement = [
   {
     element: 'checkbox',
     class: 'checkmark',
-    property: 'backgorund-size',
+    property: 'background-size',
     token: 'interactive/on-surface'
   },
   {

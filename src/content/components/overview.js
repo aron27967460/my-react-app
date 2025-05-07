@@ -16,16 +16,16 @@ const ContentComponent = ({ setActiveSection }) => {
       <Card label="Cards" imgPreview="/assets/component-preview/card.png" navKey="cards" onNavigate={setActiveSection}/>
       <Card label="Checkboxes" imgPreview="/assets/component-preview/checkbox.png" navKey="checkboxes" onNavigate={setActiveSection} />
       <Card label="Chips" imgPreview="/assets/component-preview/chip.png" navKey="chips" onNavigate={setActiveSection}/>
+      <Card label="Radio Buttons" imgPreview="/assets/component-preview/radio-button.png" navKey="radio-buttons" onNavigate={setActiveSection}/>
+      <Card label="Switches" imgPreview="/assets/component-preview/switch.png" navKey="switches" onNavigate={setActiveSection}/>
+      <Card label="Tabs" imgPreview="/assets/component-preview/tabs.png" navKey="tabs" onNavigate={setActiveSection}/>
       <Card label="Content Pairing" imgPreview="/assets/component-preview/content-pairing.png" navKey="content-pairing" onNavigate={setActiveSection} disabled='true'/>
       <Card label="Dialogs" imgPreview="/assets/component-preview/dialog.png" navKey="dialogs" onNavigate={setActiveSection} disabled='true'/>
       <Card label="Directories" imgPreview="/assets/component-preview/directories.png" navKey="directories" onNavigate={setActiveSection} disabled='true'/>
       <Card label="Lists" imgPreview="/assets/component-preview/list.png" navKey="lists" onNavigate={setActiveSection} disabled='true'/>
       <Card label="Menu" imgPreview="/assets/component-preview/menu.png" navKey="menu" onNavigate={setActiveSection} disabled='true'/>
       <Card label="Navigation" imgPreview="/assets/component-preview/navigation.png" navKey="navigation" onNavigate={setActiveSection} disabled='true'/>
-      <Card label="Radio Buttons" imgPreview="/assets/component-preview/radio-button.png" navKey="radio-buttons" onNavigate={setActiveSection} disabled='true'/>
       <Card label="Sheets" imgPreview="/assets/component-preview/sheet.png" navKey="sheets" onNavigate={setActiveSection} disabled='true'/>
-      <Card label="Switches" imgPreview="/assets/component-preview/switch.png" navKey="switches" onNavigate={setActiveSection} disabled='true'/>
-      <Card label="Tabs" imgPreview="/assets/component-preview/tabs.png" navKey="tabs" onNavigate={setActiveSection}/>
       <Card label="Tables" imgPreview="/assets/component-preview/table.png" navKey="tables" onNavigate={setActiveSection} disabled='true'/>
       <Card label="Text Fields" imgPreview="/assets/component-preview/text-field.png" navKey="text-fields" onNavigate={setActiveSection} disabled='true'/>
     </Row>

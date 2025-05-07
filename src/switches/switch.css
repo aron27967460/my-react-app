@@ -1,0 +1,117 @@
+@import url('../styles/typography.css');
+@import url('../styles/tokens.css');
+
+.switch {
+  position: relative;
+  width: 3rem;
+  height: 2rem;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.switch.disabled {
+  cursor: not-allowed;
+}
+
+.switch.disabled .track{
+  border: 1px solid var(--on-surface-disabled);
+}
+
+.switch.disabled .toggle{
+  background-color: var(--on-surface-disabled);
+}
+
+.switch.disabled.checked .track{
+  background-size: 0% 100%;
+  background-color: var(--surface-disabled);
+  border: 1px solid var(--on-surface-disabled);
+}
+
+.switch.disabled.checked .toggle{
+  background-color: var(--on-surface-disabled);
+}
+
+.switch.disabled.checked:hover .toggle{
+  transform: translateX(16px);
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.switch .track {
+  background-color: transparent;
+  background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
+  background-position: 0rem 0rem;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  border: 1px solid var(--surface-border);
+  border-radius: 9999px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-0p5x);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.switch .toggle {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  background-color: #000;
+  border-radius: 50%;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+}
+
+.switch.checked .track {
+  background-size: 100% 100%;
+  border: 1px solid var(--surface-border);
+}
+
+.switch.checked .toggle {
+  background-color: var(--on-surface-active);
+  transform: translateX(16px);
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+/* Hover (non-disabled) */
+.switch:not(.disabled):hover .toggle{
+  width: 1.1875rem;
+  height: 1.1875rem;
+}
+
+.switch.checked:hover .toggle{
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: translateX(14px);
+}
+
+.switch.checked:hover .track{
+  box-shadow: 0px 2px 12px 0px var(--hover-drop-shadow);
+}
+
+/* Pressed */
+.switch:not(.disabled):active .toggle {
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
+
+.switch.checked:active .toggle {
+  width: 1.375rem;
+  height: 1.375rem;
+  transform: translateX(16px);
+}
+
+.switch.checked:active .track{
+  box-shadow: 0px 0px 0px 0px var(--hover-drop-shadow);
+}
+
+/* Focus visible */
+.switch:focus-visible .track {
+  outline: 1px solid var(--surface-border);
+  outline-offset: 2px;
+}

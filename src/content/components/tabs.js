@@ -157,7 +157,7 @@ export default function ContentCards() {
   return (
     <>
     <Header tag="h1" textStyle="display-med">Tabs</Header>
-    <TextRow textStyle="title-large" colorStyle="default">Tabs organize and support navigation between groups of related content at the same level of hierarchy.
+    <TextRow textStyle="title-large" colorStyle="default">Tabs help people navigate related content with clarity—switching views without losing context.
     </TextRow>
     <Tabs onTabChange={(index) => setSelectedTab(index)}>
         <Tab>Usage</Tab>

@@ -78,6 +78,20 @@ const LiveDemo = ({
 
   const { children, ...otherProps } = propsState;
 
+  const interactiveProps = { ...otherProps };
+
+  Object.entries(propSchema).forEach(([key, config]) => {
+    if (
+      config.type === 'boolean' &&
+      key === 'checked' &&
+      typeof interactiveProps.onChange !== 'function'
+    ) {
+      interactiveProps.onChange = (newValue) => {
+        setPropsState((prev) => ({ ...prev, checked: newValue }));
+      };
+    }
+  });
+
   return (
     <div className="live-demo-container">
       <div className="demo-controls">
@@ -133,7 +147,7 @@ const LiveDemo = ({
       </div>
 
       <div className='demo-preview' style={{ width: previewWidth }} ref={componentRef}>
-        <Component {...otherProps}>
+        <Component {...interactiveProps}>
           {customChildren || children}
         </Component>
       </div>

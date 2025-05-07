@@ -8,7 +8,6 @@ import Table from '../../table/table';
 import List, { ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
-import { Checkbox } from '../../checkboxes/checkbox';
 import { RadioGroup, RadioButton} from '../../radio-buttons/radio-button';
 
 const radioPropSchema = {
@@ -43,35 +42,41 @@ const dataVariant = [
   }
 ];
 
-const columnsTabElement = [
+const columnsElement = [
   { header: 'Element', accessor: 'element'},
   { header: 'Relevant Class', accessor: 'class'},
   { header: 'Property', accessor: 'property'},
   { header: 'Token', accessor: 'token'}
 ];
 
-const dataTabElement = [
+const dataElement = [
   {
-    element: 'tabs container',
-    class: 'tabs-container',
-    property: 'border, box-shadow',
-    token: 'interactive/border-tertiary-color'
+    element: 'radio set container',
+    class: 'radio-group',
+    property: '',
+    token: ''
   },
   {
-    element: 'tab',
-    class: 'tab',
-    property: 'backgorund-size',
+    element: 'radio container',
+    class: 'radio-wrapper',
+    property: '',
+    token: ''
+  },
+  {
+    element: 'radiomark',
+    class: 'radiomark',
+    property: 'background-size',
     token: 'interactive/on-surface'
   },
   {
-    element: 'tab label',
-    class: 'tab, tab-style-*',
-    property: 'color, font-size',
+    element: 'label',
+    class: 'label-text',
+    property: 'color',
     token: 'interactive/on-surface'
   },
 ];
 
-const columnsTabState = [
+const columnsState = [
   { header: 'State', accessor: 'state' },
   { header: 'Element', accessor: 'element'},
   { header: 'Property', accessor: 'property'},
@@ -79,65 +84,57 @@ const columnsTabState = [
   { header: 'Effect Token', accessor: 'effect' }
 ];
 
-const dataTabState = [
+const dataState = [
   {
     state: 'Hover',
-    element: 'tab',
+    element: 'radiomark',
     property: 'background-size',
     token: 'interactive/surface-active',
     effect: ''
   },
   {
-    state: '',
-    element: 'tab',
-    property: 'color',
-    token: 'interactive/on-surface-active',
-    effect: ''
-  },
-  {
     state: 'Pressed',
-    element: 'tab',
+    element: 'radiomark',
     property: 'background-size',
     token: 'interactive/surface-active',
     effect: 'pressed-inner-shadow'
   },
   {
-    state: '',
-    element: 'tab',
-    property: 'color',
-    token: 'interactive/on-surface-active',
-    effect: ''
-  },
-  {
-    state: 'Selected',
-    element: 'tab',
-    property: 'border-bottom',
-    token: 'interactive/surface-border',
+    state: 'Focused',
+    element: 'radiomark',
+    property: 'background-size',
+    token: 'interactive/surface-active',
     effect: ''
   },
   {
     state: 'Disabled',
-    element: 'tab',
-    property: 'color',
+    element: 'radiomark',
+    property: 'border-color',
     token: 'interactive/on-surface-disabled',
     effect: ''
   },
   {
-    state: 'Selected.Disabled',
-    element: 'tab',
-    property: 'color',
-    token: 'interactive/on-surface-disabled',
+    state: 'Selected:Hover',
+    element: 'radiomark',
+    property: '',
+    token: '',
+    effect: 'hover-drop-shadow'
+  },
+  {
+    state: 'Selected:Disabled',
+    element: 'radiomark',
+    property: 'background-color',
+    token: 'interactive/surface-disabled',
     effect: ''
   },
   {
     state: '',
-    element: 'tab',
-    property: 'border-bottom',
-    token: 'interactive/surface-border-disabled',
+    element: '',
+    property: 'border-color',
+    token: 'interactive/on-surface-disabled',
     effect: ''
-  },
+  }
 ];
-
 
 const Icon = (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,11 +146,19 @@ const Icon = (
 
 export default function ContentRadioButtons() {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [value, setValue] = useState('option1');
+  const [selected, setSelected] = useState('option1');
+
+  const options = [
+    { id: 'option1', label: 'Option 1' },
+    { id: 'option2', label: 'Option 2' },
+    { id: 'option3', label: 'Option 3'},
+  ];
+
+
   return (
     <>
-    <Header tag="h1" textStyle="display-med">Checkboxes</Header>
-    <TextRow textStyle="title-large" colorStyle="default">Checkboxes allow users to select one or more from a set of options.
+    <Header tag="h1" textStyle="display-med">Radio Buttons</Header>
+    <TextRow textStyle="title-large" colorStyle="default">Radio buttons allow users to select one option from a set of options.
     </TextRow>
     <Tabs onTabChange={(index) => setSelectedTab(index)}>
         <Tab>Usage</Tab>
@@ -163,23 +168,55 @@ export default function ContentRadioButtons() {
 
     {selectedTab === 0 && (
       <>
-      <Header tag="h2" textStyle="headline-med">Varients</Header>
-      <Row><Table columns={columnsVariant} data={dataVariant} /></Row>
-      <Header tag="h3"  textStyle="title-med">Interactive Examples</Header>
-      <Row itemsPerRow={2} rowWidth="full">
-      <div style={{ border: '1px solid var(--border-tertiary-color)', marginTop: 'var(--spacing-2x)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}>
-        <Checkbox label='Label' variant='default'/>
-      </div>
-      <div style={{ border: '1px solid var(--border-tertiary-color)', marginTop: 'var(--spacing-2x)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}>
-        <Checkbox label='Label' variant='border'/>
+      <Row itemsPerRow={1} rowWidth="full">
+      <div style={{border: '1px solid var(--border-tertiary-color)', marginTop: 'var(--spacing-2x)', padding: 'var(--spacing-8x) 0'}}>
+        <RadioGroup name="demo" options={options} value={selected} onChange={setSelected}  align="center"/>
       </div>
       </Row>
 
-
       <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-      <TextRow textStyle="body-large">To be continued...</TextRow>
+      <Row itemsPerRow={2} rowWidth="full" >
+      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+      <Image variant="fullwidth" src="/assets/content-radiobuttons/radiobutton-anatomy.png" alt="checkbox anatomy example 1" />
+      </div>
+      <div>
+      <List>
+        <ListItem>A. Set Container</ListItem>
+        <ListItem>B. Button Container</ListItem>
+        <ListItem>C. Radiomark</ListItem>
+        <ListItem>D. Label</ListItem>
+      </List>
+      </div>
+      </Row>
       <Header tag="h2" textStyle="headline-med">Applications</Header>
-      <TextRow textStyle="body-large">To be continued...</TextRow>
+      <Row itemsPerRow={4} rowWidth="full">
+        <div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Single Select</Header>
+        <TextRow textStyle="body-large" spacing="in-columns">Use radio buttons when the user can only choose one option out of multiple options.</TextRow>
+        </div>
+        <div>
+          <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/single-select-example.png" alt="Radio Button default - application example" />
+        </div>
+        <div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Multi Select</Header>
+        <TextRow textStyle="body-large" spacing="in-columns">Use checkboxes when the user can choose more than one option out of a set of options.</TextRow>
+        </div>
+        <div>
+          <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/multi-select-example.png" alt="Checkbox - application example" />
+        </div>
+      </Row>
+      <Row itemsPerRow={4} rowWidth="full">
+        <div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Simple On and Off</Header>
+        <TextRow textStyle="body-large" spacing="in-columns">For simple options such as On v.s. Off (or True v.s. False), I recommand to use the Switch component to condense the user interface.</TextRow>
+        </div>
+        <div>
+          <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/on-and-off-avoid-example.png" alt="Avoid Radio Button - application example" />
+        </div>
+        <div>
+          <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/on-and-off-example.png" alt="Switch - application example" />
+        </div>
+      </Row>
 
       </>
     )}
@@ -187,9 +224,9 @@ export default function ContentRadioButtons() {
     {selectedTab === 1 && (
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
-        <TextRow textStyle="body-large">To be continued...</TextRow>
+        <Row><Table columns={columnsElement} data={dataElement} /></Row>
         <Header tag="h2" textStyle="headline-med">States</Header>
-        <TextRow textStyle="body-large">To be continued...</TextRow>
+        <Row><Table columns={columnsState} data={dataState} /></Row>
       </>
     )}
 
@@ -199,21 +236,45 @@ export default function ContentRadioButtons() {
         <LiveDemo
           component={RadioGroup}
           componentName="RadioGroup"
-          label="RadioGroup Demo"
-          previewWidth="fit-content"
           propSchema={{
-            name: { type: 'string', default: 'exampleGroup', label: 'Group Name' },
-            value: { type: 'string', default: value, label: 'Selected Value' },
-            onChange: {
-              type: 'function',
-              default: (e) => setValue(e.target.value),
-              label: 'onChange',
+            name: {
+              type: 'string',
+              default: 'Demo-group',
+              label: 'Group Name',
+            },
+            disabled: {
+              type: 'boolean',
+              default: false,
+              label: 'Disabled',
             },
           }}
+          previewWidth="100%"
           children={[
-            <RadioButton key="1" id="opt1" value="option1" label="Option 1" />,
-            <RadioButton key="2" id="opt2" value="option2" label="Option 2" />,
-            <RadioButton key="3" id="opt3" value="option3" label="Option 3" disabled />,
+            <RadioButton
+              key="option1"
+              id="option1"
+              name="demo-group"
+              label="Option 1"
+              checked={selected === 'option1'}
+              onChange={() => setSelected('option1')}
+            />,
+            <RadioButton
+              key="option2"
+              id="option2"
+              name="demo-group"
+              label="Option 2"
+              checked={selected === 'option2'}
+              onChange={() => setSelected('option2')}
+            />,
+            <RadioButton
+              key="option3"
+              id="option3"
+              name="demo-group"
+              label="Option 3"
+              disabled
+              checked={selected === 'option3'}
+              onChange={() => setSelected('option3')}
+            />,
           ]}
         />
       </>
