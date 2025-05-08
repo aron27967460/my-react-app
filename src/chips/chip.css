@@ -38,7 +38,7 @@
 }
 
 .chip.selected:hover{
-  box-shadow: 0px 4px 12px 0px var(--hover-drop-shadow);
+  box-shadow: 0px 2px 12px 0px var(--hover-drop-shadow);
 }
 
 .chip.selected:active{
