@@ -22,6 +22,8 @@
 }
 
 .text-field-label {
+  appearance: none;
+  -webkit-appearance: none; /* Safari */
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -102,6 +104,8 @@
 }
 
 .text-field-input {
+  appearance: none;
+  -webkit-appearance: none; /* Safari */
   padding: 0 var(--spacing-1p5x);
   height: 40px;
   color: var(--placeholder-text-color);

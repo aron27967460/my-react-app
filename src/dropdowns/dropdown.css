@@ -64,6 +64,8 @@
 }
 
 .dropdown-button {
+  appearance: none;
+  -webkit-appearance: none; /* Safari */
   display: flex;
   width: 100%;
   position: relative;
@@ -111,6 +113,8 @@
 }
 
 .dropdown-button-text {
+  appearance: none;
+  -webkit-appearance: none; /* Safari */
   flex-grow: 1;
   text-align: left;
   font-family:var(--label-large-family);
@@ -183,6 +187,8 @@
 }
 
 .dropdown-item {
+  appearance: none;
+  -webkit-appearance: none; /* Safari */
   padding: var(--spacing-1x) var(--spacing-1p5x);
   cursor: pointer;
   font-family:var(--label-large-family);
