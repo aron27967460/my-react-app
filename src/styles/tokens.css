@@ -21,7 +21,7 @@
     --spacing-10x:80px;
     --spacing-12x:96px;
     --spacing-16x:128px;
-    --pacing-20x:160px;
+    --spacing-20x:160px;
     --spacing-30x:240px;
     --spacing-40x:320px;
 
@@ -29,6 +29,7 @@
     --title-text-color:var(--black-900);
     --body-text-color:var(--black-900);
     --secondary-text-color:var(--black-400);
+    --placeholder-text-color:var(--black-300);
     --inverse-text-color:var(--black-0);
 
   /*background color*/

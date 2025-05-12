@@ -18,96 +18,9 @@
   gap: var(--spacing-2x);
   padding: var(--spacing-4x);
   box-sizing: border-box;
-  margin-bottom: 1rem;
   flex-wrap: wrap;
   background-color: var(--background-secondary-color);
   border-bottom: 1px solid var(--border-tertiary-color);
-
-  label{
-
-    display: flex;
-    cursor: pointer;
-    font-family:var(--label-large-family);
-    font-size:var(--label-large-size);
-    line-height:var(--label-large-height);
-    letter-spacing:var(--label-large-tracking);
-    border: 1px solid var(--surface-border);
-    background-color: var(--background-primary-color);
-
-    .input-label{
-      display: inline-flex;
-      height: 40px;
-      padding: 0 var(--spacing-1p5x);
-      justify-content: center;
-      align-items: center;
-      vertical-align:middle;
-      background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
-      color:var(--on-surface);
-      background-position: 0rem 0rem;
-      background-size: 0% 100%;
-      background-repeat: no-repeat;
-      transition: background-size 0.3s;
-    }
-
-    input{
-      padding: var(--spacing-0x) var(--spacing-2x);
-      height: 100%;
-      font-family:var(--label-large-family);
-      font-size:var(--label-large-size);
-      line-height:var(--label-large-height);
-      letter-spacing:var(--label-large-tracking);
-      border-style:none;
-      border-left: 1px solid var(--surface-border);
-      max-width:100px;
-    }
-
-
-    input:focus{
-      outline: none;
-    }
-
-    select{
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      cursor: pointer;
-      background: url('/assets/icons/chevronDown.svg') no-repeat right 10px bottom 10px;
-      background-size: 24px;
-      height: 40px;
-      padding: var(--spacing-0x) var(--spacing-4x) var(--spacing-0x) var(--spacing-2x);
-      font-family:var(--label-large-family);
-      font-size:var(--label-large-size);
-      line-height:var(--label-large-height);
-      letter-spacing:var(--label-large-tracking);
-      border-style:none;
-      border-left: 1px solid var(--surface-border);
-
-      option{
-        border:none;
-      }
-
-      &:focus, &:active {
-        outline: none;
-        background: url('/assets/icons/chevronDown.svg') no-repeat right 10px bottom 10px;
-        background-size: 24px;
-      }
-
-    }
-
-    select::after{
-      appearance: none;
-    }
-
-    select:focus-within{
-      background-size: 100% 100%;
-    }
-  }
-
-  label:hover .input-label{
-    background-size: 100% 100%;
-    color:var(--on-surface-active);
-  }
-
 }
 
 .demo-preview {
@@ -117,14 +30,12 @@
   padding: var(--spacing-2x) var(--spacing-4x) var(--spacing-4x) var(--spacing-4x);
   min-height: 200px;
   z-index:1;
-  position:relative;
 }
 
 
 :not(pre) > code[class*="language-"], pre[class*="language-"]{
   background-color: var(--overlay-color) !important;
 }
-
 
 .code-preview {
   background-color: var(--background-secondary-color);

@@ -11,6 +11,7 @@
   padding: 0 var(--spacing-2x);
   height:40px;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .checkbox-wrapper.disabled{
@@ -45,7 +46,7 @@
 
 .wrapper-style-contained{
   border: 1px solid var(--surface-border);
-  background-color:var(--background-primary-surface);
+  background-color:var(--background-primary-color);
   background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
   background-position: 0rem 0rem;
   background-size: 0% 100%;

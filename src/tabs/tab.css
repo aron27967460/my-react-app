@@ -34,6 +34,7 @@
 .tab {
   padding: var(--spacing-2x);
   gap:var(--spacing-0p5x);
+  color: var(--on-surface);
   display:flex;
   flex-grow: 1;
   flex-shrink: 0;
@@ -48,6 +49,8 @@
   background-size: 0% 100%;
   background-repeat: no-repeat;
   transition: background-size 0.3s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none; /* Safari */
 }
 
 .tab-style-default{

@@ -227,25 +227,27 @@ export default function ContentChips() {
       <Header tag="h2" textStyle="headline-med">Applications</Header>
       <Row itemsPerRow={4} rowWidth="full">
         <div>
-          <Image variant="fullwidth" withMargin="false" src="/assets/content-chips/context-example.png" alt="context chip - application example" />
-        </div>
-        <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Contextual</Header>
         <TextRow textStyle="body-large" spacing="in-columns">Contextual chips are used to represent relevant actions and dynamic information. They appear in the UI to assist users in completing their tasks.</TextRow>
         </div>
         <div>
-          <Image variant="fullwidth" withMargin="false" src="/assets/content-chips/selectable-example.png" alt="selectable chip - application example" />
+          <Image variant="fullwidth" withMargin="false" src="/assets/content-chips/context-example.png" alt="context chip - application example" />
         </div>
+        
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Selectable</Header>
         <TextRow textStyle="body-large" spacing="in-columns">Selectable chips are persistent elements to help users to filter content. Each chip should present relevant description in regards to users' intent.</TextRow>
         </div>
         <div>
-          <Image variant="fullwidth" withMargin="false" src="/assets/content-chips/removable-example.png" alt="removable chip - application example" />
+          <Image variant="fullwidth" withMargin="false" src="/assets/content-chips/selectable-example.png" alt="selectable chip - application example" />
         </div>
+
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Removable</Header>
         <TextRow textStyle="body-large" spacing="in-columns">Removable chips are user-generated info to assist users in completing their relevant task on hand. Each chip should be individaully removable.</TextRow>
+        </div>
+        <div>
+          <Image variant="fullwidth" withMargin="false" src="/assets/content-chips/removable-example.png" alt="removable chip - application example" />
         </div>
       </Row>
       </>

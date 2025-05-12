@@ -192,11 +192,12 @@ export default function ContentRadioButtons() {
       <Row itemsPerRow={4} rowWidth="full">
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Single Select</Header>
-        <TextRow textStyle="body-large" spacing="in-columns">Use radio buttons when the user can only choose one option out of multiple options.</TextRow>
+        <TextRow textStyle="body-large" spacing="in-columns">Use radio buttons when the user can only choose one option out of multiple options. Do not use radio buttons where there are more that 3 or 4 options. Consider using others.</TextRow>
         </div>
-        <div>
-          <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/single-select-example.png" alt="Radio Button default - application example" />
-        </div>
+        <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/single-select-example.png" alt="Radio Button default - application example" />
+        <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/too-many-options-example.png" alt="Radio Button - application example - avoid to use when too many options" />
+      </Row>
+      <Row itemsPerRow={4} rowWidth="full">
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Multi Select</Header>
         <TextRow textStyle="body-large" spacing="in-columns">Use checkboxes when the user can choose more than one option out of a set of options.</TextRow>

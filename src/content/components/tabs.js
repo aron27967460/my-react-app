@@ -152,7 +152,7 @@ const Icon = (
 
 
 
-export default function ContentCards() {
+export default function ContentTabs() {
   const [selectedTab, setSelectedTab] = useState(0);
   return (
     <>

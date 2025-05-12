@@ -1,14 +1,15 @@
 import React from 'react';
 import './checkbox.css';
 
-export function Checkbox({ id, label, checked, onChange, disabled, variant}) {
+export function Checkbox({ id, label, checked, onChange, disabled, variant, hideLabel = false,
+  noWrapper = false,}) {
   const variantClass ={
     default: 'wrapper-style-default',
-    border:'wrapper-style-contained'
+    contained:'wrapper-style-contained'
   }[variant];
 
-  return (
-    <label htmlFor={id} className={`checkbox-wrapper ${variantClass} ${disabled ? 'disabled' : ''}`}>
+  const input = (
+    <>
       <input
         id={id}
         type="checkbox"
@@ -19,7 +20,18 @@ export function Checkbox({ id, label, checked, onChange, disabled, variant}) {
         aria-disabled={disabled}
       />
       <span className="checkmark" />
-      {label && <span className="label-text">{label}</span>}
+      {!hideLabel && label && <span className="label-text">{label}</span>}
+    </>
+  );
+
+  return noWrapper ? (
+    input
+  ) : (
+    <label
+      htmlFor={id}
+      className={`checkbox-wrapper ${variantClass} ${disabled ? 'disabled' : ''}`}
+    >
+      {input}
     </label>
   );
 }

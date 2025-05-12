@@ -24,9 +24,11 @@ import ContentButtons from './content/components/buttons';
 import ContentCards from './content/components/cards';
 import ContentCheckboxes from './content/components/checkboxes';
 import ContentChips from './content/components/chips';
+import ContentDropdowns from './content/components/dropdowns';
 import ContentRadioButtons from './content/components/radio-buttons';
 import ContentSwitches from './content/components/switches';
 import ContentTabs from './content/components/tabs';
+import ContentTextFields from './content/components/textfields';
 //As more content being writtern, more pages will be imported to keep App.js clean
 
 function App() {
@@ -91,6 +93,10 @@ function App() {
           </>
         );
 
+      /* Dropdown section */
+      case 'dropdowns':
+        return <ContentDropdowns  />;
+
       /* List section */
       case 'lists':
         return (
@@ -124,12 +130,12 @@ function App() {
 
       /* Sheet section */
       case 'sheets':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Sheets</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+      return (
+        <>
+          <Header tag="h1" textStyle="display-med">Sheets</Header>
+          <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+        </>
+      );
 
       /* Switch section */
       case 'switches':
@@ -150,12 +156,7 @@ function App() {
 
       /* Text Field section */
       case 'text-fields':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Text Fields</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+        return <ContentTextFields />;
 
       default:
         return (

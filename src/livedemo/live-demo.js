@@ -5,6 +5,8 @@ import 'prismjs/components/prism-jsx';
 import './live-demo.scss';
 import pretty from 'pretty';
 import { Checkbox } from '../checkboxes/checkbox';
+import { Dropdown } from '../dropdowns/dropdown';
+import { TextField } from '../textfields/textfield';
 
 const LiveDemo = ({
   component: Component,
@@ -80,6 +82,18 @@ const LiveDemo = ({
 
   const interactiveProps = { ...otherProps };
 
+  // Safely wire onChange for string "value" prop
+  if (
+    'value' in propSchema &&
+    propSchema.value.type === 'string' &&
+    typeof interactiveProps.value === 'string'
+  ) {
+    interactiveProps.onChange = (e) => {
+      const newValue = e.target?.value ?? e;
+      setPropsState((prev) => ({ ...prev, value: newValue }));
+    };
+  }
+
   Object.entries(propSchema).forEach(([key, config]) => {
     if (
       config.type === 'boolean' &&
@@ -100,19 +114,18 @@ const LiveDemo = ({
 
           if (config.type === 'enum') {
             return (
-              <label key={propName}>
-                <span className="input-label">{displayLabel}</span>
-                <select
+              <div key={propName} className="dropdown-wrapper">
+                <Dropdown
+                  label={displayLabel}
+                  options={config.options.map((option) => ({
+                    value: option,
+                    label: option,
+                  }))}
+                  labelStyle={'inline'}
                   value={propsState[propName]}
-                  onChange={(e) => handleChange(propName, e.target.value)}
-                >
-                  {config.options.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </label>
+                  onChange={(val) => handleChange(propName, val)}
+                />
+              </div>
             );
           }
 
@@ -124,21 +137,20 @@ const LiveDemo = ({
                 label={displayLabel}
                 checked={propsState[propName]}
                 onChange={(e) => handleChange(propName, e.target.checked)}
-                variant="border"
+                variant="contained"
               />
             );
           }
 
           if (config.type === 'string') {
             return (
-              <label key={propName}>
-                <span className="input-label">{displayLabel}</span>
-                <input
-                  type="text"
-                  value={propsState[propName]}
-                  onChange={(e) => handleChange(propName, e.target.value)}
-                />
-              </label>
+              <TextField
+                key={propName}
+                label={displayLabel}
+                value={propsState[propName]}
+                onChange={(e) => handleChange(propName, e.target.value)}
+                variant="attached"
+              />
             );
           }
 
@@ -147,9 +159,13 @@ const LiveDemo = ({
       </div>
 
       <div className='demo-preview' style={{ width: previewWidth }} ref={componentRef}>
+      {typeof customChildren === 'function' ? (
+        customChildren({ ...interactiveProps })
+        ) : (
         <Component {...interactiveProps}>
           {customChildren || children}
         </Component>
+        )}
       </div>
 
       <div className="code-preview">

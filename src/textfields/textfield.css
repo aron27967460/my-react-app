@@ -1,0 +1,165 @@
+@import url('../styles/typography.css');
+@import url('../styles/tokens.css');
+
+.text-field {
+  display: inline-flex;
+  align-items: center;
+
+}
+
+.text-field-separated {
+  gap: var(--spacing-1x);
+}
+
+.text-field-attached {
+  gap: var(--spacing-0x);
+}
+
+.text-field-stacked {
+  flex-direction:column;
+  align-items: flex-start;
+  background-color: transparent;
+}
+
+.text-field-label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-1p5x);
+  height: 40px;
+  border: 1px solid var(--surface-border);
+  font-family: var(--label-large-family);
+  font-size: var(--label-large-size);
+  line-height: var(--label-large-height);
+  letter-spacing: var(--label-large-tracking);
+  font-weight:var(--font-weight-regular);
+  background-color: var(--background-primary-color);
+  box-sizing: border-box;
+  background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
+  background-position: 0rem 0rem;
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-in-out;
+}
+
+.text-field:hover .text-field-label, .text-field:focus-within .text-field-label{
+  background-size: 100% 100%;
+  color: var(--on-surface-active);
+}
+
+.text-field-stacked:hover .text-field-label, .text-field-stacked:focus-within .text-field-label{
+  background-size:0% 100%;
+  color: var(--on-surface);
+}
+
+.text-field-stacked:hover .text-field-label-icon, .text-field-stacked:focus-within .text-field-label-icon{
+  background-size: 100% 100%;
+}
+
+.text-field-stacked .text-field-label {
+  border: none;
+  height: auto;
+  padding:0;
+  margin-bottom: var(--spacing-0p5x);
+  font-family: var(--label-med-family);
+  font-size: var(--label-med-size);
+  line-height: var(--label-med-height);
+  letter-spacing: var(--label-med-tracking);
+  font-weight:var(--font-weight-medium);
+}
+
+.text-field:hover .text-field-stacked .text-field-label {
+  background-size: 0% 100%;
+  color: var(--on-surface);
+}
+
+.text-field-label-icon{
+  padding: 0 var(--spacing-0p5x);
+  background-color: var(--background-primary-color);
+}
+
+.text-field-stacked .text-field-label-icon{
+  border: 1px solid var(--surface-border);
+  border-bottom:none;
+  margin-bottom: var(--spacing-0x);
+}
+
+
+.text-field-label-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--on-surface);
+}
+
+.text-field-stacked .text-field-label-icon svg{
+  width: 24px;
+  height: 24px;
+}
+
+.text-field:hover .text-field-label-icon svg, .text-field:focus-within .text-field-label-icon svg{
+  fill: var(--on-surface-active);
+}
+
+.text-field-input {
+  padding: 0 var(--spacing-1p5x);
+  height: 40px;
+  color: var(--placeholder-text-color);
+  border: 1px solid var(--surface-border);
+  font-family: var(--body-med-family);
+  font-size: var(--body-med-size);
+  line-height: var(--body-med-height);
+  letter-spacing: var(--body-med-tracking);
+  font-weight: var(--font-weight-regular);
+  background-color: var(--background-primary-color);
+  box-sizing: border-box;
+}
+
+.text-field-input::placeholder, .text-field-input::-webkit-input-placeholder {
+  color: var(--placeholder-text-color);
+  font-weight: var(--font-weight-regular);
+}
+
+.text-field-has-value .text-field-label {
+
+}
+
+.text-field-has-value .text-field-input {
+  color: var(--on-surface);
+}
+
+.text-field-input:focus{
+  outline: none;
+}
+
+.text-field-attached .text-field-input {
+  border-left: none;
+}
+
+.text-field-separated .text-field-input {
+  border: none;
+  padding-left:var(--spacing-1x);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.text-field-disabled .text-field-label,
+.text-field-disabled .text-field-input, .text-field-disabled:hover .text-field-label,
+.text-field-disabled:hover .text-field-input, .text-field-disabled:focus-within .text-field-label,
+.text-field-disabled:focus-within .text-field-input   {
+  color: var(--on-surface-disabled);
+  border-color: var(--on-surface-disabled);
+  background-size: 0% 100%;
+  cursor: not-allowed;
+}
+
+.text-field-disabled .text-field-label-icon svg, .text-field-disabled:hover .text-field-label-icon svg, .text-field-disabled:focus-within .text-field-label-icon svg{
+  fill: var(--on-surface-disabled);
+}
+
+.text-field-disabled .text-field-has-value .text-field-label{
+  background-color: var(--surface-disabled);
+}
+
+.text-field-disabled .text-field-input::placeholder {
+  color: var(--on-surface-disabled);
+}

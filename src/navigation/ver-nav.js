@@ -20,6 +20,8 @@ const navSections = [
       { label: 'Radio Buttons', key: 'radio-buttons'},
       { label: 'Switches', key: 'switches'},
       { label: 'Tabs', key: 'tabs'},
+      { label: 'Dropdowns', key: 'dropdowns'},
+      { label: 'Text Fields', key: 'text-fields'},
       { label: 'Content Pairing', key: 'content-pairing', disabled: true },
       { label: 'Dialogs', key: 'dialogs', disabled: true },
       { label: 'Directories', key: 'directories', disabled: true },
@@ -27,8 +29,7 @@ const navSections = [
       { label: 'Menu', key: 'menu', disabled: true },
       { label: 'Navigation', key: 'navigation', disabled: true },
       { label: 'Sheets', key: 'sheets', disabled: true },
-      { label: 'Tables', key: 'tables', disabled: true },
-      { label: 'Text Fields', key: 'text-fields', disabled: true }
+      { label: 'Tables', key: 'tables', disabled: true }
     ],
   },
 ];
