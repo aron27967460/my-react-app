@@ -70,6 +70,7 @@
   width: 100%;
   position: relative;
   margin:0;
+  color: var(--on-surface);
   padding: var(--spacing-0x) var(--spacing-1p5x);
   height: 40px;
   border: 1px solid var(--surface-border);
