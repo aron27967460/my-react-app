@@ -46,33 +46,28 @@ const columnsElement = [
   { header: 'Element', accessor: 'element'},
   { header: 'Relevant Class', accessor: 'class'},
   { header: 'Property', accessor: 'property'},
-  { header: 'Token', accessor: 'token'}
 ];
 
 const dataElement = [
   {
     element: 'radio set container',
     class: 'radio-group',
-    property: '',
-    token: ''
+    property: ''
   },
   {
     element: 'radio container',
     class: 'radio-wrapper',
-    property: '',
-    token: ''
+    property: ''
   },
   {
     element: 'radiomark',
     class: 'radiomark',
-    property: 'background-size',
-    token: 'interactive/on-surface'
+    property: 'background-size'
   },
   {
     element: 'label',
     class: 'label-text',
-    property: 'color',
-    token: 'interactive/on-surface'
+    property: 'color'
   },
 ];
 
@@ -174,20 +169,6 @@ export default function ContentRadioButtons() {
       </div>
       </Row>
 
-      <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-      <Row itemsPerRow={2} rowWidth="full" >
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-radiobuttons/radiobutton-anatomy.png" alt="checkbox anatomy example 1" />
-      </div>
-      <div>
-      <List>
-        <ListItem>A. Set Container</ListItem>
-        <ListItem>B. Button Container</ListItem>
-        <ListItem>C. Radiomark</ListItem>
-        <ListItem>D. Label</ListItem>
-      </List>
-      </div>
-      </Row>
       <Header tag="h2" textStyle="headline-med">Applications</Header>
       <Row itemsPerRow={4} rowWidth="full">
         <div>
@@ -226,8 +207,34 @@ export default function ContentRadioButtons() {
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
         <Row><Table columns={columnsElement} data={dataElement} /></Row>
+
+        <Header tag="h2" textStyle="headline-med">Anatomy</Header>
+        <Row itemsPerRow={2} rowWidth="full" >
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-radiobuttons/radiobutton-anatomy.png" alt="checkbox anatomy example 1" />
+        </div>
+        <div>
+        <List>
+          <ListItem>A. Set Container</ListItem>
+          <ListItem>B. Button Container</ListItem>
+          <ListItem>C. Radiomark</ListItem>
+          <ListItem>D. Label</ListItem>
+        </List>
+        </div>
+        </Row>
+        
         <Header tag="h2" textStyle="headline-med">States</Header>
         <Row><Table columns={columnsState} data={dataState} /></Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-radiobuttons/hover.png" alt="radio button state" withMargin="false"/>
+        <Image src="/assets/content-radiobuttons/pressed.png" alt="radio button pressed state" withMargin="false"/>
+        <Image src="/assets/content-radiobuttons/focus.png" alt="radio button focus state" withMargin="false"/>
+        <Image src="/assets/content-radiobuttons/disabled.png" alt="radio button disabled state" withMargin="false"/>
+        <Image src="/assets/content-radiobuttons/selected-hover.png" alt="radio button selected.hover state" withMargin="false"/>
+        <Image src="/assets/content-radiobuttons/selected-pressed.png" alt="radio button selected.pressed state" withMargin="false"/>
+        <Image src="/assets/content-radiobuttons/selected-focus.png" alt="radio button selected.focus state" withMargin="false"/>
+        <Image src="/assets/content-radiobuttons/selected-disabled.png" alt="radio button selected.disabled state" withMargin="false"/>
+        </Row>
       </>
     )}
 

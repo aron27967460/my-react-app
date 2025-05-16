@@ -85,10 +85,38 @@ const dataState = [
     element: 'checkbox',
     property: 'background-size',
     token: 'interactive/surface-active',
-    effect: ''
+    effect: 'pressed-inner-shadow'
   },
   {
     state: 'Disabled',
+    element: 'checkbox',
+    property: 'background-color',
+    token: 'interactive/on-surface-disabled',
+    effect: ''
+  },
+  {
+    state: 'Checked.Hover',
+    element: 'checkbox',
+    property: 'background-size',
+    token: 'interactive/surface-active',
+    effect: ''
+  },
+  {
+    state: 'Checked.Pressed',
+    element: 'checkbox',
+    property: 'background-size',
+    token: 'interactive/surface-active',
+    effect: 'pressed-inner-shadow'
+  },
+  {
+    state: 'Checked.Focused',
+    element: 'checkbox',
+    property: 'background-size',
+    token: 'interactive/surface-active',
+    effect: 'pressed-inner-shadow'
+  },
+  {
+    state: 'Checked.Disabled',
     element: 'checkbox',
     property: 'background-color',
     token: 'interactive/on-surface-disabled',
@@ -132,39 +160,11 @@ export default function ContentCheckboxes() {
       </div>
       </Row>
 
-
-      <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-
-      <Row itemsPerRow={4} rowWidth="full" >
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-checkboxes/checkbox-anatomy.png" alt="checkbox anatomy example 1" />
-      </div>
-      <div>
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Default</Header>
-      <List>
-        <ListItem>A. Container (Visually absent)</ListItem>
-        <ListItem>B. Checkbox</ListItem>
-        <ListItem>C. Label</ListItem>
-      </List>
-      </div>
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-checkboxes/checkbox2-anatomy.png" alt="checkbox anatomy example 2" />
-      </div>
-      <div>
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Contained</Header>
-      <List>
-      <ListItem>A. Container</ListItem>
-      <ListItem>B. Checkbox</ListItem>
-      <ListItem>C. Label</ListItem>
-      </List>
-      </div>
-      </Row>
-
       <Header tag="h2" textStyle="headline-med">Applications</Header>
       <Row itemsPerRow={4} rowWidth="full">
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Default for Multi Select</Header>
-        <TextRow textStyle="body-large" spacing="in-columns">When there are multiple options within a set, make sure to use the default style.</TextRow>
+        <TextRow textStyle="body-large" spacing="in-columns">When there are multiple options within a set, it is recommended to use the default inline style for organizations.</TextRow>
         </div>
         <div>
           <Image variant="fullwidth" withMargin="false" src="/assets/content-checkboxes/application1.png" alt="Checkbox default - application example" />
@@ -192,8 +192,45 @@ export default function ContentCheckboxes() {
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
         <Row><Table columns={columnsElement} data={dataElement} /></Row>
+
+        <Header tag="h2" textStyle="headline-med">Anatomy</Header>
+        <Row itemsPerRow={4} rowWidth="full" >
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-checkboxes/checkbox-anatomy.png" alt="checkbox anatomy example 1" />
+        </div>
+        <div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Default</Header>
+        <List>
+          <ListItem>A. Container (Visually absent)</ListItem>
+          <ListItem>B. Checkbox</ListItem>
+          <ListItem>C. Label</ListItem>
+        </List>
+        </div>
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-checkboxes/checkbox2-anatomy.png" alt="checkbox anatomy example 2" />
+        </div>
+        <div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Contained</Header>
+        <List>
+        <ListItem>A. Container</ListItem>
+        <ListItem>B. Checkbox</ListItem>
+        <ListItem>C. Label</ListItem>
+        </List>
+        </div>
+        </Row>
+
         <Header tag="h2" textStyle="headline-med">States</Header>
         <Row><Table columns={columnsState} data={dataState} /></Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-checkboxes/hover.png" alt="checkbox hover state" withMargin="false"/>
+        <Image src="/assets/content-checkboxes/pressed.png" alt="checkbox pressed state" withMargin="false"/>
+        <Image src="/assets/content-checkboxes/focus.png" alt="checkbox focus state" withMargin="false"/>
+        <Image src="/assets/content-checkboxes/disabled.png" alt="checkbox disabled state" withMargin="false"/>
+        <Image src="/assets/content-checkboxes/selected-hover.png" alt="checkbox checked.hover state" withMargin="false"/>
+        <Image src="/assets/content-checkboxes/selected-pressed.png" alt="checkbox checked.pressed state" withMargin="false"/>
+        <Image src="/assets/content-checkboxes/selected-focus.png" alt="checkbox checked.focus state" withMargin="false"/>
+        <Image src="/assets/content-checkboxes/selected-disabled.png" alt="checkbox checked.disabled state" withMargin="false"/>
+        </Row>
       </>
     )}
 

@@ -1,0 +1,145 @@
+import React, { useEffect, useRef, useState } from 'react';
+import './dialog.css';
+import { createPortal } from 'react-dom';
+import Button from '../buttons/button';
+
+const Dialog = ({
+  isOpen,
+  onClose,
+  hasScrim = true,
+  anchorRef = null,
+  dialogWidth ="small",
+  headline,
+  icon,
+  context,
+  body,
+  actions,
+  children
+}) => {
+  const contentRef = useRef(null);
+  const [position, setPosition] = useState({ top: 0, left: 0 });
+
+  // Prevent scroll when dialog is open
+  useEffect(() => {
+    if (isOpen && hasScrim) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isOpen, hasScrim]);
+
+  // Update position below anchor when no scrim
+  useEffect(() => {
+    if (isOpen && !hasScrim && anchorRef?.current) {
+      const rect = anchorRef.current.getBoundingClientRect();
+      setPosition({
+        top: rect.bottom + window.scrollY + 16,
+        left: rect.left + window.scrollX,
+      });
+    }
+  }, [isOpen, hasScrim, anchorRef]);
+
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (contentRef.current && !contentRef.current.contains(event.target)) {
+        onClose?.();
+      }
+    };
+
+    const shouldAddListener = isOpen && !hasScrim;
+    if (shouldAddListener) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      if (shouldAddListener) {
+        document.removeEventListener('mousedown', handleClickOutside);
+      }
+    };
+  }, [isOpen, hasScrim, onClose]);
+
+  if (!isOpen) return null;
+
+   const handleScrimClick = () => {
+     if (!hasScrim) onClose?.();
+   };
+
+  return createPortal(
+    <div
+     className={`dialog-container ${hasScrim ? 'with-scrim' : 'inline-positioned'}`}
+     role="dialog"
+     aria-modal={hasScrim}
+     onClick={handleScrimClick}
+     style={!hasScrim ? { top: `${position.top}px`, left: `${position.left}px` } : {}}
+   >
+     {hasScrim && <div className="dialog-scrim" aria-hidden="true" />}
+     <div
+       ref={contentRef}
+       className={`dialog-content dialog-width-${dialogWidth}`}
+       onClick={(e) => e.stopPropagation()}
+     >
+        {children ? (
+          children
+        ) : (
+          <>
+            {(headline || icon) && (
+              <div className="dialog-headline">
+                {icon && <span className="dialog-headline-icon">{icon}</span>}
+                {headline && <h2 className="dialog-headline-text">{headline}</h2>}
+              </div>
+            )}
+            {context && <div className="dialog-context">{context}</div>}
+
+            {body && <div className="dialog-body">{body}</div>}
+
+            {actions && (
+              <div className="dialog-actions">
+                {actions.map((action, i) => (
+                  <Button
+                    key={i}
+                    variant={action.variant || 'outline'} // your default is 'outline'
+                    iconName={action.iconName}            // optional, supports star, add, etc.
+                    onClick={action.onClick}
+                  >
+                    {action.label}
+                  </Button>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    </div>,
+    document.body
+  );
+};
+
+// Slot-based subcomponents for more control
+const DialogHeadline = ({ icon, children }) => (
+  <div className="dialog-headline">
+    {icon && <span className="dialog-icon">{icon}</span>}
+    <h2 className="dialog-headline-text">{children}</h2>
+  </div>
+);
+
+const DialogContext = ({ children }) => (
+  <div className="dialog-context">{children}</div>
+);
+
+const DialogBody = ({ children }) => (
+  <div className="dialog-body">{children}</div>
+);
+
+const DialogActions = ({ children }) => (
+  <div className="dialog-actions">{children}</div>
+);
+
+Dialog.Headline = DialogHeadline;
+Dialog.Context = DialogContext;
+Dialog.Body = DialogBody;
+Dialog.Actions = DialogActions;
+
+export default Dialog;

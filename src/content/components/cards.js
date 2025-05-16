@@ -33,7 +33,6 @@ const columnsCard = [
   { header: 'Element', accessor: 'element'},
   { header: 'Relevant Class', accessor: 'class'},
   { header: 'Property', accessor: 'property'},
-  { header: 'Color Token', accessor: 'token'}
 ];
 
 const dataCard = [
@@ -41,31 +40,26 @@ const dataCard = [
     element: 'card container',
     class: 'card',
     property: 'background-size',
-    token: 'interactive/on-surface'
   },
   {
     element: 'image',
     class: 'smart-image, smart-image-bg',
     property: 'background-image',
-    token: ''
   },
   {
     element: 'text container',
     class: 'label-wrapper',
     property: 'padding',
-    token: 'spacing-0x'
   },
   {
     element: 'label',
     class: 'label',
     property: 'color',
-    token: 'interactive/on-surface'
   },
   {
     element: 'tag',
     class: 'tag',
     property: 'color',
-    token: 'interactive/on-surface'
   },
 ];
 
@@ -188,16 +182,7 @@ export default function ContentCards() {
       <div><Card cardStyle="default" imgPreview="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" label="Default - Flat"/></div>
       <div><Card cardStyle="elevated" imgPreview="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" label="Elevated Variant"/></div>
       </Row>
-      <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-      <Row itemsPerRow={3} rowWidth="full" >
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-cards/card-anatomy.png" alt="card anatomy example" /></div>
-      <List>
-        <ListItem>A. Card container</ListItem>
-        <ListItem>B. Image</ListItem>
-        <ListItem>C. Tag (optional)</ListItem>
-        <ListItem>D. Title</ListItem>
-      </List>
-      </Row>
+
       <Header tag="h2" textStyle="headline-med">Applications</Header>
       <Row itemsPerRow={3}>
       <div>
@@ -223,9 +208,26 @@ export default function ContentCards() {
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
         <Row><Table columns={columnsCard} data={dataCard} /></Row>
+
+        <Header tag="h2" textStyle="headline-med">Anatomy</Header>
+        <Row itemsPerRow={3} rowWidth="full" >
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-cards/card-anatomy.png" alt="card anatomy example" /></div>
+        <List>
+          <ListItem>A. Card container</ListItem>
+          <ListItem>B. Image</ListItem>
+          <ListItem>C. Tag (optional)</ListItem>
+          <ListItem>D. Title</ListItem>
+        </List>
+        </Row>
+
         <Header tag="h2" textStyle="headline-med">States</Header>
-        <TextRow textStyle="body-large">How state change affect card.</TextRow>
         <Row><Table columns={columnsCardState} data={dataCardState} /></Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-cards/hover.png" alt="card hover state" withMargin="false"/>
+        <Image src="/assets/content-cards/pressed.png" alt="card pressed state" withMargin="false"/>
+        <Image src="/assets/content-cards/focus.png" alt="card focus state" withMargin="false"/>
+        <Image src="/assets/content-cards/disabled.png" alt="card disabled state" withMargin="false"/>
+        </Row>
       </>
     )}
 

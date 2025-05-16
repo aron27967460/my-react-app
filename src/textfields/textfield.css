@@ -135,6 +135,7 @@
 
 .text-field-input:focus{
   outline: none;
+  color: var(--on-surface);
 }
 
 .text-field-attached .text-field-input {

@@ -10,11 +10,6 @@ import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 import { TextField } from '../../textfields/textfield';
 
-const options = [
-  { label: "Apple", value: "Apple" },
-  { label: "Banana", value: "Banana" },
-  { label: "Cherry", value: "Cherry" },
-];
 
 const radioPropSchema = {
   name: {
@@ -269,48 +264,6 @@ export default function ContentTextFields() {
         </div>
       </Row>
 
-      <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-      <Row itemsPerRow={3} rowWidth="full" >
-      <div>
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-textfields/textfield-anatomy1.png" alt="text field anatomy example 1" />
-      </div>
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Textfield - Separated variant</Header>
-      <List>
-        <ListItem>A. Label Container</ListItem>
-        <ListItem>B. Text Label</ListItem>
-        <ListItem>C. Input</ListItem>
-        <ListItem>D. Input Container</ListItem>
-        <ListItem>E. Textfield Wrapper</ListItem>
-      </List>
-      </div>
-      <div>
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-textfields/textfield-anatomy3.png" alt="text field anatomy example 2" />
-      </div>
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Textfield - Separated variant</Header>
-      <List>
-      <ListItem>A. Label Container</ListItem>
-      <ListItem>B. Text Label</ListItem>
-      <ListItem>C. Input</ListItem>
-      <ListItem>D. Input Container</ListItem>
-      <ListItem>E. Textfield Wrapper</ListItem>
-      </List>
-      </div>
-      <div>
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-textfields/textfield-anatomy2.png" alt="text field anatomy example 3" />
-      </div>
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Textfield - Separated with icon variant</Header>
-      <List>
-      <ListItem>A. Label Container</ListItem>
-      <ListItem>C. Input</ListItem>
-      <ListItem>D. Input Container</ListItem>
-      <ListItem>E. Textfield Wrapper</ListItem>
-      <ListItem>F. Icon Label</ListItem>
-      </List>
-      </div>
-      </Row>
       <Header tag="h2" textStyle="headline-med">Applications</Header>
       <Row itemsPerRow={3}>
       <div>
@@ -328,8 +281,62 @@ export default function ContentTextFields() {
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
         <Row><Table columns={columnsElement} data={dataElement} /></Row>
+
+        <Header tag="h2" textStyle="headline-med">Anatomy</Header>
+        <Row itemsPerRow={3} rowWidth="full" >
+        <div>
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-textfields/textfield-anatomy1.png" alt="text field anatomy example 1" />
+        </div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Textfield - Separated variant</Header>
+        <List>
+          <ListItem>A. Label Container</ListItem>
+          <ListItem>B. Text Label</ListItem>
+          <ListItem>C. Input</ListItem>
+          <ListItem>D. Input Container</ListItem>
+          <ListItem>E. Textfield Wrapper</ListItem>
+        </List>
+        </div>
+        <div>
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-textfields/textfield-anatomy3.png" alt="text field anatomy example 2" />
+        </div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Textfield - Separated variant</Header>
+        <List>
+        <ListItem>A. Label Container</ListItem>
+        <ListItem>B. Text Label</ListItem>
+        <ListItem>C. Input</ListItem>
+        <ListItem>D. Input Container</ListItem>
+        <ListItem>E. Textfield Wrapper</ListItem>
+        </List>
+        </div>
+        <div>
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-textfields/textfield-anatomy2.png" alt="text field anatomy example 3" />
+        </div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Textfield - Separated with icon variant</Header>
+        <List>
+        <ListItem>A. Label Container</ListItem>
+        <ListItem>C. Input</ListItem>
+        <ListItem>D. Input Container</ListItem>
+        <ListItem>E. Textfield Wrapper</ListItem>
+        <ListItem>F. Icon Label</ListItem>
+        </List>
+        </div>
+        </Row>
+
         <Header tag="h2" textStyle="headline-med">States</Header>
         <Row><Table columns={columnsState} data={dataState} /></Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-textfields/enabled.png" alt="textfield enabled state" withMargin="false"/>
+        <Image src="/assets/content-textfields/hover.png" alt="textfield hover state" withMargin="false"/>
+        <Image src="/assets/content-textfields/focus.png" alt="textfield focus state" withMargin="false"/>
+        <Image src="/assets/content-textfields/disabled.png" alt="textfield disabled state" withMargin="false"/>
+        <Image src="/assets/content-textfields/filled-enabled.png" alt="textfield filled.enabled state" withMargin="false"/>
+        <Image src="/assets/content-textfields/filled-hover.png" alt="textfield filled.hover state" withMargin="false"/>
+        <Image src="/assets/content-textfields/filled-focus.png" alt="textfield filled.focus state" withMargin="false"/>
+        <Image src="/assets/content-textfields/filled-disabled.png" alt="textfield filled.disabled state" withMargin="false"/>
+        </Row>
       </>
     )}
 

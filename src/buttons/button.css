@@ -2,6 +2,7 @@
 @import url('../styles/typography.css');
 @import url('../styles/tokens.css');
 
+/*universal style across variants*/
 .btn{
   display: inline-flex;
   cursor: pointer;
@@ -92,7 +93,7 @@
   fill: var(--on-surface-active);
 }
 
-.btn-outline:FOCUS .btn-icon svg{
+.btn-outline:focus .btn-icon svg{
   fill: var(--on-surface-active);
 }
 

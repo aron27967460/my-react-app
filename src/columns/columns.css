@@ -40,11 +40,11 @@
 }
 
 .items-per-row-4{
-  gap: var(--spacing-4x);
+  gap: var(--spacing-2x);
 }
 
 .items-per-row-4 .row-item {
-  flex-basis: calc((100% - var(--spacing-4x)) / 2);
+  flex-basis: calc((100% - var(--spacing-2x)) / 2);
 }
 
 .items-per-row-6 .row-item {
@@ -75,7 +75,7 @@
   .items-per-row-2 .row-item,
   .items-per-row-4 .row-item,
   .items-per-row-8 .row-item {
-    flex-basis: calc((100% - var(--spacing-4x)) / 2);
+    flex-basis: calc((100% - var(--spacing-2x)) / 2);
   }
 
   .row-width-60 {

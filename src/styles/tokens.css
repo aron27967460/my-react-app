@@ -3,6 +3,7 @@
 :root{
 
     /*corner radius*/
+    --corner-0x:0rem;
     --corner-1x:0.5rem;
 
     /*spacing*/

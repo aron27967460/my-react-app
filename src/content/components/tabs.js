@@ -51,28 +51,24 @@ const dataTab = [
 const columnsTabElement = [
   { header: 'Element', accessor: 'element'},
   { header: 'Relevant Class', accessor: 'class'},
-  { header: 'Property', accessor: 'property'},
-  { header: 'Token', accessor: 'token'}
+  { header: 'Property', accessor: 'property'}
 ];
 
 const dataTabElement = [
   {
     element: 'tabs container',
     class: 'tabs-container',
-    property: 'border, box-shadow',
-    token: 'interactive/border-tertiary-color'
+    property: 'border, box-shadow'
   },
   {
     element: 'tab',
     class: 'tab',
-    property: 'backgorund-size',
-    token: 'interactive/on-surface'
+    property: 'backgorund-size'
   },
   {
     element: 'tab label',
     class: 'tab, tab-style-*',
-    property: 'color, font-size',
-    token: 'interactive/on-surface'
+    property: 'color, font-size'
   },
 ];
 
@@ -207,16 +203,6 @@ export default function ContentTabs() {
       </div>
       </Row>
 
-
-      <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-      <Row itemsPerRow={3} rowWidth="full" >
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-tabs/tabs-anatomy.png" alt="tabs anatomy example" /></div>
-      <List>
-        <ListItem>A. Tab</ListItem>
-        <ListItem>B. Tabs Container</ListItem>
-        <ListItem>C. Tab label</ListItem>
-      </List>
-      </Row>
       <Header tag="h2" textStyle="headline-med">Applications</Header>
       <Row itemsPerRow={3}>
       <div>
@@ -234,9 +220,33 @@ export default function ContentTabs() {
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
         <Row><Table columns={columnsTabElement} data={dataTabElement} /></Row>
+
+        <Header tag="h2" textStyle="headline-med">Anatomy</Header>
+        <Row itemsPerRow={3} rowWidth="full" >
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-tabs/tabs-anatomy.png" alt="tabs anatomy example" /></div>
+        <List>
+          <ListItem>A. Tab</ListItem>
+          <ListItem>B. Tabs Container</ListItem>
+          <ListItem>C. Tab label</ListItem>
+        </List>
+        </Row>
+
         <Header tag="h2" textStyle="headline-med">States</Header>
-        <TextRow textStyle="body-large">How state change affect each tab.</TextRow>
         <Row><Table columns={columnsTabState} data={dataTabState} /></Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-tabs/enabled.png" alt="tab enabled state" withMargin="false"/>
+        <Image src="/assets/content-tabs/hover.png" alt="tab hover state" withMargin="false"/>
+        <Image src="/assets/content-tabs/pressed.png" alt="tab pressed state" withMargin="false"/>
+        <Image src="/assets/content-tabs/focus.png" alt="tab focus state" withMargin="false"/>
+        <Image src="/assets/content-tabs/disabled.png" alt="tab disabled state" withMargin="false"/>
+        </Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-tabs/selected-enabled.png" alt="tab enabled state" withMargin="false"/>
+        <Image src="/assets/content-tabs/selected-hover.png" alt="tab selected.hover state" withMargin="false"/>
+        <Image src="/assets/content-tabs/selected-pressed.png" alt="tab selected.pressed state" withMargin="false"/>
+        <Image src="/assets/content-tabs/selected-focus.png" alt="tab selectd.focus state" withMargin="false"/>
+        <Image src="/assets/content-tabs/selected-disabled.png" alt="tab selected.disabled state" withMargin="false"/>
+        </Row>
       </>
     )}
 

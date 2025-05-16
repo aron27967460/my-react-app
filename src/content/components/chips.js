@@ -38,34 +38,29 @@ const dataVariant = [
 const columnsElement = [
   { header: 'Element', accessor: 'element'},
   { header: 'Relevant Class', accessor: 'class'},
-  { header: 'Property', accessor: 'property'},
-  { header: 'Token', accessor: 'token'}
+  { header: 'Property', accessor: 'property'}
 ];
 
 const dataElement = [
   {
     element: 'container',
     class: 'chip',
-    property: 'backgorund-size',
-    token: ''
+    property: 'backgorund-size'
   },
   {
     element: 'container',
     class: 'chip',
-    property: 'border-color',
-    token: 'interactive/surface-border'
+    property: 'border-color'
   },
   {
     element: 'icon',
     class: 'chip-icon',
-    property: 'color',
-    token: 'interactive/on-surface'
+    property: 'color'
   },
   {
     element: 'label',
     class: 'chip-label',
-    property: 'color',
-    token: 'interactive/on-surface'
+    property: 'color'
   },
 ];
 
@@ -213,17 +208,6 @@ export default function ContentChips() {
         </div>
       </Row>
 
-
-      <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-      <Row itemsPerRow={3} rowWidth="full" >
-        <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-chips/chips-anatomy.png" alt="chip anatomy example" /></div>
-        <List>
-          <ListItem>A. Chip container</ListItem>
-          <ListItem>B. Leading icon (Variant dependant, optional)</ListItem>
-          <ListItem>C. Label</ListItem>
-          <ListItem>D. Trailing icon (Removable variant)</ListItem>
-        </List>
-      </Row>
       <Header tag="h2" textStyle="headline-med">Applications</Header>
       <Row itemsPerRow={4} rowWidth="full">
         <div>
@@ -233,7 +217,7 @@ export default function ContentChips() {
         <div>
           <Image variant="fullwidth" withMargin="false" src="/assets/content-chips/context-example.png" alt="context chip - application example" />
         </div>
-        
+
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Selectable</Header>
         <TextRow textStyle="body-large" spacing="in-columns">Selectable chips are persistent elements to help users to filter content. Each chip should present relevant description in regards to users' intent.</TextRow>
@@ -257,8 +241,30 @@ export default function ContentChips() {
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
         <Row><Table columns={columnsElement} data={dataElement} /></Row>
+
+        <Header tag="h2" textStyle="headline-med">Anatomy</Header>
+        <Row itemsPerRow={3} rowWidth="full" >
+          <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-chips/chips-anatomy.png" alt="chip anatomy example" /></div>
+          <List>
+            <ListItem>A. Chip container</ListItem>
+            <ListItem>B. Leading icon (Variant dependant, optional)</ListItem>
+            <ListItem>C. Label</ListItem>
+            <ListItem>D. Trailing icon (Removable variant)</ListItem>
+          </List>
+        </Row>
+        
         <Header tag="h2" textStyle="headline-med">States</Header>
         <Row><Table columns={columnsState} data={dataState} /></Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-chips/hover.png" alt="chip state" withMargin="false"/>
+        <Image src="/assets/content-chips/pressed.png" alt="chip pressed state" withMargin="false"/>
+        <Image src="/assets/content-chips/focus.png" alt="chip focus state" withMargin="false"/>
+        <Image src="/assets/content-chips/disabled.png" alt="chip disabled state" withMargin="false"/>
+        <Image src="/assets/content-chips/selected-hover.png" alt="chip selected.hover state" withMargin="false"/>
+        <Image src="/assets/content-chips/selected-pressed.png" alt="chip selected.pressed state" withMargin="false"/>
+        <Image src="/assets/content-chips/selected-focus.png" alt="chip selected.focus state" withMargin="false"/>
+        <Image src="/assets/content-chips/selected-disabled.png" alt="chip selected.disabled state" withMargin="false"/>
+        </Row>
       </>
     )}
 

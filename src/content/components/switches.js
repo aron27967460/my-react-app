@@ -46,40 +46,34 @@ const dataVariant = [
 const columnsElement = [
   { header: 'Element', accessor: 'element'},
   { header: 'Relevant Class', accessor: 'class'},
-  { header: 'Property', accessor: 'property'},
-  { header: 'Token', accessor: 'token'}
+  { header: 'Property', accessor: 'property'}
 ];
 
 const dataElement = [
   {
     element: 'container',
     class: 'switch',
-    property: '',
-    token: ''
+    property: ''
   },
   {
     element: 'track',
     class: 'track',
-    property: 'border-color',
-    token: 'interactive/on-surface'
+    property: 'border-color'
   },
   {
     element: '',
     class: '',
-    property: 'background-size',
-    token: ''
+    property: 'background-size'
   },
   {
     element: 'toggle',
     class: 'toggle',
-    property: 'background-color',
-    token: 'interactive/on-surface'
+    property: 'background-color'
   },
   {
     element: '',
     class: '',
-    property: 'height & width',
-    token: ''
+    property: 'height & width'
   },
 ];
 
@@ -198,7 +192,7 @@ const dataState = [
     effect: ''
   },
   {
-    state: 'Checked:Disabled',
+    state: '',
     element: 'toggle',
     property: 'background-color',
     token: 'interactive/on-surface-disabled',
@@ -256,29 +250,6 @@ export default function ContentRadioButtons() {
       </div>
       </Row>
 
-      <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-      <Row itemsPerRow={3} rowWidth="full" >
-      <div>
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-switches/switch-off-anatomy.png" alt="switch off anatomy example" />
-      </div>
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Switch - Off</Header>
-      <List>
-        <ListItem>A. Track</ListItem>
-        <ListItem>B. Toggle</ListItem>
-      </List>
-      </div>
-      <div>
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-switches/switch-on-anatomy.png" alt="switch on anatomy example" />
-      </div>
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Switch - On</Header>
-      <List>
-        <ListItem>A. Track</ListItem>
-        <ListItem>B. Toggle</ListItem>
-      </List>
-      </div>
-      </Row>
       <Header tag="h2" textStyle="headline-med">Applications</Header>
       <Row itemsPerRow={4} rowWidth="full">
         <div>
@@ -304,8 +275,43 @@ export default function ContentRadioButtons() {
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
         <Row><Table columns={columnsElement} data={dataElement} /></Row>
+
+        <Header tag="h2" textStyle="headline-med">Anatomy</Header>
+        <Row itemsPerRow={3} rowWidth="full" >
+        <div>
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-switches/switch-off-anatomy.png" alt="switch off anatomy example" />
+        </div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Switch - Off</Header>
+        <List>
+          <ListItem>A. Track</ListItem>
+          <ListItem>B. Toggle</ListItem>
+        </List>
+        </div>
+        <div>
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-switches/switch-on-anatomy.png" alt="switch on anatomy example" />
+        </div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Switch - On</Header>
+        <List>
+          <ListItem>A. Track</ListItem>
+          <ListItem>B. Toggle</ListItem>
+        </List>
+        </div>
+        </Row>
+
         <Header tag="h2" textStyle="headline-med">States</Header>
         <Row><Table columns={columnsState} data={dataState} /></Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-switches/hover.png" alt="switch hover state" withMargin="false"/>
+        <Image src="/assets/content-switches/pressed.png" alt="switch pressed state" withMargin="false"/>
+        <Image src="/assets/content-switches/focus.png" alt="switch focus state" withMargin="false"/>
+        <Image src="/assets/content-switches/disabled.png" alt="switch disabled state" withMargin="false"/>
+        <Image src="/assets/content-switches/checked-hover.png" alt="switch checked.hover state" withMargin="false"/>
+        <Image src="/assets/content-switches/checked-pressed.png" alt="switch checked.pressed state" withMargin="false"/>
+        <Image src="/assets/content-switches/checked-focus.png" alt="switch checked.focus state" withMargin="false"/>
+        <Image src="/assets/content-switches/checked-disabled.png" alt="switch checked.disabled state" withMargin="false"/>
+        </Row>
       </>
     )}
 

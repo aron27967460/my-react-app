@@ -24,6 +24,7 @@ import ContentButtons from './content/components/buttons';
 import ContentCards from './content/components/cards';
 import ContentCheckboxes from './content/components/checkboxes';
 import ContentChips from './content/components/chips';
+import ContentDialogs from './content/components/dialogs';
 import ContentDropdowns from './content/components/dropdowns';
 import ContentRadioButtons from './content/components/radio-buttons';
 import ContentSwitches from './content/components/switches';
@@ -77,12 +78,7 @@ function App() {
 
       /* Dialog section */
       case 'dialogs':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Dialogs</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+        return <ContentDialogs />;
 
       /* Directories section */
       case 'directories':

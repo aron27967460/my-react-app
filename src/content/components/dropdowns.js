@@ -267,34 +267,6 @@ export default function ContentDropdowns() {
         </div>
       </Row>
 
-      <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-      <Row itemsPerRow={3} rowWidth="full" >
-      <div>
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-dropdowns/dropdown-anatomy1.png" alt="dropdown anatomy example 1" />
-      </div>
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dropdown - Collapsed</Header>
-      <List>
-        <ListItem>A. Label</ListItem>
-        <ListItem>B. Label Container</ListItem>
-        <ListItem>C. Input</ListItem>
-        <ListItem>D. Dropdown Indicator</ListItem>
-        <ListItem>E. Input Container</ListItem>
-      </List>
-      </div>
-      <div>
-      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-      <Image variant="fullwidth" src="/assets/content-dropdowns/dropdown-anatomy2.png" alt="dropdown anatomy example 2" />
-      </div>
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dropdown - Expanded</Header>
-      <List>
-      <ListItem>F. List Container</ListItem>
-      <ListItem>G. List Item Container</ListItem>
-      <ListItem>H. Item Label</ListItem>
-      <ListItem>I. Checkbox (Only for multi select)</ListItem>
-      </List>
-      </div>
-      </Row>
       <Header tag="h2" textStyle="headline-med">Applications</Header>
 
       <Row itemsPerRow={3}>
@@ -329,8 +301,44 @@ export default function ContentDropdowns() {
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
         <Row><Table columns={columnsElement} data={dataElement} /></Row>
+
+        <Header tag="h2" textStyle="headline-med">Anatomy</Header>
+        <Row itemsPerRow={3} rowWidth="full" >
+        <div>
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-dropdowns/dropdown-anatomy1.png" alt="dropdown anatomy example 1" />
+        </div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dropdown - Collapsed</Header>
+        <List>
+          <ListItem>A. Label</ListItem>
+          <ListItem>B. Label Container</ListItem>
+          <ListItem>C. Input</ListItem>
+          <ListItem>D. Dropdown Indicator</ListItem>
+          <ListItem>E. Input Container</ListItem>
+        </List>
+        </div>
+        <div>
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+        <Image variant="fullwidth" src="/assets/content-dropdowns/dropdown-anatomy2.png" alt="dropdown anatomy example 2" />
+        </div>
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dropdown - Expanded</Header>
+        <List>
+        <ListItem>F. List Container</ListItem>
+        <ListItem>G. List Item Container</ListItem>
+        <ListItem>H. Item Label</ListItem>
+        <ListItem>I. Checkbox (Only for multi select)</ListItem>
+        </List>
+        </div>
+        </Row>
+        
         <Header tag="h2" textStyle="headline-med">States</Header>
         <Row><Table columns={columnsState} data={dataState} /></Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-dropdowns/hover.png" alt="dropdown hover state" withMargin="false"/>
+        <Image src="/assets/content-dropdowns/pressed.png" alt="dropdown pressed state" withMargin="false"/>
+        <Image src="/assets/content-dropdowns/focus.png" alt="dropdown focus state" withMargin="false"/>
+        <Image src="/assets/content-dropdowns/disabled.png" alt="dropdown disabled state" withMargin="false"/>
+        </Row>
       </>
     )}
 

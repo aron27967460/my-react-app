@@ -9,13 +9,13 @@ import List, { ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 
-const columns = [
+const columnsVariant = [
   { header: 'Variant', accessor: 'variant'},
   { header: 'Usage', accessor: 'usage'},
   { header: 'Purpose', accessor: 'purpose', flex: 50 }
 ];
 
-const data = [
+const dataVariant = [
   {
     variant: 'Outline',
     usage: 'Primary',
@@ -38,35 +38,31 @@ const data = [
   }
 ];
 
-const columnsButton = [
+const columnsElement = [
   { header: 'Element', accessor: 'element'},
   { header: 'Relevant Class', accessor: 'class'},
   { header: 'Property', accessor: 'property'},
-  { header: 'Token', accessor: 'token'}
 ];
 
-const dataButton = [
+const dataElement = [
   {
     element: 'label text',
     class: 'btn',
-    property: 'color',
-    token: 'interactive/on-surface'
+    property: 'color'
   },
   {
     element: 'container',
     class: 'btn',
     property: 'background-color, border',
-    token: 'interactive/surface, surface-border'
   },
   {
     element: 'icon',
     class: 'btn-icon',
     property: 'color',
-    token: 'interactive/on-surface'
   },
 ];
 
-const columnsButtonState = [
+const columnsState = [
   { header: 'State', accessor: 'state' },
   { header: 'Element', accessor: 'element'},
   { header: 'Property', accessor: 'property'},
@@ -74,7 +70,7 @@ const columnsButtonState = [
   { header: 'Effect Token', accessor: 'effect' }
 ];
 
-const dataButtonState = [
+const dataState = [
   {
     state: 'Hover',
     element: 'container',
@@ -108,7 +104,7 @@ const dataButtonState = [
     element: 'container',
     property: 'background-color',
     token: 'interactive/surface-active',
-    effect: ''
+    effect: 'pressed-inner-shadow'
   },
   {
     state: '',
@@ -133,14 +129,14 @@ const dataButtonState = [
   },
 ];
 
-const columnsButtonTransition = [
+const columnsTransition = [
   { header: 'Transition', accessor: 'transition'},
   { header: 'Button Variant', accessor: 'variant'},
   { header: 'Element', accessor: 'element'},
   { header: 'Token', accessor: 'token'},
 ];
 
-const dataButtonTransition = [
+const dataTransition = [
   {
     transition: 'Background Slide',
     variant: 'Outline, Elevated',
@@ -178,7 +174,7 @@ export default function ContentButtons() {
     {selectedTab === 0 && (
       <>
       <Header tag="h2" textStyle="headline-med">Varients</Header>
-      <Row><Table columns={columns} data={data} /></Row>
+      <Row><Table columns={columnsVariant} data={dataVariant} /></Row>
       <Header tag="h3"  textStyle="title-med">Interactive Examples</Header>
       <Row itemsPerRow={4}>
       <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}><Button variant="outline">Outlined</Button></div>
@@ -186,45 +182,7 @@ export default function ContentButtons() {
       <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}><Button variant="underline">Underlined</Button></div>
       <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}><Button variant="elevated">Elevated</Button></div>
       </Row>
-      <Header tag="h2" textStyle="headline-med">Anatomy</Header>
-      <Row itemsPerRow={4} rowWidth="full" >
-      <div>
-      <Image variant="fullwidth" src="/assets/content-buttons/anatomy1.png" alt="button anatomy example 1" />
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Outlined Button</Header>
-      <List>
-        <ListItem>A. Label</ListItem>
-        <ListItem>B. Compound-label (optional)</ListItem>
-        <ListItem>C. Icon (optional)</ListItem>
-        <ListItem>D. Container</ListItem>
-      </List>
-      </div>
-      <div>
-      <Image variant="fullwidth" src="/assets/content-buttons/anatomy2.png" alt="button anatomy example 2" />
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Text Button</Header>
-      <List>
-        <ListItem>A. Label</ListItem>
-        <ListItem>C. Icon (optional)</ListItem>
-      </List>
-      </div>
-      <div>
-      <Image variant="fullwidth" src="/assets/content-buttons/anatomy3.png" alt="button anatomy example 3" />
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Icon Button</Header>
-      <List>
-        <ListItem>C. Icon</ListItem>
-        <ListItem>D. Container</ListItem>
-        <ListItem>A. Label</ListItem>
-      </List>
-      </div>
-      <div>
-      <Image variant="fullwidth" src="/assets/content-buttons/anatomy4.png" alt="button anatomy example 4" />
-      <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Elevated Button</Header>
-      <List>
-        <ListItem>C. Icon (optional)</ListItem>
-        <ListItem>D. Container</ListItem>
-        <ListItem>A. Label</ListItem>
-      </List>
-      </div>
-      </Row>
+
       <Header tag="h2" textStyle="headline-med">Applications</Header>
       <Row itemsPerRow={4}>
       <div>
@@ -274,13 +232,60 @@ export default function ContentButtons() {
     {selectedTab === 1 && (
       <>
         <Header tag="h2" textStyle="headline-med">Elements</Header>
-        <Row><Table columns={columnsButton} data={dataButton} /></Row>
+        <Row><Table columns={columnsElement} data={dataElement} /></Row>
+
+        <Header tag="h2" textStyle="headline-med">Anatomy</Header>
+        <Row itemsPerRow={4} rowWidth="full" >
+        <div>
+        <Image variant="fullwidth" src="/assets/content-buttons/anatomy1.png" alt="button anatomy example 1" />
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Outlined Button</Header>
+        <List>
+          <ListItem>A. Label</ListItem>
+          <ListItem>B. Compound-label (optional)</ListItem>
+          <ListItem>C. Icon (optional)</ListItem>
+          <ListItem>D. Container</ListItem>
+        </List>
+        </div>
+        <div>
+        <Image variant="fullwidth" src="/assets/content-buttons/anatomy2.png" alt="button anatomy example 2" />
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Text Button</Header>
+        <List>
+          <ListItem>A. Label</ListItem>
+          <ListItem>C. Icon (optional)</ListItem>
+        </List>
+        </div>
+        <div>
+        <Image variant="fullwidth" src="/assets/content-buttons/anatomy3.png" alt="button anatomy example 3" />
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Icon Button</Header>
+        <List>
+          <ListItem>C. Icon</ListItem>
+          <ListItem>D. Container</ListItem>
+          <ListItem>A. Label</ListItem>
+        </List>
+        </div>
+        <div>
+        <Image variant="fullwidth" src="/assets/content-buttons/anatomy4.png" alt="button anatomy example 4" />
+        <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Elevated Button</Header>
+        <List>
+          <ListItem>C. Icon (optional)</ListItem>
+          <ListItem>D. Container</ListItem>
+          <ListItem>A. Label</ListItem>
+        </List>
+        </div>
+        </Row>
+        
         <Header tag="h2" textStyle="headline-med">States</Header>
         <TextRow textStyle="body-large">How state change affect buttons.</TextRow>
-        <Row><Table columns={columnsButtonState} data={dataButtonState} /></Row>
+        <Row><Table columns={columnsState} data={dataState} /></Row>
+        <Row itemsPerRow={4}>
+        <Image src="/assets/content-buttons/hover.png" alt="button hover state" withMargin="false"/>
+        <Image src="/assets/content-buttons/pressed.png" alt="button pressed state" withMargin="false"/>
+        <Image src="/assets/content-buttons/focus.png" alt="button focus state" withMargin="false"/>
+        <Image src="/assets/content-buttons/disabled.png" alt="button disabled state" withMargin="false"/>
+        </Row>
         <Header tag="h2" textStyle="headline-med">Transition</Header>
         <TextRow textStyle="body-large">Unlike other design systems where component usually have one sole visual transition, Anchor has two types- making distinciton between primary and secondary/tertiary actions through motion.  </TextRow>
-        <Row><Table columns={columnsButtonTransition} data={dataButtonTransition} /></Row>
+        <Row><Table columns={columnsTransition} data={dataTransition} /></Row>
         <TextRow textStyle="title-med">Interactive Examples</TextRow>
         <Row itemsPerRow={4}>
         <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}><Button variant="outline">Background Slide</Button></div>
