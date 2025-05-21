@@ -6,9 +6,9 @@ import Button from '../buttons/button';
 const Dialog = ({
   isOpen,
   onClose,
-  hasScrim = true,
+  variant = "scrim",
+  dialogWidth = "small",
   anchorRef = null,
-  dialogWidth ="small",
   headline,
   icon,
   context,
@@ -16,6 +16,12 @@ const Dialog = ({
   actions,
   children
 }) => {
+
+  const isScrim = variant === "scrim";
+  const isInline = variant === "inline";
+  const isFullscreen = variant === "fullscreen";
+  const hasScrim = isScrim || isFullscreen;
+
   const contentRef = useRef(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
@@ -41,6 +47,15 @@ const Dialog = ({
     }
   }, [isOpen, hasScrim, anchorRef]);
 
+  useEffect(() => {
+    if (isFullscreen && dialogWidth !== "small" && dialogWidth !== "medium" && dialogWidth !== "large") {
+      console.warn(
+        `[Dialog] The "dialogWidth" prop is ignored when using variant="fullscreen". ` +
+        `Current value: "${dialogWidth}". It will be overridden.`
+      );
+    }
+  }, [isFullscreen, dialogWidth]);
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -61,26 +76,48 @@ const Dialog = ({
     };
   }, [isOpen, hasScrim, onClose]);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose?.();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
-   const handleScrimClick = () => {
-     if (!hasScrim) onClose?.();
-   };
 
   return createPortal(
     <div
-     className={`dialog-container ${hasScrim ? 'with-scrim' : 'inline-positioned'}`}
-     role="dialog"
-     aria-modal={hasScrim}
-     onClick={handleScrimClick}
-     style={!hasScrim ? { top: `${position.top}px`, left: `${position.left}px` } : {}}
-   >
-     {hasScrim && <div className="dialog-scrim" aria-hidden="true" />}
-     <div
-       ref={contentRef}
-       className={`dialog-content dialog-width-${dialogWidth}`}
-       onClick={(e) => e.stopPropagation()}
-     >
+      className={`dialog-container ${isFullscreen ? 'fullscreen-positioned' : isScrim ? 'with-scrim' : 'inline-positioned'}`}
+      role="dialog"
+      aria-modal={isScrim || isFullscreen ? "true" : undefined}
+      aria-labelledby="dialog-headline"
+      onClick={() => {
+        if (!isInline) onClose?.();
+      }}
+      style={
+        isInline
+          ? { top: `${position.top}px`, left: `${position.left}px` }
+          : {}
+      }
+    >
+    {isScrim && (
+       <div className="dialog-scrim" aria-hidden="true" />
+     )}
+     <div className={`dialog-wrapper ${
+       dialogWidth === 'fullscreen' && variant !== 'fullscreen' ? 'fullscreen-wrapper' : ''
+     }`}>
+       <div
+        ref={contentRef}
+        className={`dialog-content ${isFullscreen ? 'dialog-fullscreen' : `dialog-width-${dialogWidth}`}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         {children ? (
           children
         ) : (
@@ -111,6 +148,7 @@ const Dialog = ({
             )}
           </>
         )}
+        </div>
       </div>
     </div>,
     document.body
@@ -121,7 +159,7 @@ const Dialog = ({
 const DialogHeadline = ({ icon, children }) => (
   <div className="dialog-headline">
     {icon && <span className="dialog-icon">{icon}</span>}
-    <h2 className="dialog-headline-text">{children}</h2>
+    <h2 id="dialog-headline" className="dialog-headline-text">{children}</h2>
   </div>
 );
 

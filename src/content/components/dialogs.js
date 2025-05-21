@@ -21,13 +21,18 @@ const columnsVariant = [
 const dataVariant = [
   {
     variant: 'Scrim',
-    usage: 'Default',
+    usage: 'For simple and critical acitons',
     purpose: 'The default dialog style is designed to capture the user’s full attention, helping them focus on critical tasks without distractions.'
   },
   {
     variant: 'Inline',
     usage: 'For less empasized actions',
     purpose: 'For content and actions that don’t demand the user’s full focus, consider using the inline style. This allows users to continue interact with other parts of the interface without interference.'
+  },
+  {
+    variant: 'Fullscreen',
+    usage: 'For complex tasks on mobile',
+    purpose: 'With less screen real estate on mobile, consider using fullscreen dialog when there handling complex tasks.'
   }
 ];
 
@@ -39,7 +44,7 @@ const columnsElement = [
 
 const dataElement = [
   {
-    element: 'Dialog wrapper',
+    element: 'Dialog Container',
     class: 'dialog-content',
     property: 'width'
   },
@@ -54,12 +59,12 @@ const dataElement = [
     property: ''
   },
   {
-    element: 'Heicon label',
+    element: 'Heicon Label',
     class: 'dialog-context',
     property: ''
   },
   {
-    element: 'Button wrapper',
+    element: 'Action Wrapper',
     class: 'dialog-actions',
     property: 'color'
   },
@@ -184,8 +189,10 @@ export default function ContentDialogs() {
   const [selectedTab, setSelectedTab] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenInline, setIsOpenInline] = useState(false);
+  const [isOpenFullscreen, setIsOpenFullscreen] = useState(false);
   const buttonRef = useRef(null);
   const buttonRefInline = useRef(null);
+  const buttonRefFullscreen = useRef(null);
 
   const dialogProps = {
     isOpen: {
@@ -240,7 +247,7 @@ export default function ContentDialogs() {
             onClose={() => setIsOpen(false)}
             headline="Dialog Title"
             context="Some context"
-            hasScrim={true}
+            variant="scrim"
             anchorRef={buttonRef}
             actions={[
               { label: 'Cancel', onClick: () => setIsOpen(false), variant:"text" },
@@ -255,11 +262,26 @@ export default function ContentDialogs() {
             onClose={() => setIsOpenInline(false)}
             headline="Dialog Title"
             context="Some context"
-            hasScrim={false}
+            variant="inline"
             anchorRef={buttonRefInline}
             actions={[
               { label: 'Cancel', onClick: () => setIsOpenInline(false), variant:"text" },
               { label: 'OK', onClick: () => setIsOpenInline(false) },
+            ]}
+          />
+          </div>
+          <div style={{border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}>
+          <Button ref={buttonRefFullscreen} variant="outline" onClick={() => setIsOpenFullscreen(true)}>Fullscreen Variant</Button>
+          <Dialog
+            isOpen={isOpenFullscreen}
+            onClose={() => setIsOpenFullscreen(false)}
+            headline="Dialog Title"
+            context="Some context"
+            variant="fullscreen"
+            anchorRef={buttonRefFullscreen}
+            actions={[
+              { label: 'Cancel', onClick: () => setIsOpenFullscreen(false), variant:"text" },
+              { label: 'OK', onClick: () => setIsOpenFullscreen(false) },
             ]}
           />
           </div>
@@ -279,6 +301,14 @@ export default function ContentDialogs() {
             <TextRow textStyle="body-large" spacing="in-columns">For low to mid importance information or actions, use the inline dialog so users could continue to interact with the rest of the interface.</TextRow>
           </div>
           <Image variant="inline" src="/assets/content-dialogs/application2-example.png" alt="dialog application example 2 - do" />
+        </Row>
+        <Row itemsPerRow={3}>
+          <div>
+            <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Complex Tasks</Header>
+            <TextRow textStyle="body-large" spacing="in-columns">For complex tasks that require a series of actions. Consider using scrim or fullscreen dialog depending on the screen size. Typically, only use fullscreen dialog for mobile screen size.</TextRow>
+          </div>
+          <Image variant="inline" src="/assets/content-dialogs/application3-example.png" alt="dialog application example 3 - full screen dialog on mobile" />
+          <Image variant="inline" src="/assets/content-dialogs/application4-example.png" alt="dialog application example 4 - large dialog with scrim on wide screen size" />
         </Row>
         </>
       )}
@@ -313,19 +343,19 @@ export default function ContentDialogs() {
 
           <LiveDemo
             propSchema={{
-              dialogWidth: {type: 'enum', options: ['small', 'med', 'large'], default: 'small', label: 'Dialog Width'},
+              variant: {type: 'enum', options: ['scrim', 'inline', 'fullscreen'], default: 'scrim', label: 'Variant'},
+              dialogWidth: {type: 'enum', options: ['small', 'medium', 'large', 'fullscreen'], default: 'small', label: 'Dialog Width'},
               headline: { type: 'string', default: 'Title', label: 'Headline' },
               context: { type: 'string', default: 'These are text that describe the importance and purpose of this dialog.', label: 'Supporting Text'  },
-              hasScrim: { type: 'boolean', default: true, label: 'Show Scrim'  },
               primaryButtonLabel: { type: 'string', default: 'OK', label: 'Primary Button Label'  },
               secondaryButtonLabel: { type: 'string', default: 'Cancel', label: 'Secondary Button Label' },
             }}
 
             component={({
+              variant,
               headline,
               dialogWidth,
               context,
-              hasScrim,
               primaryButtonLabel,
               secondaryButtonLabel
             }) => {
@@ -334,12 +364,12 @@ export default function ContentDialogs() {
                 <>
                   <Button ref={buttonRef} variant="outline" onClick={() => setIsOpen(true)}>Open Dialog</Button>
                   <Dialog
+                    variant={variant}
                     dialogWidth={dialogWidth}
                     isOpen={isOpen}
                     onClose={() => setIsOpen(false)}
                     headline={headline}
                     context={context}
-                    hasScrim={hasScrim}
                     anchorRef={buttonRef}
                     actions={[
                       { label: secondaryButtonLabel || 'Cancel', onClick: () => setIsOpen(false), variant:"text" },

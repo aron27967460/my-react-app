@@ -47,6 +47,7 @@
 
   /*default interactive component colors*/
     --surface:var(--black-op-0);
+    --filled-surface:var(--black-0);
     --surface-secondary:var(--black-100);
     --surface-active:var(--black-900);
     --inverse-surface-active: var(--white-900);

@@ -15,6 +15,9 @@ export const Button = ({
   className = '',
   onClick,
   disabled = false,
+  type = 'button',
+  'aria-label': ariaLabel, // allow passing this explicitly
+  title,
   ...rest
 }) => {
   const variantClass = {
@@ -32,29 +35,41 @@ export const Button = ({
   };
 
   const resolvedIcon = icon || (iconName && presetIcons[iconName]);
-
   const isIconOnly = resolvedIcon && !children && !compoundLabel;
 
-  return (
-    <button
-      className={`btn ${variantClass} ${className}`}
-      onClick={onClick}
-      disabled={disabled}
-      {...rest}
-    >
-      {resolvedIcon && iconPosition === 'left' && (
-        <span className="btn-icon icon-left">
-          {resolvedIcon}
-        </span>
-      )}
+  // Warn in dev if icon-only and no accessible label
+  if (process.env.NODE_ENV !== 'production' && isIconOnly && !ariaLabel && !title) {
+    console.warn(
+      'Button: Icon-only buttons must have an accessible label (use aria-label or title).'
+    );
+  }
+
+  // Compose visual label
+  const visualLabel = (
+    <>
       {compoundLabel && (
         <span className="compoundLabel">{compoundLabel} |</span>
       )}
       <span className="btn-label">{children}</span>
+    </>
+  );
+
+  return (
+    <button
+      type={type}
+      className={`btn ${variantClass} ${className}`}
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={isIconOnly ? ariaLabel || title || iconName : undefined}
+      title={isIconOnly ? title || ariaLabel || iconName : undefined}
+      {...rest}
+    >
+      {resolvedIcon && iconPosition === 'left' && (
+        <span className="btn-icon icon-left">{resolvedIcon}</span>
+      )}
+      {!isIconOnly && visualLabel}
       {resolvedIcon && iconPosition === 'right' && (
-        <span className="btn-icon icon-right">
-          {resolvedIcon}
-        </span>
+        <span className="btn-icon icon-right">{resolvedIcon}</span>
       )}
     </button>
   );
