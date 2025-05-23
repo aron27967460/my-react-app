@@ -50,7 +50,13 @@
   color: var(--on-surface-active);
 }
 
-.text-field-stacked:hover .text-field-label, .text-field-stacked:focus-within .text-field-label{
+.text-field-stacked:hover .text-field-label{
+  background-size:0% 100%;
+  color: var(--on-surface);
+  text-shadow: 0px 2px 12px var(--hover-drop-shadow);
+}
+
+.text-field-stacked:focus-within .text-field-label{
   background-size:0% 100%;
   color: var(--on-surface);
 }

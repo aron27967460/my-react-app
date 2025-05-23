@@ -274,7 +274,10 @@ export default function ContentDropdowns() {
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">General Usage</Header>
         <TextRow textStyle="body-large" spacing="in-columns">Consider using dropdowns when there are many options to select from a set of options.</TextRow>
       </div>
-      <Image variant="inline" src="/assets/content-dropdowns/application1-example.png" alt="dropdown application example 1 - do" />
+      <div>
+      <Image variant="fullspan" src="/assets/content-dropdowns/application1-example.png" alt="dropdown application example 1 - do" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Use dropdowns when there are many options to select from a set of options.</TextRow>
+      </div>
       </Row>
 
       <Row itemsPerRow={3}>
@@ -282,7 +285,10 @@ export default function ContentDropdowns() {
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Alternative Components</Header>
         <TextRow textStyle="body-large" spacing="in-columns">Consider using radio buttons or checkboxes when there are only 2 or 3 options. This allows users choose their option(s) without the extra interaction.</TextRow>
       </div>
-      <Image variant="inline" src="/assets/content-dropdowns/application2-example.png" alt="dropdown application example 2 - do" />
+      <div>
+      <Image variant="fullspan" src="/assets/content-dropdowns/application2-example.png" alt="dropdown application example 2 - do" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Consider using radio buttons or checkboxes when there are fewer options.</TextRow>
+      </div>
       </Row>
 
       <Row itemsPerRow={3}>
@@ -290,8 +296,14 @@ export default function ContentDropdowns() {
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Use Multi Select with Caution</Header>
         <TextRow textStyle="body-large" spacing="in-columns">Only use multi-select dropdown when users do not necessarily need to see all options. Otherwise, consider using chips for glancing and simplified interaction.</TextRow>
       </div>
-      <Image variant="inline" src="/assets/content-dropdowns/application3-example.png" alt="dropdown application example 3 - do" />
-      <Image variant="inline" src="/assets/content-dropdowns/application4-example.png" alt="dropdown application example 4 - caution" />
+      <div>
+      <Image variant="fullspan" src="/assets/content-dropdowns/application3-example.png" alt="dropdown application example 3 - do" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">In certain usage, consider using chips than employing a multi-select dropdown.</TextRow>
+      </div>
+      <div>
+      <Image variant="fullspan" src="/assets/content-dropdowns/application4-example.png" alt="dropdown application example 4 - caution" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">If the list is long, be caustious of using dropdown.</TextRow>
+      </div>
       </Row>
 
       </>
@@ -330,7 +342,7 @@ export default function ContentDropdowns() {
         </List>
         </div>
         </Row>
-        
+
         <Header tag="h2" textStyle="headline-med">States</Header>
         <Row><Table columns={columnsState} data={dataState} /></Row>
         <Row itemsPerRow={4}>

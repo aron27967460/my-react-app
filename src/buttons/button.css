@@ -168,7 +168,7 @@
   background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
   color:var(--on-surface);
   border-radius: 2rem;
-  box-shadow: 0px 4px 12px 0px var(--elevated-drop-shadow);
+  box-shadow: 0px 4px 10px -2px var(--elevated-drop-shadow);
   background-color:transparent;
   background-position: 0rem 0rem;
   background-size: 0% 100%;

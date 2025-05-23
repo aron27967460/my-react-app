@@ -170,33 +170,42 @@ export default function ContentRadioButtons() {
       </Row>
 
       <Header tag="h2" textStyle="headline-med">Applications</Header>
-      <Row itemsPerRow={4} rowWidth="full">
+      <Row itemsPerRow={3}>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Single Select</Header>
-        <TextRow textStyle="body-large" spacing="in-columns">Use radio buttons when the user can only choose one option out of multiple options. Do not use radio buttons where there are more that 3 or 4 options. Consider using others.</TextRow>
+        <TextRow textStyle="body-large" spacing="in-columns">Use radio buttons when the user can only choose one option out of multiple options. Avoid using radio buttons where there are too many options, instead, consider using the Dropdown component.</TextRow>
         </div>
+        <div>
         <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/single-select-example.png" alt="Radio Button default - application example" />
+        <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Use radio buttons for selecting one option out of a few options.</TextRow>
+        </div>
+        <div>
         <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/too-many-options-example.png" alt="Radio Button - application example - avoid to use when too many options" />
+        <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">When there are too many options, consider using the dropdown component instead.</TextRow>
+        </div>
       </Row>
-      <Row itemsPerRow={4} rowWidth="full">
+      <Row itemsPerRow={3}>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Multi Select</Header>
         <TextRow textStyle="body-large" spacing="in-columns">Use checkboxes when the user can choose more than one option out of a set of options.</TextRow>
         </div>
         <div>
           <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/multi-select-example.png" alt="Checkbox - application example" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Use checkboxes for multi-select.</TextRow>
         </div>
       </Row>
-      <Row itemsPerRow={4} rowWidth="full">
+      <Row itemsPerRow={3}>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Simple On and Off</Header>
-        <TextRow textStyle="body-large" spacing="in-columns">For simple options such as On v.s. Off (or True v.s. False), I recommand to use the Switch component to condense the user interface.</TextRow>
+        <TextRow textStyle="body-large" spacing="in-columns">For simple options such as On v.s. Off (or True v.s. False), consider using the Switch component to condense the user interface.</TextRow>
         </div>
         <div>
           <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/on-and-off-avoid-example.png" alt="Avoid Radio Button - application example" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Use radio buttons with caution for binary actions.</TextRow>
         </div>
         <div>
           <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/on-and-off-example.png" alt="Switch - application example" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Use switch instead of simply binary actions.</TextRow>
         </div>
       </Row>
 
@@ -222,7 +231,7 @@ export default function ContentRadioButtons() {
         </List>
         </div>
         </Row>
-        
+
         <Header tag="h2" textStyle="headline-med">States</Header>
         <Row><Table columns={columnsState} data={dataState} /></Row>
         <Row itemsPerRow={4}>

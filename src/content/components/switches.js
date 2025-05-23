@@ -251,20 +251,25 @@ export default function ContentRadioButtons() {
       </Row>
 
       <Header tag="h2" textStyle="headline-med">Applications</Header>
-      <Row itemsPerRow={4} rowWidth="full">
+      <Row itemsPerRow={3}>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Common Usage</Header>
         <TextRow textStyle="body-large" spacing="in-columns">By default, switches are best to use for simple binary on and off actions (e.g., settings). By tapping on switch, changes will immediately apply.</TextRow>
         </div>
         <div>
-          <Image variant="fullwidth" withMargin="false" src="/assets/content-switches/application1-example.png" alt="Switch - application example" />
+          <Image variant="fullspan" withMargin="false" src="/assets/content-switches/application1-example.png" alt="Switch - application example" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Use switch for simple binary actions, for instance on and off.</TextRow>
         </div>
+      </Row>
+
+      <Row itemsPerRow={3}>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Avoid Using for Explicit Consent</Header>
         <TextRow textStyle="body-large" spacing="in-columns">While switches technically work, they imply a default choice—so in contexts requiring explicit consent, a neutral-starting input like a checkbox is more appropriate.</TextRow>
         </div>
         <div>
-          <Image variant="fullwidth" withMargin="false" src="/assets/content-switches/application2-example.png" alt="Switch - application example 2" />
+          <Image variant="fullspan" withMargin="false" src="/assets/content-switches/application2-example.png" alt="Switch - application example 2" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Avoid using switch for input that requires neutral-starting point.</TextRow>
         </div>
       </Row>
 

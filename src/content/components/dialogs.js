@@ -317,22 +317,34 @@ export default function ContentDialogs() {
             <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">High Importance</Header>
             <TextRow textStyle="body-large" spacing="in-columns">For critical actions or high importance information, use the scrim variant to demand users' full attention.</TextRow>
           </div>
-          <Image variant="inline" src="/assets/content-dialogs/application1-example.png" alt="dialog application example 1 - do" />
+          <div>
+          <Image variant="fullspan" src="/assets/content-dialogs/application1-example.png" alt="dialog application example 1 - do" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">For critical actions or information, use the scrim variant dialog.</TextRow>
+          </div>
         </Row>
         <Row itemsPerRow={3}>
           <div>
             <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Low-Mid Importance</Header>
-            <TextRow textStyle="body-large" spacing="in-columns">For low to mid importance information or actions, use the inline dialog so users could continue to interact with the rest of the interface.</TextRow>
+            <TextRow textStyle="body-large" spacing="in-columns">For low to mid level importance of information or actions, use the inline dialog so users could continue to interact with the rest of the interface.</TextRow>
           </div>
-          <Image variant="inline" src="/assets/content-dialogs/application2-example.png" alt="dialog application example 2 - do" />
+          <div>
+          <Image variant="fullspan" src="/assets/content-dialogs/application2-example.png" alt="dialog application example 2 - do" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Use inline dialog for low or mid important informaiton or actions.</TextRow>
+          </div>
         </Row>
         <Row itemsPerRow={3}>
           <div>
             <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Complex Tasks</Header>
             <TextRow textStyle="body-large" spacing="in-columns">For complex tasks that require a series of actions. Consider using scrim or fullscreen dialog depending on the screen size. Typically, only use fullscreen dialog for mobile screen size.</TextRow>
           </div>
-          <Image variant="inline" src="/assets/content-dialogs/application3-example.png" alt="dialog application example 3 - full screen dialog on mobile" />
-          <Image variant="inline" src="/assets/content-dialogs/application4-example.png" alt="dialog application example 4 - large dialog with scrim on wide screen size" />
+          <div>
+          <Image variant="fullspan" src="/assets/content-dialogs/application3-example.png" alt="dialog application example 3 - full screen dialog on mobile" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">For complex tasks on mobile screens, use the fullscreen variant to give full screen real state.</TextRow>
+          </div>
+          <div>
+          <Image variant="fullspan" src="/assets/content-dialogs/application4-example.png" alt="dialog application example 4 - large dialog with scrim on wide screen size" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">On wider screens such as tablets and desltops, use dialog with scrim. Adjust the dialog's width size as needed.</TextRow>
+          </div>
         </Row>
         </>
       )}
@@ -378,6 +390,8 @@ export default function ContentDialogs() {
               primaryButtonLabel: { type: 'string', default: 'OK', label: 'Primary Button Label'  },
               secondaryButtonLabel: { type: 'string', default: 'Cancel', label: 'Secondary Button Label' },
             }}
+
+            componentName="Dialog"
 
             component={({
               variant,

@@ -204,13 +204,28 @@ export default function ContentTabs() {
       </Row>
 
       <Header tag="h2" textStyle="headline-med">Applications</Header>
-      <Row itemsPerRow={3}>
+      <Row itemsPerRow={2}>
       <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Multi-level</Header>
-        <TextRow textStyle="body-large" spacing="in-columns">When using multi-level tabs, proceed with caution when mixing tab styles. The general guideline would be to ensure top level tab always remain more visually prominent. For instance, avoid using smaller font size for the top level tabs.</TextRow>
+        <TextRow textStyle="body-large" spacing="in-columns">When using multi-level tabs, proceed with caution when mixing tab styles. As a basic guideline, consider using bigger font size and/or higher depth (i.e. elevated tab style) for tabs that are higher hierarchy.</TextRow>
       </div>
-      <Image variant="inline" src="/assets/content-tabs/application1.png" alt="tab application example 1" />
-      <Image variant="inline" src="/assets/content-tabs/application1.2.png" alt="tab application example 1.2" />
+      </Row>
+      <Row itemsPerRow={3}>
+      <div>
+      <Image variant="fullspan" src="/assets/content-tabs/application1.png" alt="tab application example 1 - Do" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">By default, use elevated style and larger font size for higher level tabs.
+      </TextRow>
+      </div>
+      <div>
+      <Image variant="fullspan" src="/assets/content-tabs/application1a.png" alt="tab application example 1a - Caution" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">In the case where the lower level of tabs is more visually prioritized, consider using larger font size.
+      </TextRow>
+      </div>
+      <div>
+      <Image variant="fullspan" src="/assets/content-tabs/application1b.png" alt="tab application example 1b - Caution" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Divider and elevated can be mixed when it's visually appropriate to do so.
+      </TextRow>
+      </div>
       </Row>
 
       </>

@@ -63,7 +63,7 @@
     --textfade-variant:var(--black-400);
 
   /*default effect setup*/
-    --elevated-drop-shadow:rgba(0,0,0,.32);
+    --elevated-drop-shadow:rgba(0,0,0,.24);
     --pressed-inner-shadow:rgba(255,255,255,.56);
     --hover-drop-shadow:rgba(0,0,0,.16);
 }

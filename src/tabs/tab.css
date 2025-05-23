@@ -72,7 +72,7 @@
 }
 
 .tabs-style-elevated{
-  box-shadow: 0 4px 6px -4px var(--elevated-drop-shadow);
+  box-shadow: 0 4px 10px -2px var(--elevated-drop-shadow);
 }
 
 .tabs-style-divider{

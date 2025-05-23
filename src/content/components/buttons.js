@@ -218,14 +218,24 @@ export default function ContentButtons() {
       </Row>
 
       <Header tag="h2" textStyle="headline-med">Button Alignment</Header>
-      <Row itemsPerRow={2} rowWidth="60">
+      <Row itemsPerRow={2}>
       <TextRow textStyle="body-large" spacing="in-columns">In terms of button alignments. Generally, it depends on where the buttons are situated within the page. Within a container, if the buttons are placed at the bottom right corner, then depending on the orientation of the group (e.g. horizontal vs. vertical), they should be either aligned to the right or bottom.</TextRow>
-      <Image variant="fullspan" src="/assets/content-buttons/button-alignment.gif" withMargin="false" alt="button alignment" /></Row>
+      <div>
+      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+      <Image variant="fullspan" src="/assets/content-buttons/button-alignment.gif" withMargin="false" alt="button alignment" />
+      </div>
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Align and order buttons based on their position within the page.</TextRow>
+      </div></Row>
 
       <Header tag="h2" textStyle="headline-med">Label Alignment</Header>
-      <Row itemsPerRow={2} rowWidth="60">
+      <Row itemsPerRow={2}>
       <TextRow textStyle="body-large" spacing="in-columns">When it comes to button label alignment in Anchor, they are typically either aligned to the left or center. While mostly with no set rules, when the label strings have significant length difference, it is recommended to align the button labels to the left for better readibility.</TextRow>
-      <Image variant="fullspan" src="/assets/content-buttons/label-alignment.gif" withMargin="false" alt="button label alignment" /></Row>
+      <div>
+      <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
+      <Image variant="fullspan" src="/assets/content-buttons/label-alignment.gif" withMargin="false" alt="button label alignment" />
+      </div>
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">For buttons with wide string length difference, consider left align label.</TextRow>
+      </div></Row>
       </>
     )}
 
@@ -273,7 +283,7 @@ export default function ContentButtons() {
         </List>
         </div>
         </Row>
-        
+
         <Header tag="h2" textStyle="headline-med">States</Header>
         <TextRow textStyle="body-large">How state change affect buttons.</TextRow>
         <Row><Table columns={columnsState} data={dataState} /></Row>

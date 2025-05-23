@@ -86,7 +86,7 @@
 .card-style-elevated{
     border-radius: var(--corner-1x);
     background-color: var(--background-primary-surface);
-    box-shadow: 0px 4px 12px 0px var(--elevated-drop-shadow);
+    box-shadow: 0px 4px 10px -2px var(--elevated-drop-shadow);
 }
 
 .card-style-elevated .label-wrapper{

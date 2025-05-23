@@ -161,27 +161,36 @@ export default function ContentCheckboxes() {
       </Row>
 
       <Header tag="h2" textStyle="headline-med">Applications</Header>
-      <Row itemsPerRow={4} rowWidth="full">
+      <Row itemsPerRow={3}>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Default for Multi Select</Header>
         <TextRow textStyle="body-large" spacing="in-columns">When there are multiple options within a set, it is recommended to use the default inline style for organizations.</TextRow>
         </div>
         <div>
-          <Image variant="fullwidth" withMargin="false" src="/assets/content-checkboxes/application1.png" alt="Checkbox default - application example" />
+          <Image withMargin="false" src="/assets/content-checkboxes/application1.png" alt="Checkbox default - application example" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Default inline styles for to select multipel options out of a set, also use for multi-level (such as a to-do list).</TextRow>
         </div>
+      </Row>
+
+      <Row itemsPerRow={3}>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Standalone</Header>
         <TextRow textStyle="body-large" spacing="in-columns">For standlone option, consider using the alternative contained style for options that require more user's attention.</TextRow>
         </div>
         <div>
-          <Image variant="fullwidth" withMargin="false" src="/assets/content-checkboxes/application2.png" alt="Checkbox standalone - application example" />
+          <Image withMargin="false" src="/assets/content-checkboxes/application2.png" alt="Checkbox standalone - application example" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Use outlined style for standalone actions.</TextRow>
         </div>
+      </Row>
+
+      <Row itemsPerRow={3}>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Mixing Styles</Header>
         <TextRow textStyle="body-large" spacing="in-columns">In the situation where there are a various singular and multiple option sets, mixing checkbox styles can become a viable option, particularly if there are prominent options.</TextRow>
         </div>
         <div>
-          <Image variant="fullwidth" withMargin="false" src="/assets/content-checkboxes/application3.gif" alt="Checkbox mix with default and standalone - application example" />
+          <Image withMargin="false" src="/assets/content-checkboxes/application3.gif" alt="Checkbox mix with default and standalone - application example" />
+          <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Within the same section, checkbox styles can be mixed.</TextRow>
         </div>
       </Row>
 

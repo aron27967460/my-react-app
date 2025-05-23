@@ -238,14 +238,34 @@ export default function ContentTextFields() {
       <Row><Table columns={columnsVariant} data={dataVariant} /></Row>
       <Header tag="h3"  textStyle="title-med">Interactive Examples</Header>
       <Row itemsPerRow={3} rowWidth="full">
-        <div style={{border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}>
+        <div style={{border: '1px solid var(--border-tertiary-color)', height: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <TextField
           id="text-field-1"
           label="Search"
           value={textValue}
           onChange={handleChange}
           placeholder="Enter value"
-          variant="separated" // Separated style
+          variant="separated"
+        />
+        </div>
+        <div style={{border: '1px solid var(--border-tertiary-color)', height: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <TextField
+          id="text-field-1"
+          label="Search"
+          value={textValue}
+          onChange={handleChange}
+          placeholder="Enter value"
+          variant="attached"
+        />
+        </div>
+        <div style={{border: '1px solid var(--border-tertiary-color)', height: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <TextField
+          id="text-field-1"
+          label="Search"
+          value={textValue}
+          onChange={handleChange}
+          placeholder="Enter value"
+          variant="stacked"
         />
         </div>
         <div style={{border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}>
@@ -270,8 +290,14 @@ export default function ContentTextFields() {
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Avoid Mixing Textfield Styles</Header>
         <TextRow textStyle="body-large" spacing="in-columns">There isn't a strict guideline on when to use which textfield style to use. The general guideline would be to avoid mixing different style within the same section of the interface, this includes mixing the text label and icon labels.</TextRow>
       </div>
-      <Image variant="inline" src="/assets/content-textfields/application1-example.png" alt="textfield application example 1 - do" />
-      <Image variant="inline" src="/assets/content-textfields/application2-example.png" alt="textfield application example 2 - don't" />
+      <div>
+      <Image variant="fullspan" src="/assets/content-textfields/application1-example.png" alt="textfield application example 1 - do" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">When employing textfields within a section, use the same style for visual consistency.</TextRow>
+      </div>
+      <div>
+      <Image variant="fullspan" src="/assets/content-textfields/application2-example.png" alt="textfield application example 2 - don't" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Avoid mixing textfield style within the same section.</TextRow>
+      </div>
       </Row>
 
       </>
