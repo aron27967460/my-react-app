@@ -1,6 +1,7 @@
 import React from "react";
 import './footer.css';
 import logo from '../assets/logo-white.png';
+import logoMobile from '../assets/logo-white-mobile.png';
 import LinkButton from '../buttons/link-button';
 
 export default function Footer(){
@@ -13,7 +14,10 @@ export default function Footer(){
           <LinkButton href="https://www.linkedin.com/in/aron-chen/" variant="text" color="inverse">LinkedIn</LinkButton>
           <p>Got a question? Email me at <a href="mailto:aron.pt.chen@gmail.com">aron.pt.chen@gmail.com</a></p>
         </div>
-        <div><a href="/"><img src={logo} alt="Logo" className="logo-img" /></a></div>
+        <div><a href="/">
+        <img src={logo} alt="Logo Desktop" className="logo-img desktop-logo" />
+        <img src={logoMobile} alt="Logo Mobile" className="logo-img mobile-logo" />
+        </a></div>
       </div>
     </footer>
   );

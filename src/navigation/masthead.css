@@ -10,7 +10,7 @@
 
 .masthead{
   display: flex;
-  height:5rem;
+  height:5.5rem;
   max-width: 100vw;
   padding: var(--spacing-0x) var(--spacing-1x);
   justify-content: start;
@@ -23,8 +23,17 @@
   gap: var(--spacing-1x);
 }
 
-.logo-img{
-  height:1.6875rem;
+
+.logo-img {
+  height: 2.9375rem;
+}
+
+.mobile-logo {
+  display: inline;
+}
+
+.desktop-logo {
+  display: none;
 }
 
 .nav-links{
@@ -39,7 +48,9 @@
 
 /* Tablet (≥ 768px) */
 @media (min-width: 768px) {
+
   .masthead{
+    height:5rem;
     justify-content: space-between;
     padding: var(--spacing-0x) var(--spacing-3x);
   }
@@ -48,6 +59,18 @@
   }
   .menu{
     display:none;
+  }
+
+  .logo-img {
+    height:1.6875rem;
+  }
+
+  .desktop-logo {
+    display: inline;
+  }
+
+  .mobile-logo {
+    display: none;
   }
 }
 

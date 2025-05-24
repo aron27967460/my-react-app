@@ -15,8 +15,16 @@
   gap:var(--spacing-9x);
 }
 
-.logo-img{
-  height:1.6875rem;
+.logo-img {
+  height: 2.9375rem;
+}
+
+.mobile-logo {
+  display: inline;
+}
+
+.desktop-logo {
+  display: none;
 }
 
 .footer-nav-links{
@@ -48,4 +56,19 @@
 .footer-nav-links p a:active{
   color:var(--textfade);
   text-shadow: 0px 2px 12px rgba(0,0,0,0);
+}
+
+@media (min-width: 768px) {
+
+  .logo-img {
+    height:1.6875rem;
+  }
+
+  .desktop-logo {
+    display: inline;
+  }
+
+  .mobile-logo {
+    display: none;
+  }
 }
