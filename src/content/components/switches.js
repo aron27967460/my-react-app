@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Button from '../../buttons/button';
 import Header from '../../main/header';
 import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
@@ -8,40 +7,8 @@ import Table from '../../table/table';
 import List, { ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
-import { RadioGroup, RadioButton} from '../../radio-buttons/radio-button';
 import { Switch } from '../../switches/switch';
 
-const radioPropSchema = {
-  name: {
-    type: 'string',
-    default: 'example-group',
-    label: 'Group Name',
-  },
-  value: {
-    type: 'string',
-    default: 'a',
-    label: 'Selected Value',
-  }
-};
-
-const columnsVariant = [
-  { header: 'Variant', accessor: 'variant'},
-  { header: 'Usage', accessor: 'usage'},
-  { header: 'Purpose', accessor: 'purpose', flex: 50 }
-];
-
-const dataVariant = [
-  {
-    variant: 'Default',
-    usage: 'Default',
-    purpose: 'Used as the default style for checkboxes.'
-  },
-  {
-    variant: 'Border',
-    usage: 'Standalone',
-    purpose: 'An alternative style for when there is only one singular option out of a set.'
-  }
-];
 
 const columnsElement = [
   { header: 'Element', accessor: 'element'},
@@ -200,30 +167,12 @@ const dataState = [
   },
 ];
 
-const Icon = (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M11.3722 11.678L8.89089 11.7417L10.9121 13.6962L10.172 15.5581L11.9808 14.6736L13.9091 15.5484L13.0452 13.7375L15.1091 11.7417L12.6278 11.678L12 9.79473L11.3722 11.678ZM10.5 10.5L6 10.6154L9.5 14L7.9102 18L12 16L16.4082 18L14.5 14L18 10.6154L13.5 10.5L12 6L10.5 10.5Z"/>
-  </svg>
-);
-
-
 
 export default function ContentRadioButtons() {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [checked, setChecked] = useState(false);
-  const [selected, setSelected] = useState('option1');
 
   const [isOn, setIsOn] = useState(false);
 
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
-
-  const options = [
-    { id: 'option1', label: 'Option 1' },
-    { id: 'option2', label: 'Option 2' },
-    { id: 'option3', label: 'Option 3'},
-  ];
 
 
   return (

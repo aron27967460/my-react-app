@@ -14,7 +14,7 @@ export const Card = ({
   cardWidth = '',
   disabled = false
 }) => {
-  const isExternal = !!href;
+  const isExternal = typeof href === 'string' && href.trim() !== '';
 
   const handleClick = () => {
     if (!disabled && onNavigate && navKey) {
@@ -44,13 +44,13 @@ export const Card = ({
   if (isExternal) {
     return (
       <a
-        className={`card card-style-${cardStyle} ${disabled ? 'disabled' : ''}`}
-        href={disabled ? undefined : href}
-        target={target}
-        rel={rel}
-        onClick={e => disabled && e.preventDefault()}
-        style={cardWidth ? { width: cardWidth } : undefined}
-        aria-disabled={disabled}
+      className={`card card-style-${cardStyle} ${disabled ? 'disabled' : ''}`}
+      href={disabled ? undefined : href}
+      target={target}
+      rel={rel}
+      onClick={e => disabled && e.preventDefault()}
+      style={cardWidth ? { width: cardWidth } : undefined}
+      aria-disabled={disabled}
       >
         {cardContent}
       </a>

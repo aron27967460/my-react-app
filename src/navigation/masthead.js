@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './masthead.css';
 import logo from '../assets/logo.png';
 import LinkButton from '../buttons/link-button';
