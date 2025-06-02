@@ -19,10 +19,11 @@ export const Card = ({
   const handleClick = () => {
     if (!disabled && onNavigate && navKey) {
       onNavigate(navKey);
+      window.location.hash = navKey; // update URL hash on click
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
   };
-
+  
   const cardContent = (
     <>
       <div className="image-wrapper">
