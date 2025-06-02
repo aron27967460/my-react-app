@@ -54,9 +54,10 @@ const VerticalNav = ({ activeSection, onNavigate, isOpen, closeNav }) => {
                       onClick={() => {
                         if (!isDisabled) {
                           onNavigate(item.key);
+                          window.location.hash = item.key; // update the URL hash
                           window.scrollTo({ top: 0, behavior: 'instant' });
                           if (window.innerWidth < 768) {
-                            closeNav?.(); // only close if on mobile
+                            closeNav?.();
                           }
                         }
                       }}

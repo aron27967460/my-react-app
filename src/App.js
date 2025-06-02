@@ -34,7 +34,9 @@ import ContentTextFields from './content/components/textfields';
 //As more content being writtern, more pages will be imported to keep App.js clean
 
 function App() {
-  const [activeSection, setActiveSection] = useState('introduction');
+  const [activeSection, setActiveSection] = useState(() => {
+    return window.location.hash?.replace('#', '') || 'introduction';
+  });
   const renderContent = () => {
     switch (activeSection) {
       case 'introduction':
