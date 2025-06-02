@@ -1,15 +1,105 @@
 @import url('../styles/typography.css');
 @import url('../styles/tokens.css');
 
-ul{
-  padding: var(--spacing-2x) 0;
+.list {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.spacing-condensed{
-  padding: var(--spacing-0x) var(--spacing-0x);
+.list-item{
+  gap: var(--spacing-2x);
+  vertical-align:middle;
+  justify-content: center;
+  align-items: center;
+  flex-direction:row;
+  display: flex;
+  text-decoration: none;
+  appearance:none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--surface);
+  outline:none;
+  border:none;
 }
 
-.spacing-spatial{
-  padding: var(--spacing-2x) var(--spacing-1p5x);
+.list-item.interactive{
+  padding-left: var(--spacing-2x);
+  padding-right: var(--spacing-2x);
+}
+
+.list-item.interactive:hover {
+  background-color: var(--background-secondary-color);
+  cursor: pointer;
+}
+
+.list-item.interactive:active {
+  background-color: var(--background-secondary-color);
+}
+
+.list-item.interactive:focus {
+  background-color: var(--background-secondary-color);
+}
+
+.list-item.is-disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  padding-left: var(--spacing-2x);
+  padding-right: var(--spacing-2x);
+}
+
+
+.list-item.is-disabled .list-item-title,
+.list-item.is-disabled .list-item-support {
+  color: var(--on-surface-disabled);
+}
+
+
+.list-item-left,
+.list-item-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.list-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.list-item-support{
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.list-item-title{
+  text-decoration: none;
+  color: var(--title-text-color);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.v-padding-0x{
+  padding-top: var(--spacing-0x);
+  padding-bottom: var(--spacing-0x);
+}
+
+.v-padding-1x{
+  padding-top: var(--spacing-1x);
+  padding-bottom: var(--spacing-1x);
+}
+
+.v-padding-1p5x{
+  padding-top: var(--spacing-1p5x);
+  padding-bottom: var(--spacing-1p5x);
+}
+
+.v-padding-2x{
+  padding-top: var(--spacing-2x);
+  padding-bottom: var(--spacing-2x);
 }

@@ -4,7 +4,7 @@ import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
 import Row from '../../columns/row';
 import Table from '../../table/table';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 import { Checkbox } from '../../checkboxes/checkbox';
@@ -201,9 +201,9 @@ export default function ContentCheckboxes() {
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Default</Header>
         <List>
-          <ListItem>A. Container (Visually absent)</ListItem>
-          <ListItem>B. Checkbox</ListItem>
-          <ListItem>C. Label</ListItem>
+          <ListItem title="A. Container (Visually absent)"/>
+          <ListItem title="B. Checkbox"/>
+          <ListItem title="C. Label"/>
         </List>
         </div>
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
@@ -212,9 +212,9 @@ export default function ContentCheckboxes() {
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Contained</Header>
         <List>
-        <ListItem>A. Container</ListItem>
-        <ListItem>B. Checkbox</ListItem>
-        <ListItem>C. Label</ListItem>
+        <ListItem title="A. Container"/>
+        <ListItem title="B. Checkbox"/>
+        <ListItem title="C. Label"/>
         </List>
         </div>
         </Row>

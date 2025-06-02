@@ -5,7 +5,7 @@ import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
 import Row from '../../columns/row';
 import Table from '../../table/table';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 import Dialog from '../../dialogs/dialog';
@@ -218,11 +218,11 @@ export default function ContentDialogs() {
           <div>
           <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dialog</Header>
           <List>
-            <ListItem>A. Dialog Container</ListItem>
-            <ListItem>B. Headline</ListItem>
-            <ListItem>C. Contextual Text</ListItem>
-            <ListItem>D. Action Wrapper</ListItem>
-            <ListItem>E. Buttons (refer Button component)</ListItem>
+            <ListItem title="A. Dialog Container"/>
+            <ListItem title="B. Headline"/>
+            <ListItem title="C. Contextual Text"/>
+            <ListItem title="D. Action Wrapper"/>
+            <ListItem title="E. Buttons (refer Button component)"/>
           </List>
           </div>
         </Row>

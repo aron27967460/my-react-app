@@ -1,30 +1,124 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './list.css';
 
-export default function List({ children }) {
+export function List({ children, vPadding = '0x', interactiveHighlight = false }) {
   return (
-    <ul>
-      {React.Children.map(children, (child, index) => (
-        <li key={index} className={`padding-{$paddingType}`}>{child}</li>
-      ))}
+    <ul role="list" className="list">
+      {React.Children.map(children, child =>
+        React.isValidElement(child)
+          ? React.cloneElement(child, { vPadding, interactiveHighlight })
+          : child
+      )}
     </ul>
   );
 }
 
-export function ListItem({ children, spacingType = 'condensed'}) {
-  let title = null;
-  let supportText = null;
+export function ListItem({
+  as: Component = 'div',
+  href,
+  onClick,
+  leading,
+  trailing,
+  title,
+  supportText,
+  vPadding = '0x',
+  interactiveHighlight = false,
+  disabled = false,
+}) {
+  const [selected, setSelected] = useState(false);
+  const hasSupport = !!supportText;
+  const isInteractive = Component === 'a' || Component === 'button';
+  const highlightClass = interactiveHighlight && !disabled ? 'interactive' : '';
 
-  if (Array.isArray(children)) {
-    [title, supportText] = children;
-  } else {
-    title = children;
+  const handleItemClick = e => {
+    if (disabled) return;
+
+    // If the click originated from inside a label or input, do nothing
+    const tag = e.target?.tagName?.toLowerCase();
+    if (['input', 'button', 'label'].includes(tag)) return;
+
+    // Also avoid reacting to clicks on nested interactive elements
+    if (e.target.closest('input, button, label')) return;
+
+    setSelected(prev => !prev);
+    onClick?.(e);
+  };
+
+  const handleInputChange = e => {
+    if (disabled) return;
+
+    // SAFELY check target and its checked property
+    const isChecked = e?.target?.checked;
+    if (typeof isChecked === 'boolean') {
+      setSelected(isChecked);
+    }
+  };
+
+  const enhanceSlot = slot => {
+  if (!React.isValidElement(slot)) return slot;
+
+  const isSwitch = slot.type?.name === 'Switch';
+  const isCheckbox = slot.props.type === 'checkbox';
+
+  const originalOnChange = slot.props.onChange;
+  const originalOnClick = slot.props.onClick;
+
+  const commonProps = {
+    disabled,
+  };
+
+  if (isSwitch) {
+    return React.cloneElement(slot, {
+      ...commonProps,
+      checked: selected,
+      onChange: (nextChecked) => {
+        setSelected(nextChecked);
+        originalOnChange?.(nextChecked);
+      },
+    });
   }
 
+  if (isCheckbox) {
+    return React.cloneElement(slot, {
+      ...commonProps,
+      checked: selected,
+      onChange: (e) => {
+        const nextChecked = e?.target?.checked;
+        if (typeof nextChecked === 'boolean' && selected !== nextChecked) {
+          setSelected(nextChecked);
+        }
+        originalOnChange?.(e);
+      },
+    });
+  }
+
+  // Fallback: just forward props
+  return React.cloneElement(slot, {
+    ...commonProps,
+    onClick: originalOnClick,
+    onChange: originalOnChange,
+  });
+};
+
+  const baseProps = {
+    href: disabled ? undefined : href,
+    onClick: handleItemClick,
+    'aria-disabled': disabled || undefined,
+    className: `list-item v-padding-${vPadding} ${highlightClass} ${hasSupport ? 'with-support' : ''} ${
+      disabled ? 'is-disabled' : ''
+    } ${selected ? 'is-selected' : ''}`,
+    role: isInteractive ? undefined : 'listitem',
+    tabIndex: disabled ? -1 : undefined,
+  };
+
   return (
-    <div className={`spacing-${spacingType}`}>
-      <div className="text-label-large">{title}</div>
-      {supportText && <div className="text-body-small">{supportText}</div>}
-    </div>
+    <Component {...baseProps}>
+      {leading && <div className="list-item-left" aria-hidden="true">{enhanceSlot(leading)}</div>}
+      <div className="list-item-content">
+        <div className="list-item-title text-label-large">{title}</div>
+        {supportText && <div className="list-item-support text-body-small">{supportText}</div>}
+      </div>
+      {trailing && <div className="list-item-right">{enhanceSlot(trailing)}</div>}
+    </Component>
   );
 }

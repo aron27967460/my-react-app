@@ -4,7 +4,7 @@ import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
 import Row from '../../columns/row';
 import Table from '../../table/table';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 import { Switch } from '../../switches/switch';
@@ -168,7 +168,7 @@ const dataState = [
 ];
 
 
-export default function ContentRadioButtons() {
+export default function ContentSwitches() {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const [isOn, setIsOn] = useState(false);
@@ -238,8 +238,8 @@ export default function ContentRadioButtons() {
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Switch - Off</Header>
         <List>
-          <ListItem>A. Track</ListItem>
-          <ListItem>B. Toggle</ListItem>
+          <ListItem title="A. Track"/>
+          <ListItem title="B. Toggle"/>
         </List>
         </div>
         <div>
@@ -248,8 +248,8 @@ export default function ContentRadioButtons() {
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Switch - On</Header>
         <List>
-          <ListItem>A. Track</ListItem>
-          <ListItem>B. Toggle</ListItem>
+          <ListItem title="A. Track"/>
+          <ListItem title="B. Toggle"/>
         </List>
         </div>
         </Row>

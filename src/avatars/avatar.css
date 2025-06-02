@@ -1,0 +1,24 @@
+.avatar-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-secondary);
+  color: var(--title-text-color);
+  overflow: hidden;
+  user-select: none;
+}
+
+.avatar-rounded {
+  border-radius: 8px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-fallback {
+  line-height: 1;
+}

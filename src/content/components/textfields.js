@@ -4,7 +4,7 @@ import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
 import Row from '../../columns/row';
 import Table from '../../table/table';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 import { TextField } from '../../textfields/textfield';
@@ -66,6 +66,22 @@ const dataElement = [
     class: 'text-field-input',
     property: 'color'
   },
+];
+
+const columnsLabel = [
+  { header: 'Label Variant', accessor: 'variant'},
+  { header: 'Usage', accessor: 'usage', flex: 50}
+];
+
+const dataLabel = [
+  {
+    variant: 'Text',
+    usage: 'labelType = text'
+  },
+  {
+    variant: 'Icon',
+    usage: 'labelType = icon, icon = Define svg'
+  }
 ];
 
 const columnsState = [
@@ -208,6 +224,7 @@ export default function ContentTextFields() {
       <Row><Table columns={columnsVariant} data={dataVariant} /></Row>
       <Header tag="h3"  textStyle="title-med">Interactive Examples</Header>
       <Row itemsPerRow={3} rowWidth="full">
+
         <div style={{border: '1px solid var(--border-tertiary-color)', height: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <TextField
           id="text-field-1"
@@ -218,6 +235,7 @@ export default function ContentTextFields() {
           variant="separated"
         />
         </div>
+
         <div style={{border: '1px solid var(--border-tertiary-color)', height: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <TextField
           id="text-field-1"
@@ -228,6 +246,7 @@ export default function ContentTextFields() {
           variant="attached"
         />
         </div>
+
         <div style={{border: '1px solid var(--border-tertiary-color)', height: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <TextField
           id="text-field-1"
@@ -236,20 +255,6 @@ export default function ContentTextFields() {
           onChange={handleChange}
           placeholder="Enter value"
           variant="stacked"
-        />
-        </div>
-        <div style={{border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-8x) 0', textAlign: 'center'}}>
-        <TextField
-          id="text-field-5"
-          label="Search"
-          icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9835 14.2404C12.3851 14.5347 11.7119 14.7 11 14.7C8.51472 14.7 6.5 12.6853 6.5 10.2C6.5 7.71472 8.51472 5.7 11 5.7C13.4853 5.7 15.5 7.71472 15.5 10.2C15.5 11.4318 15.0051 12.5479 14.2033 13.3605L17.5396 17.3365L16.3905 18.3007L12.9835 14.2404ZM14.1 10.2C14.1 11.9121 12.7121 13.3 11 13.3C9.28792 13.3 7.9 11.9121 7.9 10.2C7.9 8.48791 9.28792 7.1 11 7.1C12.7121 7.1 14.1 8.48791 14.1 10.2Z"/>
-          </svg>}
-          value={textValue}
-          onChange={handleChange}
-          placeholder="Enter value"
-          labelType="icon" // Using icon as label
-          variant="separated"
         />
         </div>
       </Row>
@@ -278,6 +283,40 @@ export default function ContentTextFields() {
         <Header tag="h2" textStyle="headline-med">Elements</Header>
         <Row><Table columns={columnsElement} data={dataElement} /></Row>
 
+        <Header tag="h2" textStyle="headline-med">Label Variants</Header>
+        <Row><Table columns={columnsLabel} data={dataLabel} /></Row>
+
+        <Row itemsPerRow={3} rowWidth="full">
+
+          <div style={{border: '1px solid var(--border-tertiary-color)', height: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <TextField
+            id="text-field-1"
+            label="Search"
+            value={textValue}
+            onChange={handleChange}
+            placeholder="Enter value"
+            variant="separated"
+          />
+          </div>
+
+          <div style={{border: '1px solid var(--border-tertiary-color)', display: 'flex', justifyContent: 'center', alignItems: 'center', height:'200px'}}>
+          <TextField
+            id="text-field-5"
+            label="Search"
+            icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9835 14.2404C12.3851 14.5347 11.7119 14.7 11 14.7C8.51472 14.7 6.5 12.6853 6.5 10.2C6.5 7.71472 8.51472 5.7 11 5.7C13.4853 5.7 15.5 7.71472 15.5 10.2C15.5 11.4318 15.0051 12.5479 14.2033 13.3605L17.5396 17.3365L16.3905 18.3007L12.9835 14.2404ZM14.1 10.2C14.1 11.9121 12.7121 13.3 11 13.3C9.28792 13.3 7.9 11.9121 7.9 10.2C7.9 8.48791 9.28792 7.1 11 7.1C12.7121 7.1 14.1 8.48791 14.1 10.2Z"/>
+            </svg>}
+            value={textValue}
+            onChange={handleChange}
+            placeholder="Enter value"
+            labelType="icon" // Using icon as label
+            variant="separated"
+          />
+          </div>
+
+        </Row>
+
+
         <Header tag="h2" textStyle="headline-med">Anatomy</Header>
         <Row itemsPerRow={3} rowWidth="full" >
         <div>
@@ -286,11 +325,11 @@ export default function ContentTextFields() {
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Textfield - Separated variant</Header>
         <List>
-          <ListItem>A. Label Container</ListItem>
-          <ListItem>B. Text Label</ListItem>
-          <ListItem>C. Input</ListItem>
-          <ListItem>D. Input Container</ListItem>
-          <ListItem>E. Textfield Wrapper</ListItem>
+          <ListItem title="A. Label Container"/>
+          <ListItem title="B. Text Label"/>
+          <ListItem title="C. Input"/>
+          <ListItem title="D. Input Container"/>
+          <ListItem title="E. Textfield Wrapper"/>
         </List>
         </div>
         <div>
@@ -299,11 +338,11 @@ export default function ContentTextFields() {
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Textfield - Separated variant</Header>
         <List>
-        <ListItem>A. Label Container</ListItem>
-        <ListItem>B. Text Label</ListItem>
-        <ListItem>C. Input</ListItem>
-        <ListItem>D. Input Container</ListItem>
-        <ListItem>E. Textfield Wrapper</ListItem>
+        <ListItem title="A. Label Container"/>
+        <ListItem title="B. Text Label"/>
+        <ListItem title="C. Input"/>
+        <ListItem title="D. Input Container"/>
+        <ListItem title="E. Textfield Wrapper"/>
         </List>
         </div>
         <div>
@@ -312,11 +351,11 @@ export default function ContentTextFields() {
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Textfield - Separated with icon variant</Header>
         <List>
-        <ListItem>A. Label Container</ListItem>
-        <ListItem>C. Input</ListItem>
-        <ListItem>D. Input Container</ListItem>
-        <ListItem>E. Textfield Wrapper</ListItem>
-        <ListItem>F. Icon Label</ListItem>
+        <ListItem title="A. Label Container"/>
+        <ListItem title="C. Input"/>
+        <ListItem title="D. Input Container"/>
+        <ListItem title="E. Textfield Wrappe"/>
+        <ListItem title="F. Icon Label"/>
         </List>
         </div>
         </Row>

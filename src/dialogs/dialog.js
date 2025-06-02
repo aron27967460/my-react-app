@@ -36,16 +36,74 @@ const Dialog = ({
     }
   }, [isOpen, hasScrim]);
 
-  // Update position below anchor when no scrim
   useEffect(() => {
-    if (isOpen && !hasScrim && anchorRef?.current) {
-      const rect = anchorRef.current.getBoundingClientRect();
+    if (!isInline || !anchorRef?.current || !contentRef.current || !isOpen) return;
+
+    const updatePosition = () => {
+      const anchorRect = anchorRef.current.getBoundingClientRect();
+      const dialog = contentRef.current;
+
+      // Temporarily make dialog visible to measure it
+      dialog.style.visibility = 'hidden';
+      dialog.style.display = 'block';
+
+      const dialogRect = dialog.getBoundingClientRect();
+      const spacing = 16;
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      const positions = [
+        {
+          name: 'bottom-left',
+          top: anchorRect.bottom + spacing + window.scrollY,
+          left: anchorRect.left + window.scrollX,
+        },
+        {
+          name: 'top-left',
+          top: anchorRect.top - dialogRect.height - spacing + window.scrollY,
+          left: anchorRect.left + window.scrollX,
+        },
+        {
+          name: 'bottom-right',
+          top: anchorRect.bottom + spacing + window.scrollY,
+          left: anchorRect.right - dialogRect.width + window.scrollX,
+        },
+        {
+          name: 'top-right',
+          top: anchorRect.top - dialogRect.height - spacing + window.scrollY,
+          left: anchorRect.right - dialogRect.width + window.scrollX,
+        },
+      ];
+
+      const bestPosition =
+        positions.find(
+          (pos) =>
+            pos.left >= 0 &&
+            pos.left + dialogRect.width <= viewportWidth &&
+            pos.top >= 0 &&
+            pos.top + dialogRect.height <= viewportHeight
+        ) || positions[0];
+
       setPosition({
-        top: rect.bottom + window.scrollY + 16,
-        left: rect.left + window.scrollX,
+        top: bestPosition.top,
+        left: bestPosition.left,
       });
-    }
-  }, [isOpen, hasScrim, anchorRef]);
+
+      // Restore visibility
+      dialog.style.visibility = '';
+      dialog.style.display = '';
+    };
+
+    updatePosition();
+
+    window.addEventListener('resize', updatePosition);
+    window.addEventListener('scroll', updatePosition, true);
+
+    return () => {
+      window.removeEventListener('resize', updatePosition);
+      window.removeEventListener('scroll', updatePosition, true);
+    };
+  }, [isInline, anchorRef, isOpen]);
 
   useEffect(() => {
     if (isFullscreen && dialogWidth !== "small" && dialogWidth !== "medium" && dialogWidth !== "large") {

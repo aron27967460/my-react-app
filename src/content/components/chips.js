@@ -6,7 +6,7 @@ import Row from '../../columns/row';
 import Table from '../../table/table';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Chip } from '../../chips/chip';
 
 
@@ -245,10 +245,10 @@ export default function ContentChips() {
         <Row itemsPerRow={3} rowWidth="full" >
           <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-chips/chips-anatomy.png" alt="chip anatomy example" /></div>
           <List>
-            <ListItem>A. Chip container</ListItem>
-            <ListItem>B. Leading icon (Variant dependant, optional)</ListItem>
-            <ListItem>C. Label</ListItem>
-            <ListItem>D. Trailing icon (Removable variant)</ListItem>
+            <ListItem title="A. Chip container"/>
+            <ListItem title="B. Leading icon (Variant dependant, optional)"/>
+            <ListItem title="C. Label"/>
+            <ListItem title="D. Trailing icon (Removable variant)"/>
           </List>
         </Row>
 

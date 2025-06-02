@@ -5,7 +5,7 @@ import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
 import Row from '../../columns/row';
 import Table from '../../table/table';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 
@@ -244,36 +244,36 @@ export default function ContentButtons() {
         <Image variant="fullwidth" src="/assets/content-buttons/anatomy1.png" alt="button anatomy example 1" />
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Outlined Button</Header>
         <List>
-          <ListItem>A. Label</ListItem>
-          <ListItem>B. Compound-label (optional)</ListItem>
-          <ListItem>C. Icon (optional)</ListItem>
-          <ListItem>D. Container</ListItem>
+          <ListItem title="A. Label"/>
+          <ListItem title="B. Compound-label (optional)"/>
+          <ListItem title="C. Icon (optional)"/>
+          <ListItem title="D. Container"/>
         </List>
         </div>
         <div>
         <Image variant="fullwidth" src="/assets/content-buttons/anatomy2.png" alt="button anatomy example 2" />
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Text Button</Header>
         <List>
-          <ListItem>A. Label</ListItem>
-          <ListItem>C. Icon (optional)</ListItem>
+          <ListItem title="A. Label"/>
+          <ListItem title="C. Icon (optional)"/>
         </List>
         </div>
         <div>
         <Image variant="fullwidth" src="/assets/content-buttons/anatomy3.png" alt="button anatomy example 3" />
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Icon Button</Header>
         <List>
-          <ListItem>C. Icon</ListItem>
-          <ListItem>D. Container</ListItem>
-          <ListItem>A. Label</ListItem>
+          <ListItem title="C. Icon (optional)"/>
+          <ListItem title="D. Container"/>
+          <ListItem title="A. Label"/>
         </List>
         </div>
         <div>
         <Image variant="fullwidth" src="/assets/content-buttons/anatomy4.png" alt="button anatomy example 4" />
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Elevated Button</Header>
         <List>
-          <ListItem>C. Icon (optional)</ListItem>
-          <ListItem>D. Container</ListItem>
-          <ListItem>A. Label</ListItem>
+          <ListItem title="C. Icon (optional)"/>
+          <ListItem title="D. Container"/>
+          <ListItem title="A. Label"/>
         </List>
         </div>
         </Row>

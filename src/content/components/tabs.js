@@ -4,7 +4,7 @@ import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
 import Row from '../../columns/row';
 import Table from '../../table/table';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 
@@ -230,9 +230,9 @@ export default function ContentTabs() {
         <Row itemsPerRow={3} rowWidth="full" >
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-tabs/tabs-anatomy.png" alt="tabs anatomy example" /></div>
         <List>
-          <ListItem>A. Tab</ListItem>
-          <ListItem>B. Tabs Container</ListItem>
-          <ListItem>C. Tab label</ListItem>
+          <ListItem title="A. Tab"/>
+          <ListItem title="B. Tabs Container"/>
+          <ListItem title="C. Tab label"/>
         </List>
         </Row>
 

@@ -4,7 +4,7 @@ import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
 import Row from '../../columns/row';
 import Table from '../../table/table';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 import { Dropdown } from '../../dropdowns/dropdown';
@@ -302,11 +302,11 @@ export default function ContentDropdowns() {
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dropdown - Collapsed</Header>
         <List>
-          <ListItem>A. Label</ListItem>
-          <ListItem>B. Label Container</ListItem>
-          <ListItem>C. Input</ListItem>
-          <ListItem>D. Dropdown Indicator</ListItem>
-          <ListItem>E. Input Container</ListItem>
+          <ListItem title="A. Label"/>
+          <ListItem title="B. Label Container"/>
+          <ListItem title="C. Input"/>
+          <ListItem title="D. Dropdown Indicator"/>
+          <ListItem title="E. Input Container"/>
         </List>
         </div>
         <div>
@@ -315,10 +315,10 @@ export default function ContentDropdowns() {
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dropdown - Expanded</Header>
         <List>
-        <ListItem>F. List Container</ListItem>
-        <ListItem>G. List Item Container</ListItem>
-        <ListItem>H. Item Label</ListItem>
-        <ListItem>I. Checkbox (Only for multi select)</ListItem>
+        <ListItem title="F. List Container"/>
+        <ListItem title="G. List Item Container"/>
+        <ListItem title="H. Item Label"/>
+        <ListItem title="I. Checkbox (Only for multi select)"/>
         </List>
         </div>
         </Row>

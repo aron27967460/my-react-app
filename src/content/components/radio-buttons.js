@@ -4,7 +4,7 @@ import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
 import Row from '../../columns/row';
 import Table from '../../table/table';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 import { RadioGroup, RadioButton} from '../../radio-buttons/radio-button';
@@ -186,10 +186,10 @@ export default function ContentRadioButtons() {
         </div>
         <div>
         <List>
-          <ListItem>A. Set Container</ListItem>
-          <ListItem>B. Button Container</ListItem>
-          <ListItem>C. Radiomark</ListItem>
-          <ListItem>D. Label</ListItem>
+          <ListItem title="A. Set Container"/>
+          <ListItem title="B. Button Container"/>
+          <ListItem title="C. Radiomark"/>
+          <ListItem title="D. Label"/>
         </List>
         </div>
         </Row>

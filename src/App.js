@@ -26,6 +26,7 @@ import ContentCheckboxes from './content/components/checkboxes';
 import ContentChips from './content/components/chips';
 import ContentDialogs from './content/components/dialogs';
 import ContentDropdowns from './content/components/dropdowns';
+import ContentLists from './content/components/lists';
 import ContentRadioButtons from './content/components/radio-buttons';
 import ContentSwitches from './content/components/switches';
 import ContentTabs from './content/components/tabs';
@@ -95,12 +96,7 @@ function App() {
 
       /* List section */
       case 'lists':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Lists</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+        return <ContentLists  />;
 
       /* Menu section */
       case 'menu':

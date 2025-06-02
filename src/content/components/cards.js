@@ -4,7 +4,7 @@ import TextRow from '../../main/text-block';
 import Image from '../../main/img-block';
 import Row from '../../columns/row';
 import Table from '../../table/table';
-import List, { ListItem } from '../../lists/list';
+import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 import Card from '../../cards/card';
@@ -204,10 +204,10 @@ export default function ContentCards() {
         <Row itemsPerRow={3} rowWidth="full" >
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-cards/card-anatomy.png" alt="card anatomy example" /></div>
         <List>
-          <ListItem>A. Card container</ListItem>
-          <ListItem>B. Image</ListItem>
-          <ListItem>C. Tag (optional)</ListItem>
-          <ListItem>D. Title</ListItem>
+          <ListItem title="A. Card container"/>
+          <ListItem title="B. Image"/>
+          <ListItem title="C. Tag (optional)"/>
+          <ListItem title="D. Title"/>
         </List>
         </Row>
 

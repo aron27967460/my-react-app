@@ -18,6 +18,7 @@ const ContentComponent = ({ setActiveSection }) => {
       <Card label="Chips" imgPreview="/assets/component-preview/chip.png" navKey="chips" onNavigate={setActiveSection}/>
       <Card label="Dialogs" imgPreview="/assets/component-preview/dialog.png" navKey="dialogs" onNavigate={setActiveSection}/>
       <Card label="Dropdowns" imgPreview="/assets/component-preview/dropdown.png" navKey="dropdowns" onNavigate={setActiveSection}/>
+      <Card label="Lists" imgPreview="/assets/component-preview/list.png" navKey="lists" onNavigate={setActiveSection}/>
       <Card label="Radio Buttons" imgPreview="/assets/component-preview/radio-button.png" navKey="radio-buttons" onNavigate={setActiveSection}/>
       <Card label="Switches" imgPreview="/assets/component-preview/switch.png" navKey="switches" onNavigate={setActiveSection}/>
       <Card label="Tabs" imgPreview="/assets/component-preview/tabs.png" navKey="tabs" onNavigate={setActiveSection}/>
