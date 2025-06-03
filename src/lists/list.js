@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './list.css';
 
 export function List({ children, vPadding = '0x', interactiveHighlight = false }) {
@@ -25,6 +25,7 @@ export function ListItem({
   interactiveHighlight = false,
   disabled = false,
 }) {
+  const inputRef = useRef(null);
   const [selected, setSelected] = useState(false);
   const hasSupport = !!supportText;
   const isInteractive = Component === 'a' || Component === 'button';
@@ -33,14 +34,17 @@ export function ListItem({
   const handleItemClick = e => {
     if (disabled) return;
 
-    // If the click originated from inside a label or input, do nothing
     const tag = e.target?.tagName?.toLowerCase();
-    if (['input', 'button', 'label'].includes(tag)) return;
 
-    // Also avoid reacting to clicks on nested interactive elements
+    // Ignore direct clicks on interactive elements
+    if (['input', 'button', 'label'].includes(tag)) return;
     if (e.target.closest('input, button, label')) return;
 
-    setSelected(prev => !prev);
+    // Simulate input click if available
+    if (inputRef.current) {
+      inputRef.current.click?.();
+    }
+
     onClick?.(e);
   };
 
@@ -55,50 +59,50 @@ export function ListItem({
   };
 
   const enhanceSlot = slot => {
-  if (!React.isValidElement(slot)) return slot;
+    if (!React.isValidElement(slot)) return slot;
 
-  const isSwitch = slot.type?.name === 'Switch';
-  const isCheckbox = slot.props.type === 'checkbox';
+    const isSwitch = slot.type?.name === 'Switch';
+    const isCheckbox = slot.props.type === 'checkbox';
 
-  const originalOnChange = slot.props.onChange;
-  const originalOnClick = slot.props.onClick;
+    const originalOnChange = slot.props.onChange;
+    const originalOnClick = slot.props.onClick;
 
-  const commonProps = {
-    disabled,
-  };
+    const commonProps = {
+      disabled,
+      ref: inputRef,
+    };
 
-  if (isSwitch) {
-    return React.cloneElement(slot, {
-      ...commonProps,
-      checked: selected,
-      onChange: (nextChecked) => {
-        setSelected(nextChecked);
-        originalOnChange?.(nextChecked);
-      },
-    });
-  }
-
-  if (isCheckbox) {
-    return React.cloneElement(slot, {
-      ...commonProps,
-      checked: selected,
-      onChange: (e) => {
-        const nextChecked = e?.target?.checked;
-        if (typeof nextChecked === 'boolean' && selected !== nextChecked) {
+    if (isSwitch) {
+      return React.cloneElement(slot, {
+        ...commonProps,
+        checked: selected,
+        onChange: (nextChecked) => {
           setSelected(nextChecked);
-        }
-        originalOnChange?.(e);
-      },
-    });
-  }
+          originalOnChange?.(nextChecked);
+        },
+      });
+    }
 
-  // Fallback: just forward props
-  return React.cloneElement(slot, {
-    ...commonProps,
-    onClick: originalOnClick,
-    onChange: originalOnChange,
-  });
-};
+    if (isCheckbox) {
+      return React.cloneElement(slot, {
+        ...commonProps,
+        checked: selected,
+        onChange: (e) => {
+          const nextChecked = e?.target?.checked;
+          if (typeof nextChecked === 'boolean' && selected !== nextChecked) {
+            setSelected(nextChecked);
+          }
+          originalOnChange?.(e);
+        },
+      });
+    }
+
+    return React.cloneElement(slot, {
+      ...commonProps,
+      onClick: originalOnClick,
+      onChange: originalOnChange,
+    });
+  };
 
   const baseProps = {
     href: disabled ? undefined : href,
