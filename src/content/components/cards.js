@@ -180,16 +180,28 @@ export default function ContentCards() {
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">One Style Per Group</Header>
         <TextRow textStyle="body-large" spacing="in-columns">While there aren't no roles on when to use which style of cards, it's best to avoid mixing the two styles to avoid causing confusion.</TextRow>
       </div>
-      <Image variant="inline" src="/assets/content-cards/application1.2.png" alt="card application example 1 - don't" />
-      <Image variant="inline" src="/assets/content-cards/application1.png" alt="card application example 1 - do" />
+      <div>
+      <Image variant="fullspan" src="/assets/content-cards/application1.2.png" alt="card application example 1 - don't" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">As a general guideline, avoid mixing card styles.</TextRow>
+      </div>
+      <div>
+      <Image variant="fullspan" src="/assets/content-cards/application1.png" alt="card application example 1 - do" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Use the same style of cards within the same set for better visual consistency.</TextRow>
+      </div>
       </Row>
       <Row itemsPerRow={3}>
       <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Flex v.s. Fixed Width</Header>
         <TextRow textStyle="body-large" spacing="in-columns">By default, cards have a fixed height and flexible width to fill up the available space. Depending on the content, you may want to assign a fixed width to the card using the 'cardWidth' property. For instance, you may have images that's best displayed at certain width.</TextRow>
       </div>
-      <Image variant="inline" src="/assets/content-cards/application2.png" alt="card application example 2 - Default" />
-      <Image variant="inline" src="/assets/content-cards/application2.2.png" alt="card application example 2 - Try" />
+      <div>
+      <Image variant="fullspan" src="/assets/content-cards/application2.png" alt="card application example 2 - Default" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">Using flexible width allows cards to automatically adjust and fill the available horizontal space.</TextRow>
+      </div>
+      <div>
+      <Image variant="fullspan" src="/assets/content-cards/application2.2.png" alt="card application example 2 - Try" />
+      <TextRow spacing="in-columns" textStyle="body-small" textColor="caption">There may be cases where cards could benefit from having a fixed width to optimize image viewing.</TextRow>
+      </div>
       </Row>
 
       </>

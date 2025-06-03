@@ -111,12 +111,12 @@ function App() {
 
       /* Navigation section */
       case 'navigation':
-        return (
-          <>
-            <Header tag="h1" textStyle="display-med">Navigation</Header>
-            <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-          </>
-        );
+      return (
+        <>
+          <Header tag="h1" textStyle="display-med">Navigation</Header>
+          <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
+        </>
+      );
 
       /* Radio Button section */
       case 'radio-buttons':

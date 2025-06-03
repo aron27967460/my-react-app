@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './switch.css';
 
-export function Switch({
+export const Switch = forwardRef(function Switch({
   checked = false,
   onChange,
   disabled = false,
   id,
   ariaLabel = 'Toggle switch',
-}) {
+}, ref) {
   return (
     <button
+      ref={ref}
       id={id}
       role="switch"
       aria-checked={checked}
@@ -26,7 +27,7 @@ export function Switch({
           onChange(!checked);
         }
       }}
-      
+
       disabled={disabled}
       className={`switch ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}`}
     >
@@ -35,4 +36,4 @@ export function Switch({
       </span>
     </button>
   );
-}
+});
