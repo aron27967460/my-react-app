@@ -31,6 +31,7 @@ import ContentRadioButtons from './content/components/radio-buttons';
 import ContentSwitches from './content/components/switches';
 import ContentTabs from './content/components/tabs';
 import ContentTextFields from './content/components/textfields';
+import ContentSideNav from './content/components/sidenav';
 //As more content being writtern, more pages will be imported to keep App.js clean
 
 function App() {
@@ -110,13 +111,8 @@ function App() {
         );
 
       /* Navigation section */
-      case 'navigation':
-      return (
-        <>
-          <Header tag="h1" textStyle="display-med">Navigation</Header>
-          <TextRow textStyle="title-large" colorStyle="default">Coming soon...</TextRow>
-        </>
-      );
+      case 'side-nav':
+        return <ContentSideNav  />;
 
       /* Radio Button section */
       case 'radio-buttons':

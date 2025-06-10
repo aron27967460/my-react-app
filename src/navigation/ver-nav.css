@@ -105,13 +105,14 @@
 }
 
 .ver-nav-link.active{
-  background-size: 100% 100%;
+  background-size: 0% 100%;
   color: var(--on-surface);
   background-image: linear-gradient(
     to right,
     var(--surface-secondary) 0,
     var(--surface-secondary) 100%
   );
+  background-color:var(--surface-secondary);
   font-weight: var(--font-weight-medium);
   border-right:5px solid var(--surface-border);
   transition: background-size 0.3s;
