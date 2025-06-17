@@ -3,23 +3,28 @@
 .table-wrapper {
   width: 100%;
   margin: var(--spacing-0x) 0 var(--spacing-2x) 0;
-  overflow-x: auto; /* Optional for responsiveness */
+  overflow-x: auto;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
 }
 
 .table {
-  width: 100%;
+  width: max-content; 
   border-collapse: collapse;
-  table-layout: fixed; /* This is key! */
+  table-layout: auto;
+  min-width: 100%;
 }
 
 th, td {
   padding: var(--spacing-2x);
-  /* border: 1px solid var(--border-tertiary-color); */
   text-align: left;
   vertical-align: top;
-  white-space: normal;
-  word-break: break-word;
-  overflow-wrap: anywhere;
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Optional: add ... */
 }
 
 th{

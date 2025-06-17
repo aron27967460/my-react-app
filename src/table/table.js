@@ -10,12 +10,16 @@ export const Table = ({ columns, data }) => {
 
   return (
     <div className="table-wrapper">
+      <div className="table-scroll">
       <table className="table">
-        <colgroup>
+      <colgroup>
           {columns.map((col, index) => (
             <col
               key={index}
-              style={{ width: `${col.flex || defaultFlex}%` }}
+              style={{
+                minWidth: col.minWidth || '8rem', // fallback to prevent squashing
+                width: col.width || 'auto', // optional fixed width if provided
+              }}
             />
           ))}
         </colgroup>
@@ -40,6 +44,7 @@ export const Table = ({ columns, data }) => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };
