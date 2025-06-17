@@ -8,7 +8,6 @@ import { List, ListItem } from '../../lists/list';
 import { Tabs, Tab } from '../../tabs/tab';
 import LiveDemo from '../../livedemo/live-demo';
 import SideNav from '../../navigation/side-nav';
-import { TextField } from '../../textfields/textfield';
 import { ReactComponent as PersonIcon } from '../../assets/icons/person.svg';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as StarIcon } from '../../assets/icons/star.svg';

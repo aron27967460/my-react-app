@@ -20,6 +20,7 @@ const navSections = [
       { label: 'Dialogs', key: 'dialogs'},
       { label: 'Dropdowns', key: 'dropdowns'},
       { label: 'Lists', key: 'lists'},
+      { label: 'Loading Indicators', key: 'loading-indicators'},
       { label: 'Radio Buttons', key: 'radio-buttons'},
       { label: 'Side Nav', key: 'side-nav'},
       { label: 'Switches', key: 'switches'},

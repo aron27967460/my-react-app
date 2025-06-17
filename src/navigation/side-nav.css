@@ -80,6 +80,7 @@
   width: 100%;
   min-height: 0;
   flex-grow: 0;
+  overflow: scroll;
 }
 
 /* Align nav items to the top of the section */

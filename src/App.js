@@ -27,6 +27,7 @@ import ContentChips from './content/components/chips';
 import ContentDialogs from './content/components/dialogs';
 import ContentDropdowns from './content/components/dropdowns';
 import ContentLists from './content/components/lists';
+import ContentLoadingIndicators from './content/components/loading-indicators';
 import ContentRadioButtons from './content/components/radio-buttons';
 import ContentSwitches from './content/components/switches';
 import ContentTabs from './content/components/tabs';
@@ -100,6 +101,10 @@ function App() {
       /* List section */
       case 'lists':
         return <ContentLists  />;
+
+      /* Loading Indicator section */
+      case 'loading-indicators':
+        return <ContentLoadingIndicators />;
 
       /* Menu section */
       case 'menu':
