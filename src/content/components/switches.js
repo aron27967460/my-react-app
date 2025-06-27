@@ -234,7 +234,7 @@ export default function ContentSwitches() {
         <Row itemsPerRow={3} rowWidth="full" >
         <div>
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-        <Image variant="fullwidth" src="/assets/content-switches/switch-off-anatomy.png" alt="switch off anatomy example" />
+        <Image variant="fullwidth" withMargin="false" src="/assets/content-switches/switch-off-anatomy.png" alt="switch off anatomy example" />
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Switch - Off</Header>
         <List>
@@ -244,7 +244,7 @@ export default function ContentSwitches() {
         </div>
         <div>
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-        <Image variant="fullwidth" src="/assets/content-switches/switch-on-anatomy.png" alt="switch on anatomy example" />
+        <Image variant="fullwidth" withMargin="false" src="/assets/content-switches/switch-on-anatomy.png" alt="switch on anatomy example" />
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Switch - On</Header>
         <List>

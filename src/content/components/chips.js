@@ -243,7 +243,7 @@ export default function ContentChips() {
 
         <Header tag="h2" textStyle="headline-med">Anatomy</Header>
         <Row itemsPerRow={3} rowWidth="full" >
-          <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-chips/chips-anatomy.png" alt="chip anatomy example" /></div>
+          <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" withMargin="false" src="/assets/content-chips/chips-anatomy.png" alt="chip anatomy example" /></div>
           <List>
             <ListItem title="A. Chip container"/>
             <ListItem title="B. Leading icon (Variant dependant, optional)"/>

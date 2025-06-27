@@ -228,7 +228,7 @@ export default function ContentTabs() {
 
         <Header tag="h2" textStyle="headline-med">Anatomy</Header>
         <Row itemsPerRow={3} rowWidth="full" >
-        <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" src="/assets/content-tabs/tabs-anatomy.png" alt="tabs anatomy example" /></div>
+        <div style={{ border: '1px solid var(--border-tertiary-color)'}}><Image variant="fullwidth" withMargin="false" src="/assets/content-tabs/tabs-anatomy.png" alt="tabs anatomy example" /></div>
         <List>
           <ListItem title="A. Tab"/>
           <ListItem title="B. Tabs Container"/>

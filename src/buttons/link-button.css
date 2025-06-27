@@ -1,6 +1,4 @@
-/*style for link-button*/
-@import url('../styles/typography.css');
-@import url('../styles/tokens.css');
+@import url('../styles/global-styles.css');
 
 .link-btn{
   cursor: pointer;

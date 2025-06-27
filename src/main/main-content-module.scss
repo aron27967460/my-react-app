@@ -1,17 +1,19 @@
-@import url('../styles/typography.css');
-@import url('../styles/tokens.css');
+@import url('../styles/global-styles.css');
 
 /* Style set up for hero module*/
 .main-content-body{
   margin: 5rem 0 0 0;
+  background-color:var(--background-primary-color);
 
 
   h1, h2{
     margin-top:var(--spacing-9x);
+    color: var(--title-text-color);
   }
 
   h3, h4, h5, h6{
     margin-top:var(--spacing-3x);
+    color: var(--title-text-color);
   }
 
   .padding-in-columns{

@@ -1,3 +1,5 @@
+@import url('../styles/global-styles.css');
+
 html, body {
   overscroll-behavior: contain; /* Prevent pull-to-refresh within dialog */
 }

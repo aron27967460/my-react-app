@@ -1,3 +1,5 @@
+@import url('../styles/global-styles.css');
+
 .chip {
   display: inline-flex;
   align-items: center;

@@ -151,9 +151,9 @@ export default function ContentLists() {
 
       <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-0x) var(--spacing-2x)', display: 'flex', justifyContent: 'center', alignItems: 'center', height:'280px'}}>
       <List vPadding="1p5x" interactiveHighlight>
-        <ListItem as="a"  href="/" title="Item with Icon" supportText="This is a list item with icon" trailing={<ChevronIcon fill="black"/>}/>
-        <ListItem as="a"  href="/"title="Item with Icon" supportText="This is a list item with icon" trailing={<ChevronIcon fill="black"/>}/>
-        <ListItem as="a"  href="/"title="Item with Icon" supportText="This is a list item with icon" trailing={<ChevronIcon fill="black"/>}/>
+        <ListItem as="a"  href="/" title="Item with Icon" supportText="This is a list item with icon" trailing={<ChevronIcon fill="var(--on-surface)"/>}/>
+        <ListItem as="a"  href="/"title="Item with Icon" supportText="This is a list item with icon" trailing={<ChevronIcon fill="var(--on-surface)"/>}/>
+        <ListItem as="a"  href="/"title="Item with Icon" supportText="This is a list item with icon" trailing={<ChevronIcon fill="var(--on-surface)"/>}/>
       </List>
       </div>
 
@@ -177,9 +177,9 @@ export default function ContentLists() {
 
       <div style={{ border: '1px solid var(--border-tertiary-color)', padding: 'var(--spacing-0x) var(--spacing-2x)', display: 'flex', justifyContent: 'center', alignItems: 'center', height:'280px'}}>
       <List vPadding="1p5x" interactiveHighlight>
-        <ListItem as="a"  href="/" title="Item with Icon" supportText="This is a list item with icon" leading={<PersonIcon fill="black"/>}/>
-        <ListItem as="a"  href="/"title="Item with Icon" supportText="This is a list item with icon" leading={<PersonIcon fill="black"/>}/>
-        <ListItem as="a"  href="/"title="Item with Icon" supportText="This is a list item with icon" leading={<PersonIcon fill="black"/>}/>
+        <ListItem as="a"  href="/" title="Item with Icon" supportText="This is a list item with icon" leading={<PersonIcon fill="var(--on-surface)"/>}/>
+        <ListItem as="a"  href="/"title="Item with Icon" supportText="This is a list item with icon" leading={<PersonIcon fill="var(--on-surface)"/>}/>
+        <ListItem as="a"  href="/"title="Item with Icon" supportText="This is a list item with icon" leading={<PersonIcon fill="var(--on-surface)"/>}/>
       </List>
       </div>
       </Row>

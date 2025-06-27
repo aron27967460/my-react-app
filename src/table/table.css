@@ -1,4 +1,4 @@
-@import url('../styles/tokens.css');
+@import url('../styles/global-styles.css');
 
 .table-wrapper {
   width: 100%;
@@ -12,7 +12,7 @@
 }
 
 .table {
-  width: max-content; 
+  width: max-content;
   border-collapse: collapse;
   table-layout: auto;
   min-width: 100%;
@@ -28,10 +28,12 @@ th, td {
 }
 
 th{
+  color: var(--title-text-color);
   border-bottom: 1px solid var(--border-tertiary-color);
 }
 
 td{
+  color: var(--body-text-color);
   border-bottom: 1px solid var(--border-tertiary-color);
 }
 

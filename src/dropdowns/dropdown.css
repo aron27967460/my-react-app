@@ -1,3 +1,5 @@
+@import url('../styles/global-styles.css');
+
 .dropdown {
   position: relative;
   min-width:12.5rem;
@@ -31,6 +33,7 @@
   align-items: center;
   vertical-align:middle;
   justify-content: center;
+  color:var(--on-surface);
   background-color: var(--background-primary-color);
   font-family: var(--label-large-family);
   font-size: var(--label-large-size);
@@ -46,6 +49,7 @@
   line-height:var(--label-large-height);
   letter-spacing:var(--label-large-tracking);
   font-weight:var(--font-weight-regular);
+  color:var(--on-surface);
   background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
   background-position: 0rem 0rem;
   background-size: 0% 100%;
@@ -101,7 +105,23 @@
   box-shadow: 0px 1px 24px 0px var(--pressed-inner-shadow) inset;
 }
 
-.dropdown-stacked:hover .dropdown-button{
+.dropdown-button-text {
+  appearance: none;
+  -webkit-appearance: none; /* Safari */
+  flex-grow: 1;
+  text-align: left;
+  font-family:var(--label-large-family);
+  font-size:var(--label-large-size);
+  line-height:var(--label-large-height);
+  letter-spacing:var(--label-large-tracking);
+  font-weight:var(--font-weight-regular);
+  color:var(--on-surface);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-stacked:hover .dropdown-button,.dropdown-stacked:focus-within .dropdown-button{
   background-size: 100% 100%;
 }
 
@@ -113,23 +133,9 @@
   background-size: 100% 100%;
 }
 
-.dropdown-button-text {
-  appearance: none;
-  -webkit-appearance: none; /* Safari */
-  flex-grow: 1;
-  text-align: left;
-  font-family:var(--label-large-family);
-  font-size:var(--label-large-size);
-  line-height:var(--label-large-height);
-  letter-spacing:var(--label-large-tracking);
-  font-weight:var(--font-weight-regular);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .dropdown-stacked:hover .dropdown-button .dropdown-button-text, .dropdown-stacked:focus-within .dropdown-button .dropdown-button-text {
   color:var(--on-surface-active);
+  background-size: 100% 100%;
 }
 
 .dropdown-icon {
@@ -144,7 +150,7 @@
   fill:var(--on-surface);
 }
 
-.dropdown-stacked:hover .dropdown-button .dropdown-icon svg, .dropdown-stacked:focus .dropdown-button .dropdown-icon svg{
+.dropdown-stacked .dropdown-button:hover .dropdown-icon svg, .dropdown-stacked .dropdown-button:focus .dropdown-icon svg{
   fill:var(--on-surface-active);
 }
 

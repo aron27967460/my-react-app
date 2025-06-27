@@ -3,10 +3,6 @@ import './table.css';
 import '../styles/typography.css';
 
 export const Table = ({ columns, data }) => {
-  // Step 1: Calculate how much width is already taken by flex
-  const totalDefinedWidth = columns.reduce((sum, col) => sum + (col.flex || 0), 0);
-  const remainingColumns = columns.filter(col => !col.flex).length;
-  const defaultFlex = remainingColumns > 0 ? (100 - totalDefinedWidth) / remainingColumns : 0;
 
   return (
     <div className="table-wrapper">

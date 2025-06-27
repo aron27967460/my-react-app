@@ -1,6 +1,4 @@
-/*style for button*/
-@import url('../styles/typography.css');
-@import url('../styles/tokens.css');
+@import url('../styles/global-styles.css');
 
 /* Make sure the entire label is keyboard clickable */
 .checkbox-wrapper {
@@ -60,6 +58,7 @@
   letter-spacing: var(--label-large-tracking);
   font-weight: var(--font-weight-regular);
   transition: all 0.3s ease;
+  color:var(--on-surface);
 }
 
 

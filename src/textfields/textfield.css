@@ -1,5 +1,4 @@
-@import url('../styles/typography.css');
-@import url('../styles/tokens.css');
+@import url('../styles/global-styles.css');
 
 .text-field {
   display: inline-flex;
@@ -36,6 +35,7 @@
   line-height: var(--label-large-height);
   letter-spacing: var(--label-large-tracking);
   font-weight:var(--font-weight-regular);
+  color:var(--on-surface);
   background-color: var(--background-primary-color);
   box-sizing: border-box;
   background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);

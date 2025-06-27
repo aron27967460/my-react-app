@@ -10,7 +10,7 @@ const ContentComponent = ({ setActiveSection }) => {
     <Header tag="h1" textStyle="display-med">Overview</Header>
     <TextRow textStyle="title-large" colorStyle="default">Components are the foundational building blocks of the design system. By reusing components, we can create a consistent visual and functional experience across products.</TextRow>
     <Header tag="h2" textStyle="headline-med">Components</Header>
-    <TextRow textStyle="body-large" colorStyle="default">You can browse the components here. As I continue to work on Anchor, more components will beome available.</TextRow>
+    <TextRow textStyle="body-large" colorStyle="default">You can browse the components here. As Anchor continues to grow, more components will beome available.</TextRow>
     <Row gap="4x" itemsPerRow={4}>
       <Card label="Buttons" imgPreview="/assets/component-preview/button.png" navKey="buttons" onNavigate={setActiveSection}/>
       <Card label="Cards" imgPreview="/assets/component-preview/card.png" navKey="cards" onNavigate={setActiveSection}/>

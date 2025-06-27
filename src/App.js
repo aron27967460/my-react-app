@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 /* Loading different components */
@@ -36,6 +36,19 @@ import ContentSideNav from './content/components/sidenav';
 //As more content being writtern, more pages will be imported to keep App.js clean
 
 function App() {
+
+  const [theme, setTheme] = useState(() => {
+    return document.documentElement.dataset.theme || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
+
   const [activeSection, setActiveSection] = useState(() => {
     return window.location.hash?.replace('#', '') || 'introduction';
   });
@@ -172,12 +185,13 @@ function App() {
 
   return (
     <div className="App">
-      <Masthead onToggleMenu={toggleNav} />
-      <VerticalNav activeSection={activeSection} onNavigate={setActiveSection} isOpen={isNavOpen} closeNav={closeNav}/>
+      <Masthead onToggleMenu={toggleNav} theme={theme} />
+      <VerticalNav activeSection={activeSection} onNavigate={setActiveSection} isOpen={isNavOpen} closeNav={closeNav} theme={theme}
+      toggleTheme={toggleTheme}/>
       <Scrim isVisible={isNavOpen} onClick={toggleNav}/ >
         <MainContentModule>
           {renderContent()}
-          <Footer />
+          <Footer theme={theme} />
         </MainContentModule>
     </div>
   );

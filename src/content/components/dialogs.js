@@ -213,7 +213,7 @@ export default function ContentDialogs() {
         <Header tag="h2" textStyle="headline-med">Anatomy</Header>
         <Row itemsPerRow={3} rowWidth="full" >
           <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-          <Image variant="fullwidth" src="/assets/content-dialogs/dialog-anatomy.png" alt="dialog anatomy example" />
+          <Image variant="fullwidth" withMargin="false" src="/assets/content-dialogs/dialog-anatomy.png" alt="dialog anatomy example" />
           </div>
           <div>
           <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dialog</Header>

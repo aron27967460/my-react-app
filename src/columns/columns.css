@@ -1,5 +1,4 @@
-/* columns.css */
-@import url('../styles/tokens.css');
+@import url('../styles/global-styles.css');
 
 .row {
   display: flex;
@@ -15,7 +14,7 @@
   flex-shrink: 0;
   box-sizing: border-box;
   min-width: 0;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   margin-top: var(--spacing-3x);
 }
 

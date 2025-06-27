@@ -182,7 +182,7 @@ export default function ContentRadioButtons() {
         <Header tag="h2" textStyle="headline-med">Anatomy</Header>
         <Row itemsPerRow={2} rowWidth="full" >
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-        <Image variant="fullwidth" src="/assets/content-radiobuttons/radiobutton-anatomy.png" alt="checkbox anatomy example 1" />
+        <Image variant="fullwidth" withMargin="false" src="/assets/content-radiobuttons/radiobutton-anatomy.png" alt="checkbox anatomy example 1" />
         </div>
         <div>
         <List>

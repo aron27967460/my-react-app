@@ -1,5 +1,4 @@
-@import url('../styles/typography.css');
-@import url('../styles/tokens.css');
+@import url('../styles/global-styles.css');
 
 .switch {
   position: relative;
@@ -60,10 +59,10 @@
 .switch .toggle {
   width: 1.0625rem;
   height: 1.0625rem;
-  background-color: #000;
   border-radius: 50%;
   transform: translateX(0);
   transition: all 0.3s ease;
+  background-color: var(--on-surface);
 }
 
 .switch.checked .track {

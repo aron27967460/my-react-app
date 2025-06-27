@@ -1,11 +1,18 @@
 import React from "react";
 import './masthead.css';
-import logo from '../assets/logo.png';
-import logoMobile from '../assets/logo-mobile.png';
+import logoLight from '../assets/logo.png';
+import logoLightMobile from '../assets/logo-mobile.png';
+import logoDark from '../assets/logo-white.png';
+import logoDarkMobile from '../assets/logo-white-mobile.png';
 import LinkButton from '../buttons/link-button';
 import Button from '../buttons/button';
 
-export default function Masthead({onToggleMenu}){
+export default function Masthead({onToggleMenu, theme = 'light'}){
+
+  const isDark = theme === 'dark';
+
+  const logo = isDark ? logoDark : logoLight;
+  const logoMobile = isDark ? logoDarkMobile : logoLightMobile;
 
   const MenuIcon = (
     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

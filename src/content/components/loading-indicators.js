@@ -210,13 +210,6 @@ export default function ContentLoadingIndicators() {
   const [selectedTab, setSelectedTab] = useState(0);
 
 
-  const [textValue, setTextValue] = useState(""); // State for storing input value
-
-  const handleChange = (e) => {
-    setTextValue(e.target.value); // Update input value on change
-  };
-
-
   return (
     <>
     <Header tag="h1" textStyle="display-med">Loading Indicators</Header>

@@ -85,7 +85,7 @@ const columnsElement = [
 const dataElement = [
   {
     element: 'navigation wrapper',
-    class: 'ver-nav, nav-style-${navStyle}',
+    class: 'ver-nav, nav-style-*',
     property: ''
   },
   {
@@ -201,13 +201,6 @@ const dataState = [
 export default function ContentSideNav() {
   const [selectedTab, setSelectedTab] = useState(0);
   const [activeKey, setActiveKey] = useState('home');
-
-
-  const [textValue, setTextValue] = useState(""); // State for storing input value
-
-  const handleChange = (e) => {
-    setTextValue(e.target.value); // Update input value on change
-  };
 
 
   return (

@@ -1,10 +1,18 @@
 import React from "react";
 import './footer.css';
-import logo from '../assets/logo-white.png';
-import logoMobile from '../assets/logo-white-mobile.png';
+import logoLight from '../assets/logo-white.png';
+import logoLightMobile from '../assets/logo-white-mobile.png';
+import logoDark from '../assets/logo.png';
+import logoDarkMobile from '../assets/logo-mobile.png';
 import LinkButton from '../buttons/link-button';
 
-export default function Footer(){
+export default function Footer({theme = 'light'}){
+
+  const isDark = theme === 'light'; // Use white logos on dark background (which happens in light theme)
+
+  const logo = isDark ? logoLight : logoDark;
+  const logoMobile = isDark ? logoLightMobile : logoDarkMobile;
+
   return(
     <footer className="footer-wrapper">
       <div className="footer">

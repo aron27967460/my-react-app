@@ -1,6 +1,4 @@
-/*style for button*/
-@import url('../styles/typography.css');
-@import url('../styles/tokens.css');
+@import url('../styles/global-styles.css');
 
 /*universal style across variants*/
 .btn{

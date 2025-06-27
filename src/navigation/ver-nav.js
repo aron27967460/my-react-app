@@ -1,5 +1,6 @@
 import React from 'react';
 import './ver-nav.css';
+import { Switch } from '../switches/switch';
 
 const navSections = [
   {
@@ -35,45 +36,53 @@ const navSections = [
   },
 ];
 
-const VerticalNav = ({ activeSection, onNavigate, isOpen, closeNav }) => {
+const VerticalNav = ({ activeSection, onNavigate, isOpen, closeNav, theme, toggleTheme }) => {
+
+  const isDark = theme === 'dark';
   return (
     <div className={`ver-nav-wrapper ${isOpen ? 'is-open' : ''}`}>
-      <nav className="ver-nav">
-        {navSections.map((section, index) => (
-          <div key={section.header || index} className="nav-section">
-            {section.header && <div className="section-header">{section.header}</div>}
-            <ul className="ver-nav-list">
-              {section.items.map((item) => {
-                const isActive = activeSection === item.key;
-                const isDisabled = item.disabled;
+        <div className="ver-nav-container">
+          <nav className="nav-list-container">
+            {navSections.map((section, index) => (
+              <div key={section.header || index} className="nav-section">
+                {section.header && <div className="section-header">{section.header}</div>}
+                <ul className="ver-nav-list">
+                  {section.items.map((item) => {
+                    const isActive = activeSection === item.key;
+                    const isDisabled = item.disabled;
 
-                return (
-                  <li key={item.key}>
-                    <button
-                      className={`ver-nav-link ${isActive ? 'active' : ''} ${isDisabled ? 'disabled' : ''}`}
+                    return (
+                      <li key={item.key}>
+                        <button
+                          className={`ver-nav-link ${isActive ? 'active' : ''} ${isDisabled ? 'disabled' : ''}`}
+                          onClick={() => {
+                            if (!isDisabled) {
+                              onNavigate(item.key);
+                              window.location.hash = item.key;
+                              window.scrollTo({ top: 0, behavior: 'instant' });
+                              if (window.innerWidth < 768) {
+                                closeNav?.();
+                              }
+                            }
+                          }}
+                          disabled={isDisabled}
+                        >
+                          {item.label}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </nav>
 
-                      onClick={() => {
-                        if (!isDisabled) {
-                          onNavigate(item.key);
-                          window.location.hash = item.key; // update the URL hash
-                          window.scrollTo({ top: 0, behavior: 'instant' });
-                          if (window.innerWidth < 768) {
-                            closeNav?.();
-                          }
-                        }
-                      }}
-                      disabled={isDisabled}
-                    >
-                      {item.label}
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+          <div className="nav-theme-toggle">
+            <span className="theme-label">{isDark ? 'Dark Mode' : 'Light Mode'}</span>
+            <Switch checked={isDark} onChange={toggleTheme} />
           </div>
-        ))}
-      </nav>
-    </div>
+        </div>
+      </div>
   );
 };
 

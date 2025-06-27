@@ -196,7 +196,7 @@ export default function ContentCheckboxes() {
         <Header tag="h2" textStyle="headline-med">Anatomy</Header>
         <Row itemsPerRow={4} rowWidth="full" >
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-        <Image variant="fullwidth" src="/assets/content-checkboxes/checkbox-anatomy.png" alt="checkbox anatomy example 1" />
+        <Image variant="fullwidth" withMargin="false" src="/assets/content-checkboxes/checkbox-anatomy.png" alt="checkbox anatomy example 1" />
         </div>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Default</Header>
@@ -207,7 +207,7 @@ export default function ContentCheckboxes() {
         </List>
         </div>
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-        <Image variant="fullwidth" src="/assets/content-checkboxes/checkbox2-anatomy.png" alt="checkbox anatomy example 2" />
+        <Image variant="fullwidth" withMargin="false" src="/assets/content-checkboxes/checkbox2-anatomy.png" alt="checkbox anatomy example 2" />
         </div>
         <div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Contained</Header>

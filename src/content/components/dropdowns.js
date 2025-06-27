@@ -298,7 +298,7 @@ export default function ContentDropdowns() {
         <Row itemsPerRow={3} rowWidth="full" >
         <div>
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-        <Image variant="fullwidth" src="/assets/content-dropdowns/dropdown-anatomy1.png" alt="dropdown anatomy example 1" />
+        <Image variant="fullwidth" withMargin="false" src="/assets/content-dropdowns/dropdown-anatomy1.png" alt="dropdown anatomy example 1" />
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dropdown - Collapsed</Header>
         <List>
@@ -311,7 +311,7 @@ export default function ContentDropdowns() {
         </div>
         <div>
         <div style={{ border: '1px solid var(--border-tertiary-color)'}}>
-        <Image variant="fullwidth" src="/assets/content-dropdowns/dropdown-anatomy2.png" alt="dropdown anatomy example 2" />
+        <Image variant="fullwidth"  withMargin="false" src="/assets/content-dropdowns/dropdown-anatomy2.png" alt="dropdown anatomy example 2" />
         </div>
         <Header tag="h3" textStyle="body-large-emphasized" spacing="in-columns">Dropdown - Expanded</Header>
         <List>
