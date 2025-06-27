@@ -38,7 +38,7 @@
     --background-secondary-color:var(--black-800);
     --background-inverse-color:var(--white-900);
     --overlay-color:var(--black-op-60);
-    --scrim-color:rgba(255,255,255,0.94);
+    --scrim-color:rgba(255,255,255,0.32);
 
   /*border color*/
     --border-primary-color:var(--white-900);
