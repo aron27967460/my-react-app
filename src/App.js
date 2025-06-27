@@ -38,37 +38,46 @@ import ContentSideNav from './content/components/sidenav';
 function App() {
 
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      return savedTheme;
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const saved = localStorage.getItem('theme'); // could be 'light', 'dark', or 'system'
+    if (saved && saved !== 'system') return saved;
+
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return prefersDark ? 'dark' : 'light';
   });
 
-  // Apply theme to <html> and save to localStorage
+  // Track system preference listener
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    const saved = localStorage.getItem('theme');
 
-  // Only listen to system theme change if user has not manually chosen a theme
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') return;
+    if (saved === 'system' || !saved) {
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = (e) => {
+        const newTheme = e.matches ? 'dark' : 'light';
+        setTheme(newTheme);
+      };
 
-    const media = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleSystemChange = (e) => {
-      setTheme(e.matches ? 'dark' : 'light');
-    };
-
-    media.addEventListener('change', handleSystemChange);
-    return () => media.removeEventListener('change', handleSystemChange);
+      media.addEventListener('change', handleChange);
+      return () => media.removeEventListener('change', handleChange);
+    }
   }, []);
 
+  const toggleThemeMode = () => {
+    const current = localStorage.getItem('theme') || 'system';
+    const next = current === 'light' ? 'dark' : current === 'dark' ? 'system' : 'light';
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    localStorage.setItem('theme', next);
+
+    if (next === 'system') {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(prefersDark ? 'dark' : 'light');
+    } else {
+      setTheme(next);
+    }
   };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const [activeSection, setActiveSection] = useState(() => {
     return window.location.hash?.replace('#', '') || 'introduction';
@@ -208,7 +217,7 @@ function App() {
     <div className="App">
       <Masthead onToggleMenu={toggleNav} theme={theme} />
       <VerticalNav activeSection={activeSection} onNavigate={setActiveSection} isOpen={isNavOpen} closeNav={closeNav} theme={theme}
-      toggleTheme={toggleTheme}/>
+      toggleTheme={toggleThemeMode}/>
       <Scrim isVisible={isNavOpen} onClick={toggleNav}/ >
         <MainContentModule>
           {renderContent()}
