@@ -38,12 +38,33 @@ import ContentSideNav from './content/components/sidenav';
 function App() {
 
   const [theme, setTheme] = useState(() => {
-    return document.documentElement.dataset.theme || 'light';
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      return savedTheme;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   });
 
+  // Apply theme to <html> and save to localStorage
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
+
+  // Only listen to system theme change if user has not manually chosen a theme
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') return;
+
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleSystemChange = (e) => {
+      setTheme(e.matches ? 'dark' : 'light');
+    };
+
+    media.addEventListener('change', handleSystemChange);
+    return () => media.removeEventListener('change', handleSystemChange);
+  }, []);
+
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
