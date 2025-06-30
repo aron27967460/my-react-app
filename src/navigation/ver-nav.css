@@ -32,6 +32,9 @@
 
 .ver-nav-wrapper.is-open {
   display: block;
+  transform: translateX(-100%);
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
 }
 
 .nav-list-container{
@@ -63,6 +66,10 @@
   flex-direction: column;
   gap: 0rem;
   display: flex;
+}
+
+@keyframes slide-in{
+  100%{transform:translateX(0%);}
 }
 
 .ver-nav-link{

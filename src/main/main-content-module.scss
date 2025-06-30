@@ -4,6 +4,8 @@
 .main-content-body{
   margin: 5rem 0 0 0;
   background-color:var(--background-primary-color);
+  opacity:0;
+  animation: fade-in 1s forwards;
 
 
   h1, h2{
@@ -69,6 +71,10 @@
 
   .color-inverse{
     color:var(--inverse-text-color);
+  }
+
+  @keyframes fade-in{
+    100% {opacity:1;}
   }
 
 

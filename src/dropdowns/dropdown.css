@@ -2,7 +2,7 @@
 
 .dropdown {
   position: relative;
-  min-width:12.5rem;
+  /* min-width:12.5rem; */
   display: inline-flex;
   flex-wrap: nowrap;
   text-align: left;
@@ -162,7 +162,7 @@
   position: absolute;
   width: 100%;
   box-sizing: border-box;
-  margin-top: var(--spacing-9x);
+  margin-top: var(--spacing-1p5x);
   border: 1px solid var(--surface-border);
   padding: var(--spacing-1x) var(--spacing-0x);
   background: var(--background-primary-color);
@@ -227,6 +227,16 @@
 
 .multi-select .dropdown-item.selected {
   padding: var(--spacing-0x) var(--spacing-1p5x);
+}
+
+.dropdown-list-down {
+  top: 100%;
+  margin-top: var(--spacing-1p5x);
+}
+
+.dropdown-list-up {
+  bottom: 100%;
+  margin-bottom: var(--spacing-1p5x);
 }
 
 

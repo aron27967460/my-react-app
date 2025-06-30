@@ -18,23 +18,25 @@ export function Dropdown({
   const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
 
+  const [direction, setDirection] = useState('down');
+  const listRef = useRef(null);
+
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
-        setIsOpen(false);
+    if (isOpen && buttonRef.current && listRef.current) {
+      const buttonRect = buttonRef.current.getBoundingClientRect();
+      const listRect = listRef.current.getBoundingClientRect();
+
+      const spaceBelow = window.innerHeight - buttonRect.bottom;
+      const spaceAbove = buttonRect.top;
+
+      const dropdownHeight = listRect.height;
+
+      if (spaceBelow < dropdownHeight && spaceAbove > dropdownHeight) {
+        setDirection('up');
+      } else {
+        setDirection('down');
       }
-    };
-
-    if (isOpen) {
-      document.addEventListener("pointerdown", handleClickOutside);
     }
-
-    return () => {
-      document.removeEventListener("pointerdown", handleClickOutside);
-    };
   }, [isOpen]);
 
   const handleSelect = (selectedValue) => {
@@ -56,6 +58,13 @@ export function Dropdown({
     multiple ? Array.isArray(value) && value.includes(val) : value === val;
   const allValues = options?.map((opt) => opt.value) || [];
   const allSelected = allValues.every((val) => isSelected(val));
+
+  const capitalizeLabel = (val, options) => {
+    const match = options.find(opt => opt.value === val);
+    return match ? capitalize(match.label) : capitalize(val);
+  };
+
+  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const handleSelectAll = () => {
     if (!onChange) return;
@@ -84,7 +93,7 @@ export function Dropdown({
         <span className="dropdown-button-text">
           {multiple && Array.isArray(value)
             ? value.join(", ") || placeholder
-            : (typeof value === "string" && value) || placeholder}
+            : (typeof value === "string" && capitalizeLabel(value, options)) || placeholder}
         </span>
         <span
           className={`dropdown-icon${isOpen ? " open" : ""}`}
@@ -98,9 +107,10 @@ export function Dropdown({
 
       {isOpen && (
         <ul
+          ref={listRef}
           role="listbox"
           aria-multiselectable={multiple || undefined}
-          className={`dropdown-list ${multiple ? 'multi-select' : ''}`}
+          className={`dropdown-list ${multiple ? 'multi-select' : ''} dropdown-list-${direction}`}
         >
           {multiple && (
             <li
@@ -134,7 +144,7 @@ export function Dropdown({
                 onClick={() => handleSelect(opt.value)}
                 className={`dropdown-item${isSelected(opt.value) ? " selected" : ""}`}
               >
-                <span className="dropdown-item-label">{opt.label}</span>
+                <span className="dropdown-item-label">{capitalize(opt.label)}</span>
 
                 {multiple && (
                   <span

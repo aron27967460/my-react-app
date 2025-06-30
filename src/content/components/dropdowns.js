@@ -234,6 +234,7 @@ export default function ContentDropdowns() {
           value={selected}
           onChange={setSelected}
           labelStyle="inline"
+          width="200px"
         />
         </div>
         <div style={{border: '1px solid var(--border-tertiary-color)', display: 'flex', justifyContent: 'center', alignItems: 'center', height:'200px'}}>
@@ -243,6 +244,7 @@ export default function ContentDropdowns() {
           value={selected}
           onChange={setSelected}
           labelStyle="stacked"
+          width="200px"
         />
         </div>
       </Row>

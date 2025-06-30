@@ -1,6 +1,7 @@
 import React from 'react';
 import './ver-nav.css';
 import { Switch } from '../switches/switch';
+import { Dropdown } from '../dropdowns/dropdown';
 
 const navSections = [
   {
@@ -37,7 +38,7 @@ const navSections = [
   },
 ];
 
-const VerticalNav = ({ activeSection, onNavigate, isOpen, closeNav, theme, toggleTheme }) => {
+const VerticalNav = ({ activeSection, onNavigate, isOpen, closeNav,  theme, preferredTheme, toggleTheme }) => {
 
   const isDark = theme === 'dark';
   return (
@@ -79,8 +80,20 @@ const VerticalNav = ({ activeSection, onNavigate, isOpen, closeNav, theme, toggl
           </nav>
 
           <div className="nav-theme-toggle">
-            <span className="theme-label">{isDark ? 'Dark Mode' : 'Light Mode'}</span>
-            <Switch checked={isDark} onChange={toggleTheme} />
+          <Dropdown
+           label="Appearance"
+           labelStyle="inline"
+           hideLabel={true}
+           labelStyle="stacked"
+           value={preferredTheme}
+           onChange={toggleTheme}
+           options={[
+             { label: "System", value: "system" },
+             { label: "Light", value: "light" },
+             { label: "Dark", value: "dark" }
+           ]}
+           width="150px"
+          />
           </div>
         </div>
       </div>
