@@ -81,10 +81,9 @@ const VerticalNav = ({ activeSection, onNavigate, isOpen, closeNav,  theme, pref
 
           <div className="nav-theme-toggle">
           <Dropdown
-           label="Appearance"
+           label="Theme"
            labelStyle="inline"
-           hideLabel={true}
-           labelStyle="stacked"
+           // hideLabel={true}
            value={preferredTheme}
            onChange={toggleTheme}
            options={[
@@ -92,7 +91,7 @@ const VerticalNav = ({ activeSection, onNavigate, isOpen, closeNav,  theme, pref
              { label: "Light", value: "light" },
              { label: "Dark", value: "dark" }
            ]}
-           width="150px"
+           width="100%"
           />
           </div>
         </div>

@@ -151,7 +151,7 @@
   display: flex;
   align-items: center;
   border-top: 1px solid var(--border-tertiary-color);
-  padding: var(--spacing-1p5x) var(--spacing-3x);
+  padding: var(--spacing-2x) var(--spacing-2x);
   gap: var(--spacing-2x);
   background-color: var(--background-primary-color);
 }
