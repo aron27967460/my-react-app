@@ -7,7 +7,8 @@ const navSections = [
     items: [
       { label: 'Introduction', key: 'introduction' },
       { label: 'Whose Anchor For?', key: 'whose-anchor-for' },
-      { label: 'Tokens', key: 'tokens' }
+      { label: 'Tokens', key: 'tokens' },
+      { label: 'Colours & Themes', key: 'colours' }
     ],
   },
   {

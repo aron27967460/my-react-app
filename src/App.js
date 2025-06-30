@@ -17,6 +17,7 @@ import Scrim from './main/scrim';
 import ContentIntroduction from './content/general/introduction';
 import ContentWhoUsesAnchor from './content/general/who-uses-anchor';
 import ContentTokens from './content/general/tokens';
+import ContentColours from './content/general/colours';
 
 /* Component Section */
 import ContentComponent from './content/components/overview';
@@ -94,6 +95,10 @@ function App() {
       /* Token section */
       case 'tokens':
         return <ContentTokens />;
+
+      /* Colour section */
+      case 'colours':
+        return <ContentColours />;
 
       /* Component Overview */
       case 'overview':
