@@ -8,6 +8,10 @@
   text-align: left;
 }
 
+.dropdown:focus-visible, .dropdown-button:focus-visible{
+  outline:none;
+}
+
 /* For inline label layout */
 .dropdown-inline {
   display: inline-flex;

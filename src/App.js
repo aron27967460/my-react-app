@@ -18,6 +18,7 @@ import ContentIntroduction from './content/general/introduction';
 import ContentWhoUsesAnchor from './content/general/who-uses-anchor';
 import ContentTokens from './content/general/tokens';
 import ContentColours from './content/general/colours';
+import ContentAccessibility from './content/general/accessibility';
 
 /* Component Section */
 import ContentComponent from './content/components/overview';
@@ -96,6 +97,10 @@ function App() {
       /* Colour section */
       case 'colours':
         return <ContentColours />;
+
+      /* Accessibility section */
+      case 'access':
+        return <ContentAccessibility />;
 
       /* Component Overview */
       case 'overview':

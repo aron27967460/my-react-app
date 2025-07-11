@@ -26,6 +26,11 @@
   display: none;
 }
 
+.footer div a:focus-visible{
+  outline:none;
+  border-bottom: 1px solid var(--on-surface-active);
+}
+
 .footer-nav-links{
   display: flex;
   flex-direction: column;
@@ -55,6 +60,12 @@
 .footer-nav-links p a:active{
   color:var(--textfade);
   text-shadow: 0px 2px 12px rgba(0,0,0,0);
+}
+
+.footer-nav-links p a:focus-visible{
+  text-shadow: 0px 2px 12px rgba(0,0,0,0);
+  border-bottom:1px solid var(--on-surface-active);
+  outline:none;
 }
 
 @media (min-width: 768px) {

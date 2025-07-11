@@ -71,6 +71,11 @@
     box-shadow: 0px 1px 8px 0px var(--pressed-inner-shadow) inset;
   }
 
+  .radio-wrapper input[type="radio"]:focus-visible + .radiomark{
+    outline-offset:2px;
+    outline: 1px solid var(--surface-border);
+  }
+
 
   input[type="radio"] {
     position: absolute;

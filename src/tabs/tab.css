@@ -84,6 +84,13 @@
   color: var(--on-surface-active);
 }
 
+.tab:focus-visible{
+  text-decoration:none;
+  background-size: 100% 100%;
+  color: var(--on-surface-active);
+  outline:none;
+}
+
 .tab:active {
   text-decoration:none;
   box-shadow: 0px 1px 24px 0px var(--pressed-inner-shadow) inset;

@@ -9,7 +9,8 @@ const navSections = [
       { label: 'Introduction', key: 'introduction' },
       { label: 'Whose Anchor For?', key: 'whose-anchor-for' },
       { label: 'Tokens', key: 'tokens' },
-      { label: 'Colours & Themes', key: 'colours' }
+      { label: 'Colours & Themes', key: 'colours' },
+      { label: 'Accessibility', key: 'access' }
     ],
   },
   {

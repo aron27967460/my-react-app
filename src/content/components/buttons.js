@@ -46,14 +46,19 @@ const columnsElement = [
 
 const dataElement = [
   {
-    element: 'label text',
-    class: 'btn',
-    property: 'color'
-  },
-  {
     element: 'container',
     class: 'btn',
     property: 'background-color, border',
+  },
+  {
+    element: 'focus layer',
+    class: 'focus-layer',
+    property: 'border',
+  },
+  {
+    element: 'label text',
+    class: 'btn',
+    property: 'color'
   },
   {
     element: 'icon',
@@ -104,7 +109,14 @@ const dataState = [
     element: 'container',
     property: 'background-color',
     token: 'interactive/surface-active',
-    effect: 'pressed-inner-shadow'
+    effect: ''
+  },
+  {
+    state: '',
+    element: 'focus layer',
+    property: 'border',
+    token: 'interactive/surface-active',
+    effect: ''
   },
   {
     state: '',

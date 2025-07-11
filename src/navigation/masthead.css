@@ -35,6 +35,11 @@
   display: none;
 }
 
+.masthead div a:focus-visible{
+  outline:none;
+  border-bottom: 1px solid var(--surface-border);
+}
+
 .nav-links{
   display: none;
   align-items: center;

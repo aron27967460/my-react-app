@@ -23,6 +23,10 @@
   display: inline-block;
 }
 
+.link-btn:focus{
+  outline:none;
+}
+
 
 /* Outline button style, used as primary button style*/
 
@@ -51,6 +55,11 @@
   box-shadow: 0px 1px 24px 0px var(--pressed-inner-shadow) inset;
 }
 
+.link-btn-outline-default:focus-visible{
+  color:var(--on-surface-active);
+  background-size:100% 100%;
+}
+
 .link-btn-outline-default:disabled{
   color:var(--on-surface-disabled);
   border: 1px solid var(--on-surface-disabled);
@@ -77,6 +86,10 @@
   text-shadow: 0px 2px 12px rgba(0,0,0,0);
 }
 
+.link-btn-text-default:focus-visible{
+  border-bottom: 1px solid var(--on-surface);
+}
+
 .link-btn-text-default:disabled{
   color:var(--on-surface-disabled);
 }
@@ -95,9 +108,14 @@
   text-shadow: 0px 2px 12px rgba(0,0,0,0);
 }
 
+.link-btn-text-inverse:focus-visible{
+  border-bottom: 1px solid var(--on-surface-active);
+}
+
 .link-btn-text-inverse:disabled{
   color:var(--on-surface-disabled);
 }
+
 
 /* Underline button style, used as alternative secondary button style*/
 
@@ -122,6 +140,11 @@
   color:var(--textfade);
   border-bottom: 1px solid var(--textfade);
   text-shadow: 0px 2px 12px rgba(0,0,0,0);
+}
+
+.link-btn-underline-default:focus-visible{
+  color:var(--textfade);
+  border-bottom: 1px solid var(--textfade);
 }
 
 .link-btn-underline-default:disabled{
@@ -155,6 +178,14 @@
   color:var(--on-surface-active);
   background-size:100% 100%;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0);
+}
+
+.link-btn-elevated-default:focus-visible{
+  color:var(--on-surface-active);
+  background-size:100% 100%;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0);
+  outline: 1px solid var(on-surface);
+  outline-offset:2px;
 }
 
 .link-btn-elevated-default:disabled{

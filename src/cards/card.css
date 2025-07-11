@@ -78,6 +78,10 @@
     transition: background-size 0.3s;
 }
 
+.card:focus-visible{
+  outline:none;
+}
+
 .card-style-default{
     border-bottom: 3px solid var(--border-primary-color);
 }
@@ -117,6 +121,18 @@
 
 .card:hover .label-wrapper .label, .card:hover .label-wrapper .tag{
     color:var(--on-surface-active);
+}
+
+.card:focus-visible{
+    background-size: 100% 100%;
+}
+
+.card-style-default:focus-visible .label-wrapper{
+  padding: var(--spacing-2x) var(--spacing-2x);
+}
+
+.card:focus-visible .label-wrapper .label, .card:focus-visible .label-wrapper .tag{
+  color:var(--on-surface-active);
 }
 
 .card-style-default.disabled{

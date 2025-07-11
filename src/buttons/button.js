@@ -64,6 +64,7 @@ export const Button = ({
       title={isIconOnly ? title || ariaLabel || iconName : undefined}
       {...rest}
     >
+      <span className="focus-layer">
       {resolvedIcon && iconPosition === 'left' && (
         <span className="btn-icon icon-left">{resolvedIcon}</span>
       )}
@@ -71,6 +72,7 @@ export const Button = ({
       {resolvedIcon && iconPosition === 'right' && (
         <span className="btn-icon icon-right">{resolvedIcon}</span>
       )}
+      </span>
     </button>
   );
 };

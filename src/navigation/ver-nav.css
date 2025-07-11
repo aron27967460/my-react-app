@@ -105,6 +105,13 @@
   background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
 }
 
+.ver-nav-link:focus-visible{
+  background-size:100% 100%;
+  color:var(--on-surface-active);
+  background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
+  outline:none;
+}
+
 .ver-nav-link.disabled{
   color:var(--on-surface-disabled);
 }
@@ -144,6 +151,12 @@
   );
   font-weight: var(--font-weight-medium);
   border-right:5px solid var(--on-surface-disabled);
+}
+
+.ver-nav-link.active:focus-visible{
+  background-size:100% 100%;
+  color:var(--on-surface-active);
+  background-image: linear-gradient(to right, var(--surface-active) 0, var(--surface-active) 100%);
 }
 
 .nav-theme-toggle{

@@ -85,11 +85,12 @@
   box-shadow: 0px 1px 8px 0px var(--pressed-inner-shadow) inset;
 }
 
-/* Ensure .checkmark gets visible focus styles */
-/* input[type="checkbox"]:focus + .checkmark {
+/*Focus style for default style*/
+.wrapper-style-default input[type="checkbox"]:focus-visible + .checkmark {
   outline: 1px solid var(--surface-border);
   outline-offset: 2px;
-} */
+}
+
 
 /* Optional: visually hide the native checkbox but keep it accessible */
 input[type="checkbox"] {
@@ -147,4 +148,19 @@ input[type="checkbox"]:checked + .checkmark::after {
 
 .wrapper-style-contained.disabled:hover .checkmark{
   border: 1px solid var(--on-surface-disabled);
+}
+
+.wrapper-style-contained:has(input[type="checkbox"]:focus-visible) {
+  background-size: 100% 100%;
+  outline: 1px solid var(--on-surface-active);
+  outline-offset: -4px;
+}
+
+.wrapper-style-contained:has(input[type="checkbox"]:focus-visible) .label-text{
+  color: var(--on-surface-active);
+}
+
+.wrapper-style-contained:has(input[type="checkbox"]:focus-visible) .checkmark{
+  background-size: 0% 100%;
+  border: 1px solid var(--inverse-surface-border);
 }
