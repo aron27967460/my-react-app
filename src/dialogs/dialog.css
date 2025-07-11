@@ -179,7 +179,7 @@ html, body {
   justify-content: flex-end;
   margin-top: auto;
   padding-top: var(--spacing-2x);
-  gap: var(--spacing-1x);
+  gap: var(--spacing-2x);
 }
 
 .dialog-width-fullscreen .dialog-actions {

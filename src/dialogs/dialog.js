@@ -16,7 +16,6 @@ const Dialog = ({
   actions,
   children
 }) => {
-
   const isScrim = variant === "scrim";
   const isInline = variant === "inline";
   const isFullscreen = variant === "fullscreen";
@@ -24,6 +23,7 @@ const Dialog = ({
 
   const contentRef = useRef(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
+  const previouslyFocusedElement = useRef(null);
 
   // Prevent scroll when dialog is open
   useEffect(() => {
@@ -36,6 +36,16 @@ const Dialog = ({
     }
   }, [isOpen, hasScrim]);
 
+  // Restore focus on close
+  useEffect(() => {
+    if (isOpen && hasScrim) {
+      previouslyFocusedElement.current = document.activeElement;
+    } else if (!isOpen && previouslyFocusedElement.current && (isScrim || isFullscreen)) {
+      previouslyFocusedElement.current.focus();
+    }
+  }, [isOpen, hasScrim, isScrim, isFullscreen]);
+
+  // Position inline dialog
   useEffect(() => {
     if (!isInline || !anchorRef?.current || !contentRef.current || !isOpen) return;
 
@@ -43,7 +53,6 @@ const Dialog = ({
       const anchorRect = anchorRef.current.getBoundingClientRect();
       const dialog = contentRef.current;
 
-      // Temporarily make dialog visible to measure it
       dialog.style.visibility = 'hidden';
       dialog.style.display = 'block';
 
@@ -54,22 +63,18 @@ const Dialog = ({
 
       const positions = [
         {
-          name: 'bottom-left',
           top: anchorRect.bottom + spacing + window.scrollY,
           left: anchorRect.left + window.scrollX,
         },
         {
-          name: 'top-left',
           top: anchorRect.top - dialogRect.height - spacing + window.scrollY,
           left: anchorRect.left + window.scrollX,
         },
         {
-          name: 'bottom-right',
           top: anchorRect.bottom + spacing + window.scrollY,
           left: anchorRect.right - dialogRect.width + window.scrollX,
         },
         {
-          name: 'top-right',
           top: anchorRect.top - dialogRect.height - spacing + window.scrollY,
           left: anchorRect.right - dialogRect.width + window.scrollX,
         },
@@ -89,7 +94,6 @@ const Dialog = ({
         left: bestPosition.left,
       });
 
-      // Restore visibility
       dialog.style.visibility = '';
       dialog.style.display = '';
     };
@@ -105,8 +109,9 @@ const Dialog = ({
     };
   }, [isInline, anchorRef, isOpen]);
 
+  // Warn if dialogWidth used in fullscreen
   useEffect(() => {
-    if (isFullscreen && dialogWidth !== "small" && dialogWidth !== "medium" && dialogWidth !== "large") {
+    if (isFullscreen && !["small", "medium", "large"].includes(dialogWidth)) {
       console.warn(
         `[Dialog] The "dialogWidth" prop is ignored when using variant="fullscreen". ` +
         `Current value: "${dialogWidth}". It will be overridden.`
@@ -114,7 +119,7 @@ const Dialog = ({
     }
   }, [isFullscreen, dialogWidth]);
 
-
+  // Dismiss if clicking outside for inline dialogs
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (contentRef.current && !contentRef.current.contains(event.target)) {
@@ -134,6 +139,7 @@ const Dialog = ({
     };
   }, [isOpen, hasScrim, onClose]);
 
+  // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && isOpen) {
@@ -147,8 +153,58 @@ const Dialog = ({
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  // Trap focus inside dialog
+  useEffect(() => {
+    if (!isOpen || !hasScrim || !contentRef.current) return;
 
+    const focusableSelectors = [
+      'a[href]',
+      'area[href]',
+      'input:not([disabled]):not([type="hidden"])',
+      'select:not([disabled])',
+      'textarea:not([disabled])',
+      'button:not([disabled])',
+      '[tabindex]:not([tabindex="-1"])',
+      '[contenteditable]'
+    ];
+
+    const contentEl = contentRef.current;
+    const focusableEls = Array.from(contentEl.querySelectorAll(focusableSelectors.join(',')))
+      .filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement);
+
+    if (focusableEls.length > 0) {
+      focusableEls[0].focus();
+    } else {
+      contentEl.setAttribute('tabindex', '-1');
+      contentEl.focus();
+    }
+
+    const handleTabKey = (e) => {
+      if (e.key !== 'Tab') return;
+
+      const firstEl = focusableEls[0];
+      const lastEl = focusableEls[focusableEls.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleTabKey);
+    return () => {
+      document.removeEventListener('keydown', handleTabKey);
+    };
+  }, [isOpen, hasScrim]);
+
+  if (!isOpen) return null;
 
   return createPortal(
     <div
@@ -159,53 +215,45 @@ const Dialog = ({
       onClick={() => {
         if (!isInline) onClose?.();
       }}
-      style={
-        isInline
-          ? { top: `${position.top}px`, left: `${position.left}px` }
-          : {}
-      }
+      style={isInline ? { top: `${position.top}px`, left: `${position.left}px` } : {}}
     >
-    {isScrim && (
-       <div className="dialog-scrim" aria-hidden="true" />
-     )}
-     <div className={`dialog-wrapper ${
-       dialogWidth === 'fullscreen' && variant !== 'fullscreen' ? 'fullscreen-wrapper' : ''
-     }`}>
-       <div
-        ref={contentRef}
-        className={`dialog-content ${isFullscreen ? 'dialog-fullscreen' : `dialog-width-${dialogWidth}`}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {children ? (
-          children
-        ) : (
-          <>
-            {(headline || icon) && (
-              <div className="dialog-headline">
-                {icon && <span className="dialog-headline-icon">{icon}</span>}
-                {headline && <h2 className="dialog-headline-text">{headline}</h2>}
-              </div>
-            )}
-            {context && <div className="dialog-context">{context}</div>}
-
-            {body && <div className="dialog-body">{body}</div>}
-
-            {actions && (
-              <div className="dialog-actions">
-                {actions.map((action, i) => (
-                  <Button
-                    key={i}
-                    variant={action.variant || 'outline'} // your default is 'outline'
-                    iconName={action.iconName}            // optional, supports star, add, etc.
-                    onClick={action.onClick}
-                  >
-                    {action.label}
-                  </Button>
-                ))}
-              </div>
-            )}
-          </>
-        )}
+      {isScrim && (
+        <div className="dialog-scrim" aria-hidden="true" />
+      )}
+      <div className={`dialog-wrapper ${dialogWidth === 'fullscreen' && variant !== 'fullscreen' ? 'fullscreen-wrapper' : ''}`}>
+        <div
+          ref={contentRef}
+          className={`dialog-content ${isFullscreen ? 'dialog-fullscreen' : `dialog-width-${dialogWidth}`}`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {children ? (
+            children
+          ) : (
+            <>
+              {(headline || icon) && (
+                <div className="dialog-headline">
+                  {icon && <span className="dialog-headline-icon">{icon}</span>}
+                  {headline && <h2 id="dialog-headline" className="dialog-headline-text">{headline}</h2>}
+                </div>
+              )}
+              {context && <div className="dialog-context">{context}</div>}
+              {body && <div className="dialog-body">{body}</div>}
+              {actions && (
+                <div className="dialog-actions">
+                  {actions.map((action, i) => (
+                    <Button
+                      key={i}
+                      variant={action.variant || 'outline'}
+                      iconName={action.iconName}
+                      onClick={action.onClick}
+                    >
+                      {action.label}
+                    </Button>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>,
@@ -213,29 +261,16 @@ const Dialog = ({
   );
 };
 
-// Slot-based subcomponents for more control
-const DialogHeadline = ({ icon, children }) => (
+// Subcomponents for slots
+Dialog.Headline = ({ icon, children }) => (
   <div className="dialog-headline">
     {icon && <span className="dialog-icon">{icon}</span>}
     <h2 id="dialog-headline" className="dialog-headline-text">{children}</h2>
   </div>
 );
 
-const DialogContext = ({ children }) => (
-  <div className="dialog-context">{children}</div>
-);
-
-const DialogBody = ({ children }) => (
-  <div className="dialog-body">{children}</div>
-);
-
-const DialogActions = ({ children }) => (
-  <div className="dialog-actions">{children}</div>
-);
-
-Dialog.Headline = DialogHeadline;
-Dialog.Context = DialogContext;
-Dialog.Body = DialogBody;
-Dialog.Actions = DialogActions;
+Dialog.Context = ({ children }) => <div className="dialog-context">{children}</div>;
+Dialog.Body = ({ children }) => <div className="dialog-body">{children}</div>;
+Dialog.Actions = ({ children }) => <div className="dialog-actions">{children}</div>;
 
 export default Dialog;

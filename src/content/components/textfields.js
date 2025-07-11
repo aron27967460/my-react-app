@@ -311,6 +311,7 @@ export default function ContentTextFields() {
             placeholder="Enter value"
             labelType="icon" // Using icon as label
             variant="separated"
+
           />
           </div>
 

@@ -37,13 +37,12 @@ export default function ContentAccessibility() {
 
     Even gestures are designed with fallback interactions for users who may not rely on swipe or multi-touch behavior.</TextRow>
     <Image variant="inline" src="/assets/mobile-access.png" alt="Mobile accessibility" />
-      <TextRow textStyle="body-small" textColor="caption">Whether visually indicated or not, each touch target should be at least 48x48dp, with a recommended 8dp of spacing to prevent accidental taps on mobile environment</TextRow>
+    <TextRow textStyle="body-small" textColor="caption">Whether visually indicated or not, each touch target should be at least 48x48dp, with a recommended 8dp of spacing to prevent accidental taps on mobile environment</TextRow>
 
     <Header tag="h2" textStyle="headline-med">Captions, Labels & Contextual Help</Header>
-    <TextRow textStyle="body-large" colorStyle="default">Good accessibility also means providing the right information, at the right time. Anchor components support clear labels, placeholders, helper text, and error messages—all programmatically associated with their input elements using aria-describedby and for attributes.
-
-    Tooltips, screen reader-only labels, and persistent hints help ensure users aren’t left guessing, even in complex flows.</TextRow>
-    <Image variant="inline" src="/assets/colour-themes.png" alt="Colour themes" />
+    <TextRow textStyle="body-large" colorStyle="default">Good accessibility also means providing the right information, at the right time. Anchor components support clear labels, placeholders, helper text, and error messages—all programmatically associated with their input elements using aria-describedby and for attributes. Tooltips, screen reader-only labels, and persistent hints help ensure users aren’t left guessing, even in complex flows.</TextRow>
+    <Image variant="inline" src="/assets/captions-and-labels.png" alt="Example of captions and labels" />
+    <TextRow textStyle="body-small" textColor="caption">Provide captions and screen reader-only labels wherever applicable.</TextRow>
     </>
   );
 }
