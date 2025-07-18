@@ -19,7 +19,7 @@
   background:var(--background-primary-color);
   /* backdrop-filter: blur(5px); */
   border-bottom: 1px solid var(--border-tertiary-color);
-  gap: var(--spacing-1x);
+  gap: var(--spacing-2x);
 }
 
 

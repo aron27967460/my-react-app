@@ -66,11 +66,11 @@ export const Button = ({
     >
       <span className="focus-layer">
       {resolvedIcon && iconPosition === 'left' && (
-        <span className="btn-icon icon-left">{resolvedIcon}</span>
+        <span className={`btn-icon ${!isIconOnly ? 'icon-left' : ''}`}>{resolvedIcon}</span>
       )}
       {!isIconOnly && visualLabel}
       {resolvedIcon && iconPosition === 'right' && (
-        <span className="btn-icon icon-right">{resolvedIcon}</span>
+        <span className={`btn-icon ${!isIconOnly ? 'icon-right' : ''}`}>{resolvedIcon}</span>
       )}
       </span>
     </button>
