@@ -2,8 +2,6 @@ import React from 'react';
 import Header from '../../main/header';
 import Image from '../../main/img-block';
 import TextRow from '../../main/text-block';
-import Row from '../../columns/row';
-import { List, ListItem } from '../../lists/list';
 
 export default function ContentAccessibility() {
   return (

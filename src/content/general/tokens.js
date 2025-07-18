@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../../main/header';
 import Image from '../../main/img-block';
 import TextRow from '../../main/text-block';
-import Row from '../../columns/row';
 
 export default function ContentTokens() {
   return (

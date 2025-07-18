@@ -1,6 +1,5 @@
 import React from 'react';
 import './ver-nav.css';
-import { Switch } from '../switches/switch';
 import { Dropdown } from '../dropdowns/dropdown';
 
 const navSections = [
@@ -41,7 +40,6 @@ const navSections = [
 
 const VerticalNav = ({ activeSection, onNavigate, isOpen, closeNav,  theme, preferredTheme, toggleTheme }) => {
 
-  const isDark = theme === 'dark';
   return (
     <div className={`ver-nav-wrapper ${isOpen ? 'is-open' : ''}`}>
         <div className="ver-nav-container">

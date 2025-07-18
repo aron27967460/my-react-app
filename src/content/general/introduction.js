@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from '../../main/img-block';
 import Video from '../../main/vid-block';
 import Header from '../../main/header';
 import TextRow from '../../main/text-block';
