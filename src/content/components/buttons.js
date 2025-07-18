@@ -19,7 +19,7 @@ const dataVariant = [
   {
     variant: 'Outline',
     usage: 'Primary',
-    purpose: 'Used as the primary button style for Anchor. Use outlined buttons for confirming action such as Confirm or Save.'
+    purpose: 'Used as the primary button style for Anchor. Use outlined buttons for confirming action such as Confirm or Save.',
   },
   {
     variant: 'Text',

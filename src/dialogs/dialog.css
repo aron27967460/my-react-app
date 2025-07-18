@@ -55,7 +55,7 @@ html, body {
 .dialog-content {
   position: relative;
   z-index: 2;
-  background: var(--filled-surface);
+  background: var(--background-primary-color);
   padding: var(--spacing-3x) var(--spacing-3x) var(--spacing-2x) var(--spacing-3x);
   display: flex;
   flex-direction:column;
@@ -135,6 +135,7 @@ html, body {
   line-height:var(--title-large-height);
   letter-spacing:var(--title-large-tracking);
   font-weight:var(--font-weight-regular);
+  color:var(--title-text-color);
 }
 
 .dialog-container.inline-positioned  .dialog-headline-text{
@@ -155,7 +156,7 @@ html, body {
   line-height:var(--label-large-height);
   letter-spacing:var(--label-large-tracking);
   font-weight:var(--font-weight-regular);
-  color: var(--on-surface);
+  color: var(--body-text-color);
   padding-bottom: var(--spacing-1x);
 }
 

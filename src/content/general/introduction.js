@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from '../../main/img-block';
+import Video from '../../main/vid-block';
 import Header from '../../main/header';
 import TextRow from '../../main/text-block';
 import Row from '../../columns/row';
@@ -8,7 +9,7 @@ import Card from '../../cards/card';
 export default function ContentIntroduction() {
   return (
     <>
-      <Image variant="fullspan" withMargin="false" src="/assets/hero-banner.png" alt="hero banner" />
+      <Video variant="fullspan" withMargin="false" src="/assets/hero-banner.mov" alt="hero banner" />
       <Header tag="h1" textStyle="display-large">Anchor</Header>
       <TextRow textStyle="title-large" colorStyle="default">Design System made by Aron Chen.</TextRow>
       <TextRow textStyle="title-large" colorStyle="default">

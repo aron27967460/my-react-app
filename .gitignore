@@ -27,7 +27,6 @@ yarn-error.log*
 *.jpeg
 *.avif
 *.pdf
-*.mov
 *.mp4
 *.otf
 *.ttf

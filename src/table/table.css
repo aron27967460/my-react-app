@@ -30,11 +30,21 @@ th, td {
 th{
   color: var(--title-text-color);
   border-bottom: 1px solid var(--border-tertiary-color);
+  font-family: var(--label-med-family);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--label-med-size);
+  line-height: var(--label-med-height);
+  letter-spacing: var(--label-med-tracking);
 }
 
 td{
   color: var(--body-text-color);
   border-bottom: 1px solid var(--border-tertiary-color);
+  font-family: var(--body-med-family);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--body-med-size);
+  line-height: var(--body-med-height);
+  letter-spacing: var(--body-med-tracking);
 }
 
 thead {
