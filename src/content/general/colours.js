@@ -12,6 +12,7 @@ export default function ContentColours() {
     <Header tag="h2" textStyle="headline-med">Black and White</Header>
     <TextRow textStyle="body-large" colorStyle="default">The foundational colors for Anchor are black and white—though, as my partner likes to remind me, they're technically shades. This monochrome scheme reflects a clear-cut design philosophy: letting content take center stage while keeping interface elements understated and subtle.</TextRow>
     <Image variant="inline" src="/assets/primary-secondary-colours.png" alt="black and white schemes" />
+    <TextRow textStyle="body-small" textColor="caption">Main colour palettes for Anchor Design System.</TextRow>
     <Header tag="h2" textStyle="headline-med">Colour Tokens</Header>
     <TextRow textStyle="body-large" colorStyle="default">With tokens, each color is assigned one or more roles within the design system, broadly categorized into static and interactive elements.</TextRow>
     <TextRow textStyle="body-large" colorStyle="default">
@@ -46,11 +47,13 @@ export default function ContentColours() {
     <Image variant="inline" src="/assets/colour-tokens.png" alt="Colour tokens for Anchor" />
 
     <Image variant="inline" src="/assets/interactive-colour-token-demo.png" alt="Demostration on colour token for interactive elements" />
+    <TextRow textStyle="body-small" textColor="caption">Colour token examples for Anchor components.</TextRow>
 
     <Header tag="h2" textStyle="headline-med">Themes</Header>
     <TextRow textStyle="body-large" colorStyle="default">With each colour token defined, it's possible to create multiple color themes. The most common example is dark mode (yes, we have one too—check the side menu bar!), which is becoming increasingly relevant as operating systems like macOS, Windows, and Chrome support appearance settings that automatically switch themes throughout the day.</TextRow>
 
     <Image variant="inline" src="/assets/colour-themes.png" alt="Colour themes" />
+    <TextRow textStyle="body-small" textColor="caption">Colour themes for light and dark modes.</TextRow>
     </>
   );
 }

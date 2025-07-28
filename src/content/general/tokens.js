@@ -13,8 +13,10 @@ export default function ContentTokens() {
     <Header tag="h2" textStyle="headline-med">Defining Token Structure</Header>
     <TextRow textStyle="body-large" colorStyle="default">Depending on individual needs, token structures can vary. For a complex structure, it may include structure such as primitive tokens, semantic tokens and component-specific tokens. Below is an example from Figma. </TextRow>
     <Image variant="inline" src="/assets/figma-token-example.png" alt="token structure example from Figma" />
+    <TextRow textStyle="body-small" textColor="caption">Token naming convention example from Figma</TextRow>
     <TextRow textStyle="body-large" colorStyle="default">Note that not every design system requires all these layers. It's important to identify what you're aiming to achieve with the tokens and establish the structure to your liking. For Anchor, since the purpose of the design system was for my own design work, along with my clear-cut guiding principle, I've employed a more simplified structure without the component-specific tokens.</TextRow>
     <Image variant="inline" src="/assets/tokens.png" alt="token structure for Anchor" />
+    <TextRow textStyle="body-small" textColor="caption">Token structure for Anchor.</TextRow>
     </>
   );
 }
