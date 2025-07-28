@@ -73,7 +73,7 @@ html, body {
   width:100vw;
   height:calc(100vh - var(--spacing-5x));
   border-radius: 0;
-  background: var(--filled-surface);
+  background: var(--background-primary-color);
   display: flex;
   flex-direction: column;
   box-shadow: none;
