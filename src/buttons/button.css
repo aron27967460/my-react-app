@@ -54,7 +54,7 @@
 }
 
 .focus-layer{
-  padding: var(--spacing-0x) var(--spacing-2x);
+  padding: var(--spacing-0x) var(--spacing-1p5x);
   height: 36px;
   vertical-align:middle;
   white-space:nowrap;

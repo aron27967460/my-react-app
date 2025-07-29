@@ -25,6 +25,7 @@ const ContentComponent = ({ setActiveSection }) => {
       <Card label="Switches" imgPreview="/assets/component-preview/switch.png" navKey="switches" onNavigate={setActiveSection}/>
       <Card label="Tabs" imgPreview="/assets/component-preview/tabs.png" navKey="tabs" onNavigate={setActiveSection}/>
       <Card label="Text Fields" imgPreview="/assets/component-preview/text-field.png" navKey="text-fields" onNavigate={setActiveSection}/>
+      <Card label="Tooltips" imgPreview="/assets/component-preview/tooltip.png" navKey="tooltips" onNavigate={setActiveSection}/>
     </Row>
     </>
   );

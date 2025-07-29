@@ -34,6 +34,7 @@ import ContentRadioButtons from './content/components/radio-buttons';
 import ContentSwitches from './content/components/switches';
 import ContentTabs from './content/components/tabs';
 import ContentTextFields from './content/components/textfields';
+import ContentTooltips from './content/components/tooltips';
 import ContentSideNav from './content/components/sidenav';
 //As more content being writtern, more pages will be imported to keep App.js clean
 
@@ -202,6 +203,10 @@ function App() {
       /* Text Field section */
       case 'text-fields':
         return <ContentTextFields />;
+
+      /* Tooltip section */
+      case 'tooltips':
+        return <ContentTooltips />;
 
       default:
         return (

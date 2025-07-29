@@ -29,6 +29,7 @@ const navSections = [
       { label: 'Switches', key: 'switches'},
       { label: 'Tabs', key: 'tabs'},
       { label: 'Text Fields', key: 'text-fields'},
+      { label: 'Tooltips', key: 'tooltips'},
       // { label: 'Content Pairing', key: 'content-pairing', disabled: true },
       // { label: 'Directories', key: 'directories', disabled: true },
       // { label: 'Menu', key: 'menu', disabled: true },

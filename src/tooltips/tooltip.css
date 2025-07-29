@@ -1,0 +1,19 @@
+@import url('../styles/global-styles.css');
+
+.tooltip-trigger {
+  display: inline-block;
+  position: relative; /* container positioning */
+}
+
+.tooltip-bubble {
+  position: absolute;
+  z-index: 9999;
+  background: var(--scrim-color);
+  color: var(--inverse-text-color);
+  border-radius: 4px;
+  padding: var(--spacing-0p5x) var(--spacing-1x);
+  font-family: var(--body-small-family, sans-serif);
+  font-size: var(--body-small-size);
+  line-height: var(--body-small-height);
+  letter-spacing: var(--body-small-tracking);
+}
