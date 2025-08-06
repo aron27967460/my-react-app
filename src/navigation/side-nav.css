@@ -128,6 +128,7 @@
   border:0px solid transparent;
   text-decoration: none;
   display: flex;
+  text-overflow: ellipsis;
   gap: var(--spacing-1x);
   width: 100%;
   vertical-align:middle;
