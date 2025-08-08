@@ -4,11 +4,13 @@
   width: 100%;
   margin: var(--spacing-0x) 0 var(--spacing-2x) 0;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
 }
 
 .table-scroll {
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .table {
@@ -16,20 +18,31 @@
   border-collapse: collapse;
   table-layout: auto;
   min-width: 100%;
+  -webkit-font-smoothing: antialiased; /* Crisper text on WebKit */
+  -moz-osx-font-smoothing: grayscale;
 }
 
-th, td {
+th,
+td {
   padding: var(--spacing-2x);
   text-align: left;
   vertical-align: top;
-  white-space: nowrap; /* Prevent line breaks */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Optional: add ... */
+
+  /* Prevent iOS/Android font resizing */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+
+  /* Prevent unintentional font substitution */
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+
+  /* Handle long strings safely */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-th{
+th {
   color: var(--title-text-color);
   border-bottom: 1px solid var(--border-tertiary-color);
   font-family: var(--label-med-family);
@@ -39,7 +52,7 @@ th{
   letter-spacing: var(--label-med-tracking);
 }
 
-td{
+td {
   color: var(--body-text-color);
   border-bottom: 1px solid var(--border-tertiary-color);
   font-family: var(--body-med-family);
@@ -51,4 +64,13 @@ td{
 
 thead {
   background: var(--background-secondary-color);
+}
+
+/* Mobile-specific handling for extra-long text */
+@media (max-width: 600px) {
+  th,
+  td {
+    white-space: normal; /* Allow wrapping */
+    word-break: break-word;
+  }
 }
