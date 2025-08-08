@@ -39,6 +39,25 @@ export function Dropdown({
     }
   }, [isOpen]);
 
+  useEffect(() => {
+  function handleClickOutside(event) {
+    // If dropdown is open and click is outside both button and dropdown list
+    if (
+      isOpen &&
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setIsOpen(false);
+    }
+  }
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [isOpen]);
+
+
   const handleSelect = (selectedValue) => {
     if (!onChange) return;
 
