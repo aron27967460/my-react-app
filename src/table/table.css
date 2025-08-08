@@ -25,6 +25,8 @@ th, td {
   white-space: nowrap; /* Prevent line breaks */
   overflow: hidden;
   text-overflow: ellipsis; /* Optional: add ... */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 th{
